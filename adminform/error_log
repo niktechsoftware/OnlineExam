@@ -1,0 +1,40 @@
+[28-May-2019 06:54:30 Etc/GMT] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_pconnect() in /home/schoodhe/public_html/online_exam/adminform/system/database/drivers/mysql/mysql_driver.php:92
+Stack trace:
+#0 /home/schoodhe/public_html/online_exam/adminform/system/database/DB_driver.php(116): CI_DB_mysql_driver->db_pconnect()
+#1 /home/schoodhe/public_html/online_exam/adminform/system/database/DB.php(149): CI_DB_driver->initialize()
+#2 /home/schoodhe/public_html/online_exam/adminform/system/core/Loader.php(347): DB(Array, NULL)
+#3 /home/schoodhe/public_html/online_exam/adminform/system/core/Loader.php(1172): CI_Loader->database()
+#4 /home/schoodhe/public_html/online_exam/adminform/system/core/Loader.php(153): CI_Loader->_ci_autoloader()
+#5 /home/schoodhe/public_html/online_exam/adminform/system/core/Controller.php(52): CI_Loader->initialize()
+#6 /home/schoodhe/public_html/online_exam/adminform/system/core/CodeIgniter.php(309): CI_Controller->__construct()
+#7 /home/schoodhe/public_html/online_exam/adminform/index.php(202): require_once('/hom in /home/schoodhe/public_html/online_exam/adminform/system/database/drivers/mysql/mysql_driver.php on line 92
+[28-May-2019 06:57:02 Etc/GMT] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_pconnect() in /home/schoodhe/public_html/online_exam/adminform/system/database/drivers/mysql/mysql_driver.php:92
+Stack trace:
+#0 /home/schoodhe/public_html/online_exam/adminform/system/database/DB_driver.php(116): CI_DB_mysql_driver->db_pconnect()
+#1 /home/schoodhe/public_html/online_exam/adminform/system/database/DB.php(149): CI_DB_driver->initialize()
+#2 /home/schoodhe/public_html/online_exam/adminform/system/core/Loader.php(347): DB(Array, NULL)
+#3 /home/schoodhe/public_html/online_exam/adminform/system/core/Loader.php(1172): CI_Loader->database()
+#4 /home/schoodhe/public_html/online_exam/adminform/system/core/Loader.php(153): CI_Loader->_ci_autoloader()
+#5 /home/schoodhe/public_html/online_exam/adminform/system/core/Controller.php(52): CI_Loader->initialize()
+#6 /home/schoodhe/public_html/online_exam/adminform/system/core/CodeIgniter.php(309): CI_Controller->__construct()
+#7 /home/schoodhe/public_html/online_exam/adminform/index.php(202): require_once('/hom in /home/schoodhe/public_html/online_exam/adminform/system/database/drivers/mysql/mysql_driver.php on line 92
+[28-May-2019 07:13:53 Etc/GMT] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_pconnect() in /home/schoodhe/public_html/online_exam/adminform/system/database/drivers/mysql/mysql_driver.php:92
+Stack trace:
+#0 /home/schoodhe/public_html/online_exam/adminform/system/database/DB_driver.php(116): CI_DB_mysql_driver->db_pconnect()
+#1 /home/schoodhe/public_html/online_exam/adminform/system/database/DB.php(149): CI_DB_driver->initialize()
+#2 /home/schoodhe/public_html/online_exam/adminform/system/core/Loader.php(347): DB(Array, NULL)
+#3 /home/schoodhe/public_html/online_exam/adminform/system/core/Loader.php(1172): CI_Loader->database()
+#4 /home/schoodhe/public_html/online_exam/adminform/system/core/Loader.php(153): CI_Loader->_ci_autoloader()
+#5 /home/schoodhe/public_html/online_exam/adminform/system/core/Controller.php(52): CI_Loader->initialize()
+#6 /home/schoodhe/public_html/online_exam/adminform/system/core/CodeIgniter.php(309): CI_Controller->__construct()
+#7 /home/schoodhe/public_html/online_exam/adminform/index.php(202): require_once('/hom in /home/schoodhe/public_html/online_exam/adminform/system/database/drivers/mysql/mysql_driver.php on line 92
+[28-May-2019 07:14:34 Etc/GMT] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_pconnect() in /home/schoodhe/public_html/online_exam/adminform/system/database/drivers/mysql/mysql_driver.php:92
+Stack trace:
+#0 /home/schoodhe/public_html/online_exam/adminform/system/database/DB_driver.php(116): CI_DB_mysql_driver->db_pconnect()
+#1 /home/schoodhe/public_html/online_exam/adminform/system/database/DB.php(149): CI_DB_driver->initialize()
+#2 /home/schoodhe/public_html/online_exam/adminform/system/core/Loader.php(347): DB(Array, NULL)
+#3 /home/schoodhe/public_html/online_exam/adminform/system/core/Loader.php(1172): CI_Loader->database()
+#4 /home/schoodhe/public_html/online_exam/adminform/system/core/Loader.php(153): CI_Loader->_ci_autoloader()
+#5 /home/schoodhe/public_html/online_exam/adminform/system/core/Controller.php(52): CI_Loader->initialize()
+#6 /home/schoodhe/public_html/online_exam/adminform/system/core/CodeIgniter.php(309): CI_Controller->__construct()
+#7 /home/schoodhe/public_html/online_exam/adminform/index.php(202): require_once('/hom in /home/schoodhe/public_html/online_exam/adminform/system/database/drivers/mysql/mysql_driver.php on line 92
