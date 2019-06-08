@@ -71,7 +71,16 @@
          });
 
       // end add Question code
-
+      //upload  question sheet code start
+        $('#uploadQuesButton').click(function(){
+          var image = $('#image_file').val();
+          alert(image);
+          alert(" your file Succesfully upload");
+          $.post("<?php echo base_url('examconfiguration/uploadQues')?>",{image : image},function(data){
+            $("").html(data);
+          });
+        });
+      //upload question sheet code end
       //code of option start
         //select box code start
            $("#examOptList").change(function(){

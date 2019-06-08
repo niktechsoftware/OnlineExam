@@ -9,17 +9,19 @@ if(isset($questionList)):
 		            <th>Edit</th>
 		            <th>Delete</th>
 		       </tr>
-		       <?php foreach ($questionList->result() as $row):?>
+		       <?php 
+		            	foreach ($questionList->result() as $row):
+		       ?>
 		         <tr>
-		             <td>
-        			<input type="text" id="quesValue<?php echo $i;?>" size="13" value="<?php echo $row->question;?>" onkeyup="this.value = this.value.toUpperCase();" >
-        			<input type="hidden" id="quesId<?php echo $i;?>" size="13" value="<?php echo $row->id; ?>">
+		              <td>
+        			<textarea type="text" id="queValue<?php echo $i;?>" size="13"  onkeyup="this.value = this.value.toUpperCase();" ><?php echo $row->question;?></textarea>
+        			<input type="hidden" id="queId<?php echo $i;?>" size="13" value="<?php echo $row->id; ?>">
         			</td>
         			<td>
-        			    <a href="#" class="btn btn-sm subject_btn" id="editQuestion<?php echo $i;?>"><i class="fa fa-edit"></i> Edit</a>
+        			    <a href="#" class="btn btn-sm subject_btn" id="editQues<?php echo $i;?>"><i class="fa fa-edit"></i> Edit</a>
         			</td>
         			<td>
-        			    <a href="#" class="btn btn-sm subject_btn" id="deleteQuestion<?php echo $i;?>"><i class="fa fa-trash-o"></i> Delete</a>
+        			    <a href="#" class="btn btn-sm subject_btn" id="deleteQues<?php echo $i;?>"><i class="fa fa-trash-o"></i> Delete</a>
         			</td>
 			</tr>
 			<?php 	$i++;
@@ -31,16 +33,16 @@ if(isset($questionList)):
 endif;
 ?>
 <script>
-	    <?php for($j = 1; $j < $i; $j++){ ?>
-			   $("#editQuestion<?php echo $j; ?>").click(function(){
-		    		var quesId = $('#quesId<?php echo $j;?>').val();	
-		    		var quesName = $('#quesValue<?php echo $j;?>').val();
-		    		alert(quesId);
-		    		alert(quesName);
-		    		alert("your Question is successfully updated");
+	    <?php for($j=1; $j<$i;$j++){?>
+	    	$('#editQues<?php echo $j;?>').click(function(){
+	    		var quesId = $('#queId<?php echo $j;?>').val();
+	    		var quesnm = $('#queValue<?php echo $j;?>').val();
+	    		alert(quesId);
+	    		alert(quesnm);
+	    		alert("your Question is successfully updated");
 		    		var form_data = {
 							quesId : quesId,
-							quesName : quesName
+							quesnm : quesnm
 						};
 				$.ajax({
 					url: "<?php echo site_url("examconfiguration/updateQuestion") ?>",
@@ -50,20 +52,14 @@ endif;
 						$("#questionAdd1").html(msg);
 					}
 				});
-		        });
-	
-			    $("#deleteQuestion<?php echo $j; ?>").click(function(){
-		    		var quesId = $('#quesId<?php echo $j; ?>').val();	
-		    		alert(quesId);
-		    		$.post("<?php echo site_url('examconfiguration/deleteQuestion') ?>", {quesId : quesId}, function(data){
+	    	});
+	    	$('#deleteQues<?php echo $j;?>').click(function(){
+	    		var quesId = $('#queId<?php echo $j;?>').val();
+	    		alert(quesId);
+	    			$.post("<?php echo site_url('examconfiguration/deleteQuestion') ?>", {quesId : quesId}, function(data){
 		                $("#questionAdd1").html(data);
 		                //alert(data);
 		    		})
-		        });
-                         input.addEventListener("keyup", function () {
-                          var x = document.getElementById("quesValue<?php echo $j;?>");
-                             x.value = x.value.toUpperCase();
-                         
-                  });
-        <?php } ?>   
+	    	})
+	    <?php }?>
 </script>

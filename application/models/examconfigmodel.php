@@ -145,15 +145,16 @@
 		$query = $this->db->get("question");
 		return $query;
 	}
-	public function updateQuestionModel($quesId,$quesName){
+	public function updateQuestionModel($quesId,$quesnm){
 				$val = array(
-				"question" => $quesName
+				"question" => $quesnm
 				//"school_code"=>$this->session->userdata("school_code"),
 				);
 				$this->db->where("id",$quesId);
 				$query = $this->db->update("question",$val);
 				return true;
 		}
+		
 	public function deleteQuestionModel($quesId){
 		//$this->db->where("school_code",$this->session->userdata("school_code"));
 		  $question=$this->db->get('question')->result();

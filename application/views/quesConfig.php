@@ -95,17 +95,19 @@
                                 </div>
                               </div>
                             </div>
+                            <form enctype="multipart/form-data" action="/upload/image" method="post">
                             <div class="form-group">
                               <div class="row">
                                 <div class="col-md-8">
-                                   <input type="file" name="fileUpload" >
+                                   <input type="file" name="fileUpload" id="image_file">
                                 </div>
                                 <div class="col-md-4">
-                                   <a href="#" class="btn btn-sm btn-round btn-primary" id="addStreamButton"><i class="ion-checkmark-round"></i>
+                                   <a href="#" class="btn btn-sm btn-round btn-primary" id="uploadQuesButton"><i class="ion-checkmark-round"></i>
                               Add Question</a>
                                 </div>
                               </div>
                             </div>
+                          </form>
                             <div class="alert alert-warning"> Type a Queastion  and press Add Question.If Question added
                               successfully then it show in right side panel where you can change the question and Delete it.
                             </div>

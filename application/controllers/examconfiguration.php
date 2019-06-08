@@ -190,7 +190,7 @@ class Examconfiguration extends CI_Controller{
 		$question=$this->input->post('questionName');
 		$subject_ID = $this->input->post('subject_id');
 		$this->load->model('examConfigModel');
-		if($question && $subject_ID){
+		if(strlen($question)>1 && $subject_ID){
 		$questionListView = $this->examConfigModel->addQuestionModel($question,$subject_ID);
 			}else{
 				$questionListView = $this->examConfigModel->addsQuestionModel();
@@ -201,11 +201,11 @@ class Examconfiguration extends CI_Controller{
 
 	public function updateQuestion(){
 		$this->load->model('examconfigmodel');
-		if($query = $this->examconfigmodel->updateQuestionModel($this->input->post("quesId"),$this->input->post("quesName"))){
+		if($query = $this->examconfigmodel->updateQuestionModel($this->input->post("quesId"),$this->input->post("quesnm"))){
 			?>
 			<script>
 			        $.post("<?php echo base_url('examconfiguration/addQuestion') ?>", function(data){
-			            $("#addQuestion1").html(data);
+			            $("#questionAdd1").html(data);
 					});
 			</script>
 			<?php 
@@ -218,11 +218,21 @@ class Examconfiguration extends CI_Controller{
 			?>
 			<script>
 			        $.post("<?php echo base_url('examconfiguration/addQuestion') ?>", function(data){
-			            $("#addQuestion1").html(data);
+			            $("#questionAdd1").html(data);
 					});
 			</script>
 			<?php 
 		}
+	}
+	public function uploadQues(){
+		$config['upload_path'] =  base_url('assets/images/gallery');
+				$config['allowed_types'] = 'docx|doc|pdf';
+				$config['max_size']     = '5000';
+				$config['max_width'] = '1024';
+				$config['max_height'] = '768';
+				$this->load->library('upload',$config);
+				echo $aa = $this->upload->do_upload('image');
+		//$image = $this->input->post('image');
 	}
 	/// ADD UPDATE DELETE Question SECTION CODE END
 
