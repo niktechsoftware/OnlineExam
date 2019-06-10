@@ -49,9 +49,9 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'schoodhe_online';
-$db['default']['password'] = 'Rahul!123singh';
-$db['default']['database'] = 'schoodhe_online_exam';
+$db['default']['username'] = 'root';//'schoodhe_online';
+$db['default']['password'] = '';//'Rahul!123singh';
+$db['default']['database'] = 'online_exam1';//'schoodhe_online_exam';
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;

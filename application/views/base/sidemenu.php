@@ -5,9 +5,9 @@
                             <!-- <div class="pcoded-navigatio-lavel">Navigation</div> -->
                             <ul class="pcoded-item pcoded-left-item">
                                 <li class="pcoded-hasmenu">   <!--active pcoded-trigger-->
-                                    <a href="#">
+                                    <a href="<?php echo base_url('index.php/welcome/home');?>">
                                         <span class="pcoded-micon"><i class="feather icon-home"></i></span>
-                                        <span class="pcoded-mtext">Dashboard</span>
+                                         <span class="pcoded-mtext">Dashboard</span>
                                     </a>
                                     <ul class="pcoded-submenu">
                                         <li class="active">
@@ -15,7 +15,7 @@
                                                 <span class="pcoded-mtext">Default</span>
                                             </a>
                                         </li>
-                                        <li class="">
+                                        <!-- <li class="">
                                             <a href="dashboard-crm.html">
                                                 <span class="pcoded-mtext">CRM</span>
                                             </a>
@@ -25,20 +25,17 @@
                                                 <span class="pcoded-mtext">Analytics</span>
                                                 <span class="pcoded-badge label label-info ">NEW</span>
                                             </a>
-                                        </li>
+                                        </li> -->
                                     </ul>
                                 </li>
-                                
                                 <li class="pcoded-hasmenu">
                                     <a href="#">
                                         <span class="pcoded-micon"><i class="feather icon-home"></i></span>
                                         <span class="pcoded-mtext">Configuration</span>
                                     </a>
                                     <ul class="pcoded-submenu">
-                                    
-                                    
                                         <li class="">
-                                            <a href="<?php echo base_url();?>examconfiguration/examConfigur">
+                                        <a href="<?php echo base_url();?>examconfiguration/examConfigur">
                                                 <span class="pcoded-mtext">Exam Configure</span>
                                             </a>
                                         </li>
@@ -50,15 +47,15 @@
                                     </ul>
                                 </li>
                             </ul>
-                           <!-- <ul class="pcoded-item pcoded-left-item">
-                             <!-- 
+                            <ul class="pcoded-item pcoded-left-item">
+                             
                                 <li class=" ">
-                                    <a href="<?php echo base_url();?>tree">
+                                    <a href="<?php echo base_url();?>branchController/branchIndex">
                                         <span class="pcoded-micon"><i class="feather icon-cpu"></i></span>
-                                        <span class="pcoded-mtext" >Tree</span>
-                                        <span class="pcoded-badge label label-danger">HOT</span>
+                                        <span class="pcoded-mtext" >Branch</span>
+                                        <!-- <span class="pcoded-badge label label-danger">HOT</span> -->
                                     </a>
-                                </li> -->
+                                </li>
                              <!--    <li class=" ">
                                     <a href="<?php echo base_url();?>wallet">
                                         <span class="pcoded-micon"><i class="feather icon-cpu"></i></span>
@@ -125,22 +122,22 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </li>
-                            </ul>-->
-                        <!--   <div class="pcoded-navigatio-lavel">Forms</div> -->
-                           <!--  <ul class="pcoded-item pcoded-left-item">
+                                </li>--->
+                            </ul>
+                         <!--  <div class="pcoded-navigatio-lavel">Student</div> -->
+                            <ul class="pcoded-item pcoded-left-item">
                                 <li class="pcoded-hasmenu">
                                     <a href="#">
                                         <span class="pcoded-micon"><i class="feather icon-clipboard"></i></span>
-                                        <span class="pcoded-mtext" >Form Components</span>
+                                        <span class="pcoded-mtext" >Student</span>
                                     </a>
                                     <ul class="pcoded-submenu">
                                         <li class=" ">
-                                            <a href="form-elements-component.html">
-                                                <span class="pcoded-mtext" >Form Components</span>
+                                            <a href="<?php echo base_url();?>studentController/studentIndex">
+                                                <span class="pcoded-mtext" >Registration</span>
                                             </a>
                                         </li>
-                                        <li class=" ">
+                                        <!-- <li class=" ">
                                             <a href="form-elements-add-on.html">
                                                 <span class="pcoded-mtext" >Form-Elements-Add-On</span>
                                             </a>
@@ -154,10 +151,10 @@
                                             <a href="form-validation.html">
                                                 <span class="pcoded-mtext" >Form Validation</span>
                                             </a>
-                                        </li>
+                                        </li> -->
                                     </ul>
                                 </li>
-                                <li class=" ">
+                                <!-- <li class=" ">
                                     <a href="form-picker.html">
                                         <span class="pcoded-micon"><i class="feather icon-edit-1"></i></span>
                                         <span class="pcoded-mtext" >Form Picker</span>
@@ -265,8 +262,8 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </li>
-                            </ul> -->
+                                </li> -->
+                            </ul>
                             <!-- <div class="pcoded-navigatio-lavel">Tables</div> -->
                            <!--  <ul class="pcoded-item pcoded-left-item">
                                 <li class="pcoded-hasmenu">
