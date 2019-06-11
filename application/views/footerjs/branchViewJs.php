@@ -22,7 +22,8 @@
     <script type="59edefb75604f457019ed4b6-text/javascript" src="<?php echo base_url();?>assets/js/script.min.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="<?php echo base_url();?>assets/js/google.js" type="59edefb75604f457019ed4b6-text/javascript"></script>
-
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script scr="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script type="59edefb75604f457019ed4b6-text/javascript">
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -32,16 +33,11 @@
 </script>
 <script src="<?php echo base_url();?>assets/js/rocket-loader.min.js" data-cf-settings="59edefb75604f457019ed4b6-|49" defer=""></script>
 <script src="<?php echo base_url();?>assets/js/jquery-3.4.0.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-<script scr="https://code.jquery.com/jquery-3.3.1.js"></script>
 
 <!-- Mirrored from colorlib.com//polygon/adminty/default/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 May 2019 05:29:56 GMT -->
 <script >
-    $(document).ready(function() {
-         $('#branchView').DataTable();
-         //branch Request
-         $('#branchReq').DataTable();
- 
+   jquery(document).ready(function() {
+    jquery('#branchview').DataTable();
     });
 
   </script>

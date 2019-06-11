@@ -7,7 +7,7 @@ class BranchController extends CI_Controller{
 		$data['headercss'] = 'branchCss';
 		$data['header'] = 'header';
 		$data['sidemenu'] = 'sidemenu';
-		$data['contend'] = 'branchView';
+		$data['contend'] = 'branchRegistration';
 		$data['subtitle'] = 'Branch Registration';
 		$data['customizer'] = 'customizer';
 		$data['footer'] = 'footer';
@@ -36,11 +36,20 @@ class BranchController extends CI_Controller{
 			'state' => $branchState,
 			'country' => $branchCountry,
 			'pincode' => $pincode,
-			'username' => $usename,
+			//'username' => $usename,
 			'login_type' => 2,
+			'status' => 0,
 			'password' =>$password
 		);
 		$insert=$this->db->insert('branch',$data);
+		 $a = $this->db->query('select id from branch ORDER BY id DESC LIMIT 1')->row();
+       $this->db->where('id',$a->id);
+       //$que = $this->db->get('branch')->row();
+        $val = array(
+                "username" => 'BRA'.$a->id
+        );
+        $this->db->where("id",$a->id);
+        $query = $this->db->update("branch",$val);
 		if($insert)
 		{
 			$this->load->library('upload');
@@ -53,10 +62,35 @@ class BranchController extends CI_Controller{
 		if (!empty($_FILES['photo']['name'])) {
 			$this->upload->initialize($config);
 			$this->upload->do_upload('branch_img');
-			
-			
 		}
 		redirect(base_url('/branchController/branchIndex'));
+	}
+	public function viewBranch(){
+		$data['title'] = 'Branch View Area';
+		$data['headercss'] = 'branchViewCss';
+		$data['header'] = 'header';
+		$data['sidemenu'] = 'sidemenu';
+		$data['contend'] = 'branchView';
+		$data['subtitle'] = 'Search Branch';
+		$data['customizer'] = 'customizer';
+		$data['footer'] = 'footer';
+		$data['footerjs'] = 'branchViewJs';
+		//$this->load->model('branchModel');
+		//$branch = $this->branchModel->branchView();
+		//$data['view'] =$branch;
+    $this->load->view("base/body", $data);
+	}
+	public function branchRequest(){
+		$data['title'] = 'Branch Active  Area';
+			$data['headercss'] = 'branchCss';
+			$data['header'] = 'header';
+			$data['sidemenu'] = 'sidemenu';
+			$data['contend'] = 'branchRequest';
+			$data['subtitle'] = 'Pending Branch Request';
+			$data['customizer'] = 'customizer';
+			$data['footer'] = 'footer';
+			$data['footerjs'] = 'branchJs';
+	  		$this->load->view("base/body", $data);
 	}
 }
 ?>

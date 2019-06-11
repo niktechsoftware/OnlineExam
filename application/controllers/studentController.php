@@ -69,10 +69,20 @@
 				'religion' => $religion,
 				'category' =>$category,
 				'gender' => $gender,
-				'username' => $username,
+				'login_type' =>3,
+				'status' => 0,
+				//'username' => $username,
 				'password' => $password
 			);
 			$insert=$this->db->insert('stud_registration',$data);
+			  $s = $this->db->query('select id from stud_registration ORDER BY id DESC LIMIT 1')->row();
+       $this->db->where('id',$s->id);
+       //$que = $this->db->get('branch')->row();
+        $val = array(
+                "username" => 'STUD'.$s->id
+        );
+        $this->db->where("id",$s->id);
+        $query = $this->db->update("stud_registration",$val);
 		if($insert)
 		{
 			$this->load->library('upload');
@@ -89,6 +99,18 @@
 		}
 		redirect(base_url('/studentController/studentIndex'));
 		
+		}
+		public function studentRequest(){
+			$data['title'] = 'Student Status Active Area';
+			$data['headercss'] = 'branchCss';
+			$data['header'] = 'header';
+			$data['sidemenu'] = 'sidemenu';
+			$data['contend'] = 'stdRequest';
+			$data['subtitle'] = 'Student Registration';
+			$data['customizer'] = 'customizer';
+			$data['footer'] = 'footer';
+			$data['footerjs'] = 'branchJs';
+	  		$this->load->view("base/body", $data);
 		}
 	}
 ?>

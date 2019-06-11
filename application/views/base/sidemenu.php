@@ -46,84 +46,60 @@
                                         </li>
                                     </ul>
                                 </li>
-                            </ul>
-                            <ul class="pcoded-item pcoded-left-item">
-                             
-                                <li class=" ">
-                                    <a href="<?php echo base_url();?>branchController/branchIndex">
-                                        <span class="pcoded-micon"><i class="feather icon-cpu"></i></span>
-                                        <span class="pcoded-mtext" >Branch</span>
-                                        <!-- <span class="pcoded-badge label label-danger">HOT</span> -->
-                                    </a>
-                                </li>
-                             <!--    <li class=" ">
-                                    <a href="<?php echo base_url();?>wallet">
-                                        <span class="pcoded-micon"><i class="feather icon-cpu"></i></span>
-                                        <span class="pcoded-mtext" >Wallet</span>
-                                         <span class="pcoded-badge label label-danger">Wallet</span> 
-                                   </a>
-                                </li> -->
-                               <!--  <li class=" ">
-                                    <a href="<?php echo base_url();?>sms">
-                                        <span class="pcoded-micon"><i class="feather icon-cpu"></i></span>
-                                        <span class="pcoded-mtext" >SMS Setting</span>
-                                        <span class="pcoded-badge label label-danger">SMS Setting</span>
-                                   </a>
-                                </li> -->
-                               <!-- <li class="pcoded-hasmenu">
-                                    <a href="<?php echo base_url();?>tree">
-                                        <span class="pcoded-micon"><i class="feather icon-command"></i></span>
-                                        <span class="pcoded-mtext" >Tree</span>
+                                <li class="pcoded-hasmenu">
+                                    <a href="#">
+                                        <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                                        <span class="pcoded-mtext">Admin</span>
                                     </a>
                                     <ul class="pcoded-submenu">
-                                        <li class=" ">
-                                            <a href="<?php echo base_url();?>wallet">
-                                                <span class="pcoded-mtext" >Wallet</span>
+                                        <li class="">
+                                        <a href="<?php echo base_url();?>examconfiguration/examConfigur">
+                                                <span class="pcoded-mtext">Show Branch</span>
                                             </a>
                                         </li>
-                                        <li class=" ">
-                                            <a href="<?php echo base_url();?>sms">
-                                                <span class="pcoded-mtext" >SMS Setting</span>
+                                        <li class="">
+                                            <a href="<?php echo base_url();?>examconfiguration/quesConfigur">
+                                                <span class="pcoded-mtext">Show Student</span>
                                             </a>
                                         </li>
-                                     <li class=" ">
-                                            <a href="icon-simple-line.html">
-                                                <span class="pcoded-mtext" >Simple Line Icon</span>
+                                         <li class="">
+                                            <a href="<?php echo base_url();?>branchController/branchRequest">
+                                                <span class="pcoded-mtext">Request Branch</span>
                                             </a>
                                         </li>
-                                        <li class=" ">
-                                            <a href="icon-ion.html">
-                                                <span class="pcoded-mtext" >Ion Icon</span>
-                                            </a>
-                                        </li>
-                                        <li class=" ">
-                                            <a href="icon-material-design.html">
-                                                <span class="pcoded-mtext" >Material Design</span>
-                                            </a>
-                                        </li>
-                                        <li class=" ">
-                                            <a href="icon-icofonts.html">
-                                                <span class="pcoded-mtext" >Ico Fonts</span>
-                                            </a>
-                                        </li>
-                                        <li class=" ">
-                                            <a href="icon-weather.html">
-                                                <span class="pcoded-mtext" >Weather Icon</span>
-                                            </a>
-                                        </li>
-                                        <li class=" ">
-                                            <a href="icon-typicons.html">
-                                                <span class="pcoded-mtext" >Typicons</span>
-                                            </a>
-                                        </li>
-                                        <li class=" ">
-                                            <a href="icon-flags.html">
-                                                <span class="pcoded-mtext" >Flags</span>
+                                         <li class="">
+                                            <a href="<?php echo base_url();?>studentController/studentRequest">
+                                                <span class="pcoded-mtext">Request Student</span>
                                             </a>
                                         </li>
                                     </ul>
-                                </li>--->
+                                </li>
                             </ul>
+                            <ul class="pcoded-item pcoded-left-item">
+                             <li class="pcoded-hasmenu">
+                                    <a href="#">
+                                        <span class="pcoded-micon"><i class="feather icon-clipboard"></i></span>
+                                        <span class="pcoded-mtext" >Branch</span>
+                                    </a>
+                                    <ul class="pcoded-submenu">
+                                        <li class=" ">
+                                            <a href="<?php echo base_url();?>branchController/branchIndex">
+                                                <span class="pcoded-mtext" >Registration</span>
+                                            </a>
+                                        </li>
+                                        <li class=" ">
+                                            <a href="<?php echo base_url();?>branchController/viewBranch">
+                                                <span class="pcoded-mtext" >View Profile</span>
+                                            </a>
+                                        </li>
+                                        <li class=" ">
+                                            <a href="<?php echo base_url();?>branchController/viewBranch">
+                                                <span class="pcoded-mtext" >Student Request</span>
+                                            </a>
+                                        </li>
+                               </ul>
+                           </li>
+                           </ul>
                          <!--  <div class="pcoded-navigatio-lavel">Student</div> -->
                             <ul class="pcoded-item pcoded-left-item">
                                 <li class="pcoded-hasmenu">
@@ -135,6 +111,16 @@
                                         <li class=" ">
                                             <a href="<?php echo base_url();?>studentController/studentIndex">
                                                 <span class="pcoded-mtext" >Registration</span>
+                                            </a>
+                                        </li>
+                                        <li class=" ">
+                                            <a href="<?php echo base_url();?>studentController/studentIndex">
+                                                <span class="pcoded-mtext" >View Profile</span>
+                                            </a>
+                                        </li>
+                                        <li class=" ">
+                                            <a href="<?php echo base_url();?>studentController/studentIndex">
+                                                <span class="pcoded-mtext" >Exam Section</span>
                                             </a>
                                         </li>
                                         <!-- <li class=" ">
