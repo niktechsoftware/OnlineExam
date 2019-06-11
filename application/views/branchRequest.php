@@ -23,15 +23,23 @@
 						<th>Status</th>
 					</tr>
 					</thead>
+
 					<tbody>
+						<?php $view = $this->db->get('branch')->result();
+						$i=1;
+					 foreach($view as $row){
+					 	//print_r($row);
+					 ?>
 						<tr>
-						<th>jkj </th>
-						<th></th>
-						<th></th>
-						<th></th>
-						<th></th>
-						<th></th>
+						<th><?php echo $i;?></th>
+						<th><?php echo $row->username;?></th>
+						<th><?php echo $row->branch_name;?></th>
+						<th><?php echo $row->mobile_no;?></th>
+						<th><?php echo $row->email_id;?></th>
+						<th><input type="button" name="status" class="btn btn-info btn-sm" value="Inactive" ></th>
+						
 					</tr>
+				<?php $i++;}?>
 					</tbody>
 					<tfoot>
 						<tr>

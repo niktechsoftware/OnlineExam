@@ -91,6 +91,7 @@ class BranchController extends CI_Controller{
 			$data['footer'] = 'footer';
 			$data['footerjs'] = 'branchJs';
 	  		$this->load->view("base/body", $data);
-	}
+	} 
+	
 }
 ?>
