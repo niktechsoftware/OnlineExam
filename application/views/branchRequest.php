@@ -32,11 +32,18 @@
 					 ?>
 						<tr>
 						<th><?php echo $i;?></th>
-						<th><?php echo $row->username;?></th>
+						<th> <a href="<?php echo base_url(); ?>branchController/branchView/<?php echo $row->id;?>" ><?php echo $row->username;?></a></th>
 						<th><?php echo $row->branch_name;?></th>
 						<th><?php echo $row->mobile_no;?></th>
 						<th><?php echo $row->email_id;?></th>
-						<th><input type="button" name="status" class="btn btn-info btn-sm" value="Inactive" ></th>
+						<?php 		
+							if($row->status == 0){ ?>
+								<th><a href="" class="btn btn-sm btn-info" id="branchStatus<?php echo $i;?>" value="0"><i class="fa fa-trash-o"></i> InActive</a></th>
+							<?php }
+							else{?>
+							<th><a href="#" class="btn btn-sm btn-info" id="branchStatus<?php echo $i;?>" value="1"><i class="fa fa-trash-o"></i>Active</a></th>
+						<?php }
+							?></th>
 						
 					</tr>
 				<?php $i++;}?>
@@ -59,3 +66,24 @@
 		</div>
 	</div>
 </div>
+<script>
+	<?php for($j = 1; $j < $i; $j++){ ?>
+			    $("#branchStatus<?php echo $j; ?>").click(function(){
+		    		var examId = $('#branchStatus<?php echo $j; ?>').val();	
+		    		
+		    		alert(examId);
+		  //   		var form_data = {
+				// 			examId : examId,
+				// 			examName : examName
+				// 		};
+				// $.ajax({
+				// 	url: "<?php //echo site_url("examconfiguration/updateExam") ?>",
+				// 	type: 'POST',
+				// 	data: form_data,
+				// 	success: function(msg){
+				// 		$("#examAdd1").html(msg);
+				// 	}
+				// });
+		        });
+			<?php }?>
+</script>

@@ -22,6 +22,15 @@ class login extends CI_Controller {
                 $this->session->set_userdata($loginData);
                 redirect("/welcome/home", 'refresh');
                  }
+                 else if($loginData['login_type']==2)
+                 {
+                   $this->session->set_userdata($loginData);
+                     redirect("/welcome/branch", 'refresh');
+                 }
+                 else {
+                    $this->session->set_userdata($loginData);
+                redirect("/welcome/studDashboard", 'refresh');
+                 }
              }
               else
                  {

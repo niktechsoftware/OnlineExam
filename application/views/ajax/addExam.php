@@ -60,29 +60,7 @@ endif;
 		                //alert(data);
 		    		})
 		        });
-	                  var input = document.getElementById("examValue<?php echo $j;?>");
-                         input.addEventListener("keyup", function () {
-                         var text_value = document.getElementById("examValue<?php echo $j;?>").value;
-                                    if (!text_value.match(/^[A-Za-z]+$/)) {
-                                        document.getElementById("name2").innerHTML = "Only Alphabets Allow";
-                                         $('#edit<?php echo $j;?>').attr('disabled', 'disabled');
-
-                                           $(document).on('click', 'a', function(e) {
-                                          if ($(this).attr('disabled') == 'disabled') {
-                                             e.preventDefault();
-                                                }
-                                                window.location.reload();
-                                            });
-                                        document.getElementById("examValue<?php echo $j;?>").focus();
-                                        if (text_value == "") {
-                                            document.getElementById("name2").innerHTML = " ";
-                                             window.location.reload();
-                                            document.getElementById("examValue<?php echo $j;?>").focus();
-                                        }
-                                    }
-                         });
-
-                         input.addEventListener("keyup", function () {
+		           input.addEventListener("keyup", function () {
                           var x = document.getElementById("examValue<?php echo $j;?>");
                              x.value = x.value.toUpperCase();
                          
