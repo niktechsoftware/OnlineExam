@@ -1,3 +1,4 @@
+
 <div class="row">
 	<div class="col-md-12">
 		<div class="row">
@@ -25,7 +26,12 @@
 					</thead>
 
 					<tbody>
-						<?php $view = $this->db->get('branch')->result();
+						<?php 
+
+$a=$this->session->userdata('username');
+
+
+						$view = $this->db->get('branch')->result();
 						$i=1;
 					 foreach($view as $row){
 					 	//print_r($row);
@@ -38,10 +44,10 @@
 						<th><?php echo $row->email_id;?></th>
 						<?php 		
 							if($row->status == 0){ ?>
-								<th><a href="" class="btn btn-sm btn-info" id="branchStatus<?php echo $i;?>" value="0"><i class="fa fa-trash-o"></i>Approve For Activation</a></th>
+								<th><a href="" class="btn btn-sm btn-info" id="<?php echo $row->id;?>" value="0" onclick="myFunction(this)"><i class="fa fa-trash-o"></i>Approve For Activation</a></th>
 							<?php }
 							else{?>
-							<th><a href="#" class="btn btn-sm btn-success" id="branchStatus<?php echo $i;?>" value="1"><i class="fa fa-trash-o"></i>Approved</a></th>
+							<th><a href="#" class="btn btn-sm btn-success" id="<?php echo $row->id;?>" value="1" onclick="myFunction(this)"><i class="fa fa-trash-o"></i>Approved</a></th>
 						<?php }
 							?></th>
 						
@@ -67,23 +73,18 @@
 	</div>
 </div>
 <script>
-	<?php for($j = 1; $j < $i; $j++){ ?>
-			    $("#branchStatus<?php echo $j; ?>").click(function(){
-		    		var examId = $('#branchStatus<?php echo $j; ?>').val();	
-		    		
-		    		alert(examId);
-		  //   		var form_data = {
-				// 			examId : examId,
-				// 			examName : examName
-				// 		};
-				// $.ajax({
-				// 	url: "<?php //echo site_url("examconfiguration/updateExam") ?>",
-				// 	type: 'POST',
-				// 	data: form_data,
-				// 	success: function(msg){
-				// 		$("#examAdd1").html(msg);
-				// 	}
-				// });
-		        });
-			<?php }?>
+	
+			
+			function myFunction(stID) {
+ 	let status = stID.id;
+ 	//alert(status);
+ $.ajax({
+					url: "<?= base_url() ?>adminController/updatestatus",
+					type: 'POST',
+					data: {"status": status},
+					success: function(data){
+						$("#status").html(data);
+					}
+				});
+}
 </script>
