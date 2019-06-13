@@ -13,6 +13,20 @@
 			$data['footerjs'] = 'branchJs';
 	  		$this->load->view("base/body", $data);
 		}
+
+		public function studentprofile(){
+			$data['title'] = 'Student Registration Area';
+			$data['headercss'] = 'branchCss';
+			$data['header'] = 'header';
+			$data['sidemenu'] = 'sidemenu';
+			$data['contend'] = 'studentprofile';
+			$data['subtitle'] = 'Student Registration';
+			$data['customizer'] = 'customizer';
+			$data['footer'] = 'footer';
+			$data['footerjs'] = 'branchJs';
+	  		$this->load->view("base/body", $data);
+		}
+
 		public function studRegistration(){
 			$name = $this->input->post('name');
 			$dob = $this->input->post('dob');
