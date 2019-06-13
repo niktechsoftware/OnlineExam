@@ -132,12 +132,49 @@
                   </div>
                 </div>
               </li>
+
+              <?php $uname=$this->session->userdata('username');
+
+              $this->db->where('username',$uname);
+            $data=  $this->db->get('stud_registration');
+
+             $this->db->where('username',$uname);
+            $data1=  $this->db->get('general_setting');
+
+             $this->db->where('username',$uname);
+            $data2=  $this->db->get('branch');
+
+          
+
+
+              ?>
               <li class="user-profile header-notification">
                 <div class="dropdown-primary dropdown">
                   <div class="dropdown-toggle" data-toggle="dropdown">
-                    <img src="<?php echo base_url();?>assets/images/avatar-4.jpg" class="img-radius"
-                      alt="User-Profile-Image">
-                    <span>John Doe</span>
+                  <?php  if(($this->session->userdata("login_type")==3)){
+                      if($data->num_rows()>0){
+                        if(strlen($data->row()->photo)>0){
+
+                    ?>
+                    <img width="30px" height="40px;" src="<?php echo base_url()?>assets/images/student/<?php echo $data->row()->photo;?>"><?php } }} 
+
+                     elseif(($this->session->userdata("login_type")==2)){
+                      if($data2->num_rows()>0){
+if(strlen($data2->row()->photo)>0){
+                    ?>
+                     <img width="30px" height="40px;" src="<?php echo base_url()?>assets/images/branch/<?php echo $data2->row()->photo;?>">
+                     <?php  }} }
+
+                    elseif(($this->session->userdata("login_type")==1)){
+                      if($data1->num_rows()>0){
+if(strlen($data1->row()->photo)>0){
+                    ?>
+                     <img width="30px" height="40px;" src="<?php echo base_url()?>adminform/assets/images/admin/<?php echo $data1->row()->photo;?>">
+                     <?php  }else{echo "hii";} }}
+                     ?>
+
+                    
+                    <span><?php echo $uname?></span>
                     <i class="feather icon-chevron-down"></i>
                   </div>
                   <ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn"
@@ -171,7 +208,7 @@
 
                 </div>
               </li>
-            </ul>
+           
           </div>
         </div>
       </nav>
