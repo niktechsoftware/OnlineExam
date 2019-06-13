@@ -5,8 +5,8 @@ class AdminController extends CI_Controller{
 	{
 		parent::__construct();
 		$this->is_login();
-		$this->load->model("teacherModel");
-		$this->load->model("adminModel");
+		//$this->load->model("teacherModel");
+		//$this->load->model("adminModel");
 	}
 
 	public function branchRequest(){

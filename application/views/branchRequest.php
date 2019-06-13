@@ -38,10 +38,10 @@
 						<th><?php echo $row->email_id;?></th>
 						<?php 		
 							if($row->status == 0){ ?>
-								<th><a href="" class="btn btn-sm btn-info" id="branchStatus<?php echo $i;?>" value="0"><i class="fa fa-trash-o"></i> InActive</a></th>
+								<th><a href="" class="btn btn-sm btn-info" id="branchStatus<?php echo $i;?>" value="0"><i class="fa fa-trash-o"></i>Approve For Activation</a></th>
 							<?php }
 							else{?>
-							<th><a href="#" class="btn btn-sm btn-info" id="branchStatus<?php echo $i;?>" value="1"><i class="fa fa-trash-o"></i>Active</a></th>
+							<th><a href="#" class="btn btn-sm btn-success" id="branchStatus<?php echo $i;?>" value="1"><i class="fa fa-trash-o"></i>Approved</a></th>
 						<?php }
 							?></th>
 						
