@@ -9,10 +9,14 @@
                <div class="panel-body">
                <div class="text-black text-large exam_panel">
                	<?php 
-               		 $id= $this->uri->segment(3);
-               	$this->db->where('id',$id);
-               	$row = $this->db->get('branch')->row();
-               	//print_r($row);?>
+               		// $id= $this->uri->segment(3);
+                  $uname= $this->session->userdata('username');
+                    
+               	$this->db->where('username',$uname);
+               	$row = $this->db->get('branch');
+                  if($row->num_rows()>0)
+                  {                 
+?>
                  <div class="row">
                     <div class="col-md-12">
                        <div class="row">
@@ -21,7 +25,7 @@
                                  <div class="col-md-3"><label> Photo</label></div>
                                  <div class="col-md-9">
                                     <div class="form-group form-primary">
-                                   <img width="200px" height="200px;" src="<?php echo base_url()?>assets/images/branch/<?php echo $row->photo;?>">
+                                   <img width="200px" height="200px;" src="<?php echo base_url()?>assets/images/branch/<?php echo $row->row()->photo;?>">
                                     <span class="form-bar"></span>
                                 </div>
                                  </div>
@@ -31,7 +35,7 @@
                                  <div class="col-md-4"><label>User Name</label></div>
                                  <div class="col-md-8">
                                     <div class="form-group form-primary">
-                                   <label><?php echo $row->username;?></label>
+                                   <label><?php echo $row->row()->username;?></label>
                                     <span class="form-bar"></span>
                                 </div>
                                  </div>
@@ -43,7 +47,7 @@
                                  <div class="col-md-3"><label>Branch Name</label></div>
                                  <div class="col-md-9">
                                     <div class="form-group form-primary">
-                                  <input type="text" name="branch_name" class="form-control" required="" value="<?php echo $row->branch_name;?>" >
+                                  <input type="text" name="branch_name" class="form-control" required="" value="<?php echo $row->row()->branch_name;?>" >
                                     <span class="form-bar"></span>
                                 </div>
                                  </div>
@@ -52,7 +56,7 @@
                                  <div class="col-md-3"><label>Mobile No</label></div>
                                  <div class="col-md-9">
                                     <div class="form-group form-primary">
-                                   <input type="number" name="mobile" class="form-control" required="" value="<?php echo $row->mobile_no;?>" >
+                                   <input type="number" name="mobile" class="form-control" required="" value="<?php echo $row->row()->mobile_no;?>" >
                                     <span class="form-bar"></span>
                                 </div>
                                  </div>
@@ -61,7 +65,7 @@
                                  <div class="col-md-3"><label>Email Id</label></div>
                                  <div class="col-md-9">
                                     <div class="form-group form-primary">
-                                   <input type="email" name="email" class="form-control" required="" value="<?php echo $row->email_id;?>">
+                                   <input type="email" name="email" class="form-control" required="" value="<?php echo $row->row()->email_id;?>">
                                     <span class="form-bar"></span>
                                 </div>
                                  </div>
@@ -70,7 +74,7 @@
                                  <div class="col-md-3"><label>Address</label></div>
                                  <div class="col-md-9">
                                     <div class="form-group form-primary">
-                                  <textarea name="address" class="form-control" required=""><?php echo $row->address;?></textarea>
+                                  <textarea name="address" class="form-control" required=""><?php echo $row->row()->address;?></textarea>
                                     <span class="form-bar"></span>
                                 </div>
                                  </div>
@@ -79,7 +83,7 @@
                                  <div class="col-md-3"><label>City</label></div>
                                  <div class="col-md-9">
                                     <div class="form-group form-primary">
-                                  <input type="text" name="branch_city" class="form-control" required="" value="<?php echo $row->city;?>" >
+                                  <input type="text" name="branch_city" class="form-control" required="" value="<?php echo $row->row()->city;?>" >
                                     <span class="form-bar"></span>
                                 </div>
                                  </div>
@@ -88,7 +92,7 @@
                                  <div class="col-md-3"><label>State</label></div>
                                  <div class="col-md-9">
                                     <div class="form-group form-primary">
-                                 <input type="text" name="branch_state" class="form-control" required="" value="<?php echo $row->state;?>" >
+                                 <input type="text" name="branch_state" class="form-control" required="" value="<?php echo $row->row()->state;?>" >
                                     <span class="form-bar"></span>
                                 </div>
                                  </div>
@@ -97,7 +101,7 @@
                                  <div class="col-md-3"><label>Country</label></div>
                                  <div class="col-md-9">
                                     <div class="form-group form-primary">
-                                <input type="text" name="branch_country" class="form-control" required="" value="<?php echo $row->country;?>">
+                                <input type="text" name="branch_country" class="form-control" required="" value="<?php echo $row->row()->country;?>">
                                     <span class="form-bar"></span>
                                 </div>
                                  </div>
@@ -106,7 +110,7 @@
                                  <div class="col-md-3"><label>Pincode</label></div>
                                  <div class="col-md-9">
                                     <div class="form-group form-primary">
-                               <input type="number" name="branch_pincode" class="form-control" required="" value="<?php echo $row->pincode;?>">
+                               <input type="number" name="branch_pincode" class="form-control" required="" value="<?php echo $row->row()->pincode;?>">
                                     <span class="form-bar"></span>
                                 </div>
                                  </div>
@@ -115,7 +119,8 @@
                        </div>
                     </div>
                  </div>      
-					
+					<?php }?>
+
                </div>
                 </div>
             </div>

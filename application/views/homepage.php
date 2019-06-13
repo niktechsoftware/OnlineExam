@@ -1,3 +1,12 @@
+            
+
+                                 <?php $id=$this->session->userdata('id');
+                                                   // $this->db->where('admin_id',$id);
+                                                    $this->db->where('status',1);
+                                                     $branch=   $this->db->get('branch')->result();
+                                                    $bran=COUNT($branch);
+
+                                                    ?>
 
                                     <div class="page-body">
                                         <div class="row">
@@ -7,8 +16,8 @@
                                                     <div class="card-block">
                                                         <div class="row align-items-end">
                                                             <div class="col-8">
-                                                                <h4 class="text-white">$30200</h4>
-                                                                <h6 class="text-white m-b-0">All Earnings</h6>
+                                                                <h4 class="text-white">Total Branch</h4>
+                                                                <h5 class="text-white m-b-0"><?php echo $bran;?></h5>
                                                             </div>
                                                             <div class="col-4 text-right">
                                                                 <canvas id="update-chart-1" height="50"></canvas>
@@ -20,13 +29,24 @@
                                                     </div>
                                                 </div>
                                             </div>
+
+                                               <?php 
+
+                                             $id=$this->session->userdata('id');
+                                                   // $this->db->where('admin_id',$id);
+                                                  $this->db->where('status',1);
+                                                     $std=   $this->db->get('stud_registration')->result();
+                                                    $stdcount=COUNT($std);
+
+
+                                            ?>
                                             <div class="col-xl-3 col-md-6">
                                                 <div class="card bg-c-green update-card">
                                                     <div class="card-block">
                                                         <div class="row align-items-end">
                                                             <div class="col-8">
-                                                                <h4 class="text-white">290+</h4>
-                                                                <h6 class="text-white m-b-0">Page Views</h6>
+                                                                <h4 class="text-white">Total Student</h4>
+                                                                <h5 class="text-white m-b-0"><?php echo $stdcount?></h5>
                                                             </div>
                                                             <div class="col-4 text-right">
                                                                 <canvas id="update-chart-2" height="50"></canvas>
@@ -38,13 +58,22 @@
                                                     </div>
                                                 </div>
                                             </div>
+
+                                            <?php $id=$this->session->userdata('id');
+                                                   // $this->db->where('admin_id',$id);
+                                                    $this->db->where('status',0);
+                                                     $branch=   $this->db->get('branch')->result();
+                                                    $bran=COUNT($branch);
+
+
+                                            ?>
                                             <div class="col-xl-3 col-md-6">
                                                 <div class="card bg-c-pink update-card">
                                                     <div class="card-block">
                                                         <div class="row align-items-end">
                                                             <div class="col-8">
-                                                                <h4 class="text-white">145</h4>
-                                                                <h6 class="text-white m-b-0">Task Completed</h6>
+                                                                <h4 class="text-white">Branch Request</h4>
+                                                                <h5 class="text-white m-b-0"><?php echo $bran;?></h5>
                                                             </div>
                                                             <div class="col-4 text-right">
                                                                 <canvas id="update-chart-3" height="50"></canvas>
@@ -56,13 +85,24 @@
                                                     </div>
                                                 </div>
                                             </div>
+
+                                             <?php 
+
+                                             $id=$this->session->userdata('id');
+                                                   // $this->db->where('admin_id',$id);
+                                                  $this->db->where('status',0);
+                                                     $std=   $this->db->get('stud_registration')->result();
+                                                    $stdcount=COUNT($std);
+
+
+                                            ?>
                                             <div class="col-xl-3 col-md-6">
                                                 <div class="card bg-c-lite-green update-card">
                                                     <div class="card-block">
                                                         <div class="row align-items-end">
                                                             <div class="col-8">
-                                                                <h4 class="text-white">500</h4>
-                                                                <h6 class="text-white m-b-0">Downloads</h6>
+                                                                <h4 class="text-white">Student Request</h4>
+                                                                <h5 class="text-white m-b-0"><?php echo $stdcount;?></h5>
                                                             </div>
                                                             <div class="col-4 text-right">
                                                                 <canvas id="update-chart-4" height="50"></canvas>

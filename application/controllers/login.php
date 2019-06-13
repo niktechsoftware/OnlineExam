@@ -65,14 +65,14 @@ class login extends CI_Controller {
            // 'username' => $usename,
             'login_type' => 2,
             'status' => 0,
-            'password' =>$password
+           'password'=>md5($password),
         );
         $insert=$this->db->insert('branch',$data);
        $a = $this->db->query('select id from branch ORDER BY id DESC LIMIT 1')->row();
        $this->db->where('id',$a->id);
        //$que = $this->db->get('branch')->row();
         $val = array(
-                "username" => 'BRA'.$a->id
+                "username" => 'BRANCH'.$a->id
         );
         $this->db->where("id",$a->id);
         $query = $this->db->update("branch",$val);
@@ -122,6 +122,7 @@ class login extends CI_Controller {
         $local_country = $this->input->post('local_country');
         $local_pincode = $this->input->post('local_pincode');
         $password = $this->input->post('password');
+      echo  $pass=md5($password);
         $data = array(
                 'name' => $name,
                 'dob' => $dob,
@@ -152,7 +153,7 @@ class login extends CI_Controller {
                 'login_type' => 3,
                 'status' => 0,
                // 'username' => $username,
-                'password' => $password
+               'password'=>md5($password),
             );
             $insert=$this->db->insert('stud_registration',$data);
             $s = $this->db->query('select id from stud_registration ORDER BY id DESC LIMIT 1')->row();
