@@ -108,8 +108,8 @@
                               </div>
                             </div>
                           </form>
-                            <div class="alert alert-warning"> Type a Queastion  and press Add Question.If Question added
-                              successfully then it show in right side panel where you can change the question and Delete it.
+                            <div class="alert alert-warning"> Type a <strong>Question </strong> and press Add Question Button.If Question added
+                              successfully then it show in right side panel where you can Edit the question and Delete it.<p>Also you can upload document of Questions.</p>
                             </div>
                           </div>
                         </div>

@@ -37,8 +37,7 @@ endif;
 	    	$('#editQues<?php echo $j;?>').click(function(){
 	    		var quesId = $('#queId<?php echo $j;?>').val();
 	    		var quesnm = $('#queValue<?php echo $j;?>').val();
-	    		alert(quesId);
-	    		alert(quesnm);
+	    		
 	    		alert("your Question is successfully updated");
 		    		var form_data = {
 							quesId : quesId,
@@ -55,7 +54,7 @@ endif;
 	    	});
 	    	$('#deleteQues<?php echo $j;?>').click(function(){
 	    		var quesId = $('#queId<?php echo $j;?>').val();
-	    		alert(quesId);
+	    		
 	    			$.post("<?php echo site_url('examconfiguration/deleteQuestion') ?>", {quesId : quesId}, function(data){
 		                $("#questionAdd1").html(data);
 		                //alert(data);

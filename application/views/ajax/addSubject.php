@@ -45,9 +45,7 @@ endif;
 			    	var subId = $('#subjId<?php echo $j;?>').val();
 		    		var subName = $('#subValue<?php echo $j;?>').val();
 		     		var questionNo = $('#subjectQuestion<?php echo $j;?>').val();
-		  			alert(subId);
-		  			alert(subName);
-		  			alert(questionNo);
+		  			
 		  	 		alert("your Subject is successfully updated");
 		     		var form_data = {
 				 			subId : subId,
@@ -65,8 +63,7 @@ endif;
 		        });
 			    $("#deleteSubject<?php echo $j; ?>").click(function(){
 		    		var subId = $('#subjId<?php echo $j; ?>').val();
-		    		alert(subId);	
-		    		//alert(subjectId);
+		    		
 		    		$.post("<?php echo site_url('examconfiguration/deleteSubject') ?>", {subId : subId}, function(data){
 		                $("#addSubject1").html(data);
 		                //alert(data);

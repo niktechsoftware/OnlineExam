@@ -1,6 +1,14 @@
 <?php
 	defined('BASEPATH') OR exit('No direct script access allowed');
 class AdminController extends CI_Controller{
+	function __construct()
+	{
+		parent::__construct();
+		$this->is_login();
+		$this->load->model("teacherModel");
+		$this->load->model("adminModel");
+	}
+
 	public function branchRequest(){
 		$data['title'] = 'Branch Active  Area';
 			$data['headercss'] = 'branchCss';
