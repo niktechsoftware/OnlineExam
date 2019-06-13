@@ -53,6 +53,7 @@ class Welcome extends CI_Controller {
 			'photo'=>$photo_name,
 			'username'=>$username,
 			'password'=>md5($password),
+			'login_type'=>1,
 			'gender'=>$gender,
 			'address'=>$address,
 			'city'=>$city,

@@ -9,26 +9,31 @@
                <div class="panel-body">
                <div class="text-black text-large exam_panel">
                	<?php 
-               		 $id= $this->uri->segment(3);
-               	$this->db->where('id',$id);
-               	$row = $this->db->get('branch')->row();
+               		// $id= $this->uri->segment(3);
+                  $uname= $this->session->userdata('username');
+                    
+               	$this->db->where('username',$uname);
+               	$row = $this->db->get('branch');
+                  if($row->num_rows()>0)
+                  {                 
+
                	//print_r($row);?>
                   <table class="table table-bordered">
                   	<tr>
                   		<th style=" padding-top: 20px;">User Name</th>
-                  		<td><input type="text" name="branch_username" class="form-control" required="" value="<?php echo $row->username;?>"></td>
+                  		<td><input type="text" name="branch_username" class="form-control" readonly required="" value="<?php echo $row->row()->username;?>"></td>
                   	</tr>
                   	<tr>
                   		<th style=" padding-top: 20px;">Branch Name</th>
-                  		<td><input type="text" name="branch_name" class="form-control" required="" value="<?php echo $row->branch_name;?>" ></td>
+                  		<td><input type="text" name="branch_name" class="form-control" required="" value="<?php echo $row->row()->branch_name;?>" ></td>
                   	</tr>
                   	<tr>
                   		<th style=" padding-top: 20px;">Mobile No</th>
-                  		<td><input type="number" name="mobile" class="form-control" required="" value="<?php echo $row->mobile_no;?>" ></td>
+                  		<td><input type="number" name="mobile" class="form-control" required="" value="<?php echo $row->row()->mobile_no;?>" ></td>
                   	</tr>
                   	<tr>
                   		<th style=" padding-top: 20px;">Email Id</th>
-                  		<td><input type="email" name="email" class="form-control" required="" value="<?php echo $row->email_id;?>"></td>
+                  		<td><input type="email" name="email" class="form-control" required="" value="<?php echo $row->row()->email_id;?>"></td>
                   	</tr>
                   	<tr>
                   		<th style=" padding-top: 20px;">Branch Photo</th>
@@ -40,19 +45,19 @@
                   	</tr>
                   	<tr>
                   		<th style=" padding-top: 20px;">City</th>
-                  		<td><input type="text" name="branch_city" class="form-control" required="" value="<?php echo $row->city;?>" ></td>
+                  		<td><input type="text" name="branch_city" class="form-control" required="" value="<?php echo $row->row()->city;?>" ></td>
                   	</tr>
                   	<tr>
                   		<th style=" padding-top: 20px;">State</th>
-                  		<td><input type="text" name="branch_state" class="form-control" required="" value="<?php echo $row->state;?>" ></td>
+                  		<td><input type="text" name="branch_state" class="form-control" required="" value="<?php echo $row->row()->state;?>" ></td>
                   	</tr>
                   	<tr>
                   		<th style=" padding-top: 20px;">Country</th>
-                  		<td><input type="text" name="branch_country" class="form-control" required="" value="<?php echo $row->country;?>"></td>
+                  		<td><input type="text" name="branch_country" class="form-control" required="" value="<?php echo $row->row()->country;?>"></td>
                   	</tr>
                   	<tr>
                   		<th style=" padding-top: 20px;"">Pincode</th>
-                  		<td><input type="number" name="branch_pincode" class="form-control" required="" value="<?php echo $row->pincode;?>"></td>
+                  		<td><input type="number" name="branch_pincode" class="form-control" required="" value="<?php echo $row->row()->pincode;?>"></td>
                   	</tr>
                   	<!-- 
                   	<tr>
@@ -65,7 +70,7 @@
                   		<td class="text-center"> <input type="reset" name="branchreset" class="btn btn-md btn-primary" required="" value="Reset"></td>
                   	</tr> -->
                   </table>        
-					
+				<?php }?>
                </div>
                 </div>
             </div>
