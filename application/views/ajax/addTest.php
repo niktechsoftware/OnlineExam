@@ -51,8 +51,6 @@ if(isset($testListview)):
 		     		var testName = $('#testnm<?php echo $j;?>').val();
 		     		var testDesc = $('#testDesc<?php echo $j;?>').val();
 		     		var testMark = $('#testMarks<?php echo $j;?>').val();
-		     		alert(testId);alert(testName);alert(testDesc);alert(testMark);
-
 		     		alert("your test is successfully updated");
 		     		var form_data = {
 							testId : testId,
@@ -70,11 +68,9 @@ if(isset($testListview)):
 				});
 		        });
 			    $("#deleteTest<?php echo $j; ?>").click(function(){
-		    		var testId = $('#testId<?php echo $j; ?>').val();	
-		    		alert(testId);
+		    		var testId = $('#testId<?php echo $j; ?>').val();
 		    		$.post("<?php echo site_url('examconfiguration/deleteTest') ?>", {testId : testId}, function(data){
 		                $("#addTest1").html(data);
-		                //alert(data);
 		    		})
 		        });  
                          input.addEventListener("keyup", function () {

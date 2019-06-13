@@ -38,7 +38,7 @@
     // add exam code start
       $("#addExamButton").click(function(){
         var examName = $('#addExam').val();
-        //alert("Your exam is successfully created");
+        alert("Your exam is successfully created");
         $.post("<?php echo base_url('examconfiguration/addExam') ?>", {examName : examName}, function(data){
                 $("#examAdd1").html(data);
         });
@@ -55,7 +55,7 @@
           var testnm = $('#addTest').val();
           var testDes = $('#descTest').val();
           var testmark = $('#marksTest').val();
-          alert(examHead);alert(testnm); alert(testDes); alert(testmark);
+        //  alert(examHead);alert(testnm); alert(testDes); alert(testmark);
           alert("Your Test  Successfully Added");
           $.post("<?php echo base_url('examconfiguration/addtest')?>",{
             examHead : examHead,
@@ -97,7 +97,7 @@
               var examTest = $('#testListshow').val();
               var subName = $('#addSubject').val();
               var subQuesNo = $('#addQuestion').val();
-               alert(examsubject); alert(examTest);alert(subName); alert(subQuesNo);
+             //  alert(examsubject); alert(examTest);alert(subName); alert(subQuesNo);
                alert("Your Subject successfully Added");
                 $.post("<?php echo base_url('examconfiguration/addSubject')?>",{
             examsubject : examsubject,

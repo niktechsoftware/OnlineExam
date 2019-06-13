@@ -51,7 +51,7 @@
                                 </div>
                               </div>
                             </div>
-                            <div class="alert  txt_css"> Type a Exam Head name and press Add Exam Head.If Exam Head added
+                            <div class="alert  txt_css"> Type a Exam Head name and press Add Exam Head Button.If Exam Head added
                               successfully then it show in right side panel where you can change the name and Delete it.
                             </div>
                           </div>
@@ -109,7 +109,7 @@
                           <div class="text-black text-large exam_panel">
                             <div class="form-group">
                               <div class="row">
-                                <div class="col-md-4">Test Name</div>
+                                <div class="col-md-4"> Name</div>
                                 <div class="col-md-8">
                                   <input type="text" id="addTest" onkeyup="this.value = this.value.toUpperCase();">
                                 </div>
@@ -117,7 +117,7 @@
                             </div>
                             <div class="form-group">
                               <div class="row">
-                                <div class="col-md-4">Test Description</div>
+                                <div class="col-md-4">Description</div>
                                 <div class="col-md-8">
                                   <input type="text" id="descTest" onkeyup="this.value = this.value.toUpperCase();">
                                 </div>
@@ -125,7 +125,7 @@
                             </div>
                              <div class="form-group">
                               <div class="row">
-                                <div class="col-md-4">Test Marks</div>
+                                <div class="col-md-4">Marks</div>
                                 <div class="col-md-8">
                                   <input type="number" id="marksTest" >
                                 </div>
@@ -135,12 +135,12 @@
                               <div class="row">
                                 <div class="col-md-12">
                                  <a href="#" class="btn btn-sm btn-round btn-primary" id="addTestButton"><i class="ion-checkmark-round"></i>
-                              Add Test Description</a>
+                              Add Test </a>
                                 </div>
                               </div>
                             </div>
-                           <div class="alert txt_css"> Type a Test name ,description and its marks ,and press Add Test Name.If All details are added
-                              successfully then it show in right side panel where you can change the All details and Delete it.
+                           <div class="alert txt_css"> Type a<strong> Test Name ,Description </strong>and its <strong>Marks </strong>,and press Add Test Button.If All details are added
+                              successfully then it show in right side panel where you can change the all details and also you can Delete it.
                             </div>
                           </div>
                         </div>
@@ -240,7 +240,7 @@
                               </div>
                             </div>
                           </div>
-                             <div class="alert txt_css"> Type a <strong>Subject Name and Question No.</strong>  and press Add Subject Button.If Subject Name and Question No. added successfully then it show in right side panel where you can change the all detail and Delete it.
+                             <div class="alert txt_css"> Type a <strong>Subject Name </strong>and <strong>Question No.</strong>  and press Add Subject Button.If Subject Name and Question No. added successfully then it show in right side panel where you can change the all detail and Delete it.
                             </div>
                           </div>
                         </div>

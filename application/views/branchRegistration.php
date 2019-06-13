@@ -45,10 +45,10 @@
                   		<th style=" padding-top: 20px;"">Pincode</th>
                   		<td><input type="number" name="branch_pincode" class="form-control" required=""></td>
                   	</tr>
-                  	<tr>
+                  	<!-- <tr>
                   		<th style=" padding-top: 20px;">User Name</th>
                   		<td><input type="text" name="branch_username" class="form-control" required=""></td>
-                  	</tr>
+                  	</tr> -->
                   	<tr>
                   		<th style=" padding-top: 20px;">Password</th>
                   		<td><input type="password" name="branch_pwd" class="form-control" required=""></td>

@@ -16,61 +16,111 @@
                	$row = $this->db->get('branch');
                   if($row->num_rows()>0)
                   {                 
+?>
+                 <div class="row">
+                    <div class="col-md-12">
+                       <div class="row">
+                          <div class="col-md-4">
+                           <div class="row">
+                                 <div class="col-md-3"><label> Photo</label></div>
+                                 <div class="col-md-9">
+                                    <div class="form-group form-primary">
+                                   <img width="200px" height="200px;" src="<?php echo base_url()?>assets/images/branch/<?php echo $row->row()->photo;?>">
+                                    <span class="form-bar"></span>
+                                </div>
+                                 </div>
+                              </div>
+                              <hr>
+                             <div class="row">
+                                 <div class="col-md-4"><label>User Name</label></div>
+                                 <div class="col-md-8">
+                                    <div class="form-group form-primary">
+                                   <label><?php echo $row->row()->username;?></label>
+                                    <span class="form-bar"></span>
+                                </div>
+                                 </div>
+                              </div>
+                          </div>
+                          <div class="col-md-8">
+                              
+                              <div class="row">
+                                 <div class="col-md-3"><label>Branch Name</label></div>
+                                 <div class="col-md-9">
+                                    <div class="form-group form-primary">
+                                  <input type="text" name="branch_name" class="form-control" required="" value="<?php echo $row->row()->branch_name;?>" >
+                                    <span class="form-bar"></span>
+                                </div>
+                                 </div>
+                              </div>
+                               <div class="row">
+                                 <div class="col-md-3"><label>Mobile No</label></div>
+                                 <div class="col-md-9">
+                                    <div class="form-group form-primary">
+                                   <input type="number" name="mobile" class="form-control" required="" value="<?php echo $row->row()->mobile_no;?>" >
+                                    <span class="form-bar"></span>
+                                </div>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><label>Email Id</label></div>
+                                 <div class="col-md-9">
+                                    <div class="form-group form-primary">
+                                   <input type="email" name="email" class="form-control" required="" value="<?php echo $row->row()->email_id;?>">
+                                    <span class="form-bar"></span>
+                                </div>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><label>Address</label></div>
+                                 <div class="col-md-9">
+                                    <div class="form-group form-primary">
+                                  <textarea name="address" class="form-control" required=""><?php echo $row->row()->address;?></textarea>
+                                    <span class="form-bar"></span>
+                                </div>
+                                 </div>
+                              </div>
+                               <div class="row">
+                                 <div class="col-md-3"><label>City</label></div>
+                                 <div class="col-md-9">
+                                    <div class="form-group form-primary">
+                                  <input type="text" name="branch_city" class="form-control" required="" value="<?php echo $row->row()->city;?>" >
+                                    <span class="form-bar"></span>
+                                </div>
+                                 </div>
+                              </div>
+                               <div class="row">
+                                 <div class="col-md-3"><label>State</label></div>
+                                 <div class="col-md-9">
+                                    <div class="form-group form-primary">
+                                 <input type="text" name="branch_state" class="form-control" required="" value="<?php echo $row->row()->state;?>" >
+                                    <span class="form-bar"></span>
+                                </div>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><label>Country</label></div>
+                                 <div class="col-md-9">
+                                    <div class="form-group form-primary">
+                                <input type="text" name="branch_country" class="form-control" required="" value="<?php echo $row->row()->country;?>">
+                                    <span class="form-bar"></span>
+                                </div>
+                                 </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><label>Pincode</label></div>
+                                 <div class="col-md-9">
+                                    <div class="form-group form-primary">
+                               <input type="number" name="branch_pincode" class="form-control" required="" value="<?php echo $row->row()->pincode;?>">
+                                    <span class="form-bar"></span>
+                                </div>
+                                 </div>
+                              </div>
+                          </div>
+                       </div>
+                    </div>
+                 </div>      
+					<?php }?>
 
-               	//print_r($row);?>
-                  <table class="table table-bordered">
-                  	<tr>
-                  		<th style=" padding-top: 20px;">User Name</th>
-                  		<td><input type="text" name="branch_username" class="form-control" readonly required="" value="<?php echo $row->row()->username;?>"></td>
-                  	</tr>
-                  	<tr>
-                  		<th style=" padding-top: 20px;">Branch Name</th>
-                  		<td><input type="text" name="branch_name" class="form-control" required="" value="<?php echo $row->row()->branch_name;?>" ></td>
-                  	</tr>
-                  	<tr>
-                  		<th style=" padding-top: 20px;">Mobile No</th>
-                  		<td><input type="number" name="mobile" class="form-control" required="" value="<?php echo $row->row()->mobile_no;?>" ></td>
-                  	</tr>
-                  	<tr>
-                  		<th style=" padding-top: 20px;">Email Id</th>
-                  		<td><input type="email" name="email" class="form-control" required="" value="<?php echo $row->row()->email_id;?>"></td>
-                  	</tr>
-                  	<tr>
-                  		<th style=" padding-top: 20px;">Branch Photo</th>
-                  		<td><input type="file" name="branch_img" class="form-control"  ></td>
-                  	</tr>
-                  	<tr>
-                  		<th style=" padding-top: 20px;">Address</th>
-                  		<td><textarea name="address" class="form-control" required=""><?php echo $row->address;?></textarea></td>
-                  	</tr>
-                  	<tr>
-                  		<th style=" padding-top: 20px;">City</th>
-                  		<td><input type="text" name="branch_city" class="form-control" required="" value="<?php echo $row->row()->city;?>" ></td>
-                  	</tr>
-                  	<tr>
-                  		<th style=" padding-top: 20px;">State</th>
-                  		<td><input type="text" name="branch_state" class="form-control" required="" value="<?php echo $row->row()->state;?>" ></td>
-                  	</tr>
-                  	<tr>
-                  		<th style=" padding-top: 20px;">Country</th>
-                  		<td><input type="text" name="branch_country" class="form-control" required="" value="<?php echo $row->row()->country;?>"></td>
-                  	</tr>
-                  	<tr>
-                  		<th style=" padding-top: 20px;"">Pincode</th>
-                  		<td><input type="number" name="branch_pincode" class="form-control" required="" value="<?php echo $row->row()->pincode;?>"></td>
-                  	</tr>
-                  	<!-- 
-                  	<tr>
-                  		<th style=" padding-top: 20px;">Password</th>
-                  		<td><input type="password" name="branch_pwd" class="form-control" required=""></td>
-                  	</tr> -->
-                  <!-- 	
-                  	<tr>
-                  		<td class="text-center"><input type="submit" name="branchSubmit" class="btn btn-md btn-primary" required="" value="Submit"></td>
-                  		<td class="text-center"> <input type="reset" name="branchreset" class="btn btn-md btn-primary" required="" value="Reset"></td>
-                  	</tr> -->
-                  </table>        
-				<?php }?>
                </div>
                 </div>
             </div>
