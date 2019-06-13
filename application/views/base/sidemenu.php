@@ -1,3 +1,4 @@
+
 <div class="pcoded-main-container">
                 <div class="pcoded-wrapper">
                     <nav class="pcoded-navbar">
@@ -63,12 +64,12 @@
                                             </a>
                                         </li>
                                          <li class="">
-                                            <a href="<?php echo base_url();?>branchController/branchRequest">
+                                            <a href="<?php echo base_url();?>adminController/branchRequest">
                                                 <span class="pcoded-mtext">Request Branch</span>
                                             </a>
                                         </li>
                                          <li class="">
-                                            <a href="<?php echo base_url();?>studentController/studentRequest">
+                                            <a href="<?php echo base_url();?>adminController/studentRequest">
                                                 <span class="pcoded-mtext">Request Student</span>
                                             </a>
                                         </li>

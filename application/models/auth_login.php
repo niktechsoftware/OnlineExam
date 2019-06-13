@@ -28,6 +28,8 @@ class Auth_login extends CI_Model {
 		    );
 		    return $loginData;
 		 }
+		 $this->db->where('username', $username);
+		$this->db->where('password',$password);
 		 $query = $this->db->get('branch');
 		if ($query->num_rows() > 0)
 		{
@@ -45,6 +47,8 @@ class Auth_login extends CI_Model {
 		    );
 		    return $loginData;
 		 }
+		 $this->db->where('username', $username);
+		$this->db->where('password',$password);
 		 $query1 = $this->db->get('stud_registration');
 		if ($query1->num_rows() > 0)
 		{

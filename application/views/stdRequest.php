@@ -31,7 +31,7 @@
 					 ?>
 						<tr>
 						<th><?php echo $i;?></th>
-						<th><a href="<?php echo base_url(); ?>studentController/studView/<?php echo $row->id;?>" ><?php echo $row->username;?></a></th>
+						<th><a href="<?php echo base_url(); ?>adminController/studView/<?php echo $row->id;?>" ><?php echo $row->username;?></a></th>
 						<th><?php echo $row->name;?></th>
 						<th><?php echo $row->mobile_no;?></th>
 						<th><?php echo $row->email_id;?></th>
