@@ -46,6 +46,22 @@ public function studDashboard()
 		$data['footerjs'] = 'home_js';
     $this->load->view("base/body", $data);
 }
+
+public function subbranchDashboard()
+{
+
+	$data['title'] = 'Home Page';
+		$data['headercss'] = 'home_css';
+		$data['header'] = 'header';
+		$data['sidemenu'] = 'sidemenu';
+		$data['contend'] = 'homepage';
+		$data['customizer'] = 'customizer';
+		$data['footer'] = 'footer';
+		$data['footerjs'] = 'home_js';
+    $this->load->view("base/body", $data);
+
+}
+
 public function logout()
 {
 		$this->session->unset_userdata();

@@ -16,7 +16,7 @@
                	$this->db->where('username',$uname);
                   //$this->db->where('id',$id);
                	$row = $this->db->get('branch');
-                  print_r($row);
+                 
                   if($row->num_rows()>0)
                   {                 
 ?>
