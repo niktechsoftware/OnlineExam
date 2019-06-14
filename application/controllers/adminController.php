@@ -98,6 +98,7 @@ class AdminController extends CI_Controller{
 	}
 	public function studRegistration(){
 		$id = $this->uri->segment(3);
+		print_r($id);
 		$name = $this->input->post('name');
 		$dob = $this->input->post('dob');
 		$email = $this->input->post('email');
@@ -106,7 +107,8 @@ class AdminController extends CI_Controller{
 		$adhar = $this->input->post('adhar_card');
 		$religion =$this->input->post('religion');
 		$ctegory = $this->input->post('category');
-		$gender = $this->input->post('gender'); 
+		$gender = $this->input->post('gender');
+		$photo =  trim($_FILES['photo']['name']); 
 		$fname = $this->input->post('fname');
 		$mname = $this->input->post('mname');
 		$examStatus = $this->input->post('estatus');
@@ -137,6 +139,7 @@ class AdminController extends CI_Controller{
 			'mother_name' => $mname,
 			'exam_status' => $examStatus,
 			'exam_name' => $examName,
+			'photo' => $photo,
 			'disabilities_status' => $disability,
 			'disabilities_descrp' => $disabilityDescr,
 			'permanent_add' => $per_address,
@@ -151,9 +154,20 @@ class AdminController extends CI_Controller{
 			'local_country' => $loc_country
 		);
 		$this->db->where("id",$id);
-//print_r($aa);
-//print_r($data);exit();
 		$query = $this->db->update("stud_registration",$data);
+		if($query)
+		{
+			$this->load->library('upload');
+			$image_path = realpath(APPPATH . '../assets/images/student');
+			$config['upload_path'] = $image_path;
+			$config['allowed_types'] = 'gif|jpg|jpeg|png';
+			$config['max_size'] = '6048';
+			$config['file_name'] = $photo;
+		}
+		if (!empty($_FILES['photo']['name'])) {
+			$this->upload->initialize($config);
+			$this->upload->do_upload('photo');
+		}
 //print_r($query);exit();
 		redirect(base_url()."adminController/studentRequest");
 

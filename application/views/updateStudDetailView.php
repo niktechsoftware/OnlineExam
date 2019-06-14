@@ -1,7 +1,8 @@
 <div class="row">
 	<div class="col-md-12">
+   <?php $id= $this->uri->segment(3);?>
 		<h3><?php echo $subtitle;?></h3>
-		<form method="post" action="<?php echo base_url()?>adminController/studRegistration"  class="form-detail" enctype="multipart/form-data">
+		<form method="post" action="<?php echo base_url()?>adminController/studRegistration/<?php echo $id;?>"  class="form-detail" enctype="multipart/form-data">
 			 <div class="panel panel-calendar  exam_panel_body">
                 <div class="panel-heading bg_info border-light">
                     <h5 class="panel-title text-center">Registration Form</h5>
@@ -9,9 +10,9 @@
                <div class="panel-body">
                <div class="text-black text-large exam_panel">
                   <?php
-                        $id= $this->uri->segment(3);
-                        //print_r($id);
+                        
                         $this->db->where('id',$id);
+                        $this->db->where('status',1);
                         $row = $this->db->get('stud_registration')->row();
                         //print_r($row);
                   ?>
@@ -25,7 +26,9 @@
                                                 </div>
                                                 <div class="col-md-9">
                                                       <div class="form-group form-primary">
-                                                        <img width="200px" height="200px;" src="<?php echo base_url()?>assets/images/student/<?php echo $row->photo;?>">
+                                                        <img width="200px" name="photo"  height="200px;" src="<?php echo base_url()?>assets/images/student/<?php echo $row->photo;?>">  
+                                                        <input type="file" name="photo">
+
                                                             <span class="form-bar"></span>
                                                         </div>
                                                 </div>
@@ -50,6 +53,7 @@
                                                 <div class="col-md-9">
                                                       <div class="form-group form-primary">
                                                           <input type="text" name="name" class="form-control" required="" value="<?php echo $row->name;?>">
+                                                          <input type="hidden" name="id" class="form-control" required="" value="<?php echo $row->id;?>">
                                                             <span class="form-bar"></span>
                                                         </div>
                                                 </div>
@@ -77,7 +81,6 @@
                                                             <span class="form-bar"></span>
                                                         </div>
                                                 </div>
-                                               
                                           </div>
                                           <div class="row">
                                                 <div class="col-md-3">
@@ -89,7 +92,6 @@
                                                             <span class="form-bar"></span>
                                                         </div>
                                                 </div>
-                                               
                                           </div>
                                            <div class="row">
                                                 <div class="col-md-3">

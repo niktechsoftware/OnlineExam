@@ -10,24 +10,7 @@
                                         <span class="pcoded-micon"><i class="feather icon-home"></i></span>
                                          <span class="pcoded-mtext">Dashboard</span>
                                     </a>
-                                    <ul class="pcoded-submenu">
-                                       <!--  <li class="active">
-                                            <a href="index.html">
-                                                <span class="pcoded-mtext">Default</span>
-                                            </a>
-                                        </li> -->
-                                        <!-- <li class="">
-                                            <a href="dashboard-crm.html">
-                                                <span class="pcoded-mtext">CRM</span>
-                                            </a>
-                                        </li>
-                                        <li class=" ">
-                                            <a href="dashboard-analytics.html">
-                                                <span class="pcoded-mtext">Analytics</span>
-                                                <span class="pcoded-badge label label-info ">NEW</span>
-                                            </a>
-                                        </li> -->
-                                    </ul>
+                                   
                                 </li>
                                 <?php if(($this->session->userdata("login_type")==1) || ($this->session->userdata("login_type")==2) ):?>
                 
@@ -49,7 +32,7 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="pcoded-hasmenu">
+                                 <li class="pcoded-hasmenu">
                                     <a href="#">
                                         <span class="pcoded-micon"><i class="feather icon-home"></i></span>
                                         <span class="pcoded-mtext">Admin</span>
@@ -62,17 +45,45 @@
                                         </li>
                                         <li class="">
                                             <a href="<?php echo base_url();?>examconfiguration/quesConfigur">
+                                                <span class="pcoded-mtext">Requested Branch</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="pcoded-hasmenu">
+                                    <a href="#">
+                                        <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                                        <span class="pcoded-mtext">Branch</span>
+                                    </a>
+                                    <ul class="pcoded-submenu">
+                                        <li class="">
+                                        <a href="<?php echo base_url();?>examconfiguration/examConfigur">
+                                                <span class="pcoded-mtext">Registration Sub Branch</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                        <a href="<?php echo base_url();?>examconfiguration/examConfigur">
+                                                <span class="pcoded-mtext">View Profile</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                        <a href="<?php echo base_url();?>examconfiguration/examConfigur">
+                                                <span class="pcoded-mtext">Show  Sub Branch</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="<?php echo base_url();?>examconfiguration/quesConfigur">
                                                 <span class="pcoded-mtext">Show Student</span>
                                             </a>
                                         </li>
                                          <li class="">
                                             <a href="<?php echo base_url();?>adminController/branchRequest">
-                                                <span class="pcoded-mtext">Request Branch</span>
+                                                <span class="pcoded-mtext">Requested Sub Branch</span>
                                             </a>
                                         </li>
                                          <li class="">
                                             <a href="<?php echo base_url();?>adminController/studentRequest">
-                                                <span class="pcoded-mtext">Request Student</span>
+                                                <span class="pcoded-mtext">Requested Student</span>
                                             </a>
                                         </li>
                                     </ul>
@@ -84,17 +95,22 @@
                              <li class="pcoded-hasmenu">
                                     <a href="#">
                                         <span class="pcoded-micon"><i class="feather icon-clipboard"></i></span>
-                                        <span class="pcoded-mtext" >Branch</span>
+                                        <span class="pcoded-mtext"> Sub Branch</span>
                                     </a>
                                     <ul class="pcoded-submenu"><?php if(($this->session->userdata("login_type")==1)):?>
                                         <li class=" ">
                                             <a href="<?php echo base_url();?>branchController/branchIndex">
-                                                <span class="pcoded-mtext" >Registration</span>
+                                                <span class="pcoded-mtext" > Student Registration</span>
                                             </a>
                                         </li><?php  endif;?><?php if(($this->session->userdata("login_type")==2)):?>
                                         <li class=" ">
                                             <a href="<?php echo base_url();?>branchController/viewBranch">
                                                 <span class="pcoded-mtext" >View Profile</span>
+                                            </a>
+                                        </li>
+                                         <li class=" ">
+                                            <a href="<?php echo base_url();?>branchController/branchIndex">
+                                                <span class="pcoded-mtext" >Show Student List</span>
                                             </a>
                                         </li>
                                         <li class=" ">
