@@ -38,7 +38,7 @@ class SubbranchController extends CI_Controller{
 			'country' => $branchCountry,
 			'pincode' => $pincode,
 			//'username' => $usename,
-			'login_type' => 2,
+			'login_type' => 4,
 			'status' => 0,
 			'password' =>$password,
 			'branch_id'=>$id,
@@ -82,6 +82,16 @@ class SubbranchController extends CI_Controller{
 		//$data['view'] =$branch;
     $this->load->view("base/body", $data);
 	}
-	
+	public function showSubBranch(){
+		$data['title'] = ' Sub Branch View Area';
+		$data['headercss'] = 'branchViewCss';
+		$data['header'] = 'header';
+		$data['sidemenu'] = 'sidemenu';
+		$data['contend'] = 'subbranchShow';
+		$data['subtitle'] = 'Search  Sub Branch';
+		$data['customizer'] = 'customizer';
+		$data['footer'] = 'footer';
+		$data['footerjs'] = 'branchViewJs';
+	}
 }
 ?>
