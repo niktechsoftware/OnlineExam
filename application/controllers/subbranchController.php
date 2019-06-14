@@ -37,7 +37,6 @@ class SubbranchController extends CI_Controller{
 			'state' => $branchState,
 			'country' => $branchCountry,
 			'pincode' => $pincode,
-			//'username' => $usename,
 			'login_type' => 4,
 			'status' => 0,
 			'password' =>$password,
@@ -46,7 +45,6 @@ class SubbranchController extends CI_Controller{
 		$insert=$this->db->insert('sub_branch',$data);
 		 $a = $this->db->query('select id from sub_branch ORDER BY id DESC LIMIT 1')->row();
        $this->db->where('id',$a->id);
-       //$que = $this->db->get('branch')->row();
         $val = array(
                 "username" => 'SUBBRANCH'.$a->id
         );
@@ -82,7 +80,7 @@ class SubbranchController extends CI_Controller{
 		//$data['view'] =$branch;
     $this->load->view("base/body", $data);
 	}
-	public function showSubBranch(){
+	public function showsubBranch(){
 		$data['title'] = ' Sub Branch View Area';
 		$data['headercss'] = 'branchViewCss';
 		$data['header'] = 'header';
@@ -92,6 +90,35 @@ class SubbranchController extends CI_Controller{
 		$data['customizer'] = 'customizer';
 		$data['footer'] = 'footer';
 		$data['footerjs'] = 'branchViewJs';
+		 $this->load->view("base/body", $data);
+	}
+	public function branchApprove(){
+		$data['title'] = ' Sub Branch View Area';
+		$data['headercss'] = 'branchViewCss';
+		$data['header'] = 'header';
+		$data['sidemenu'] = 'sidemenu';
+		$data['contend'] = 'branchApprove';
+		$data['subtitle'] = 'Search  Sub Branch';
+		$data['customizer'] = 'customizer';
+		$data['footer'] = 'footer';
+		$data['footerjs'] = 'branchViewJs';
+		 $this->load->view("base/body", $data);
+	}
+	public function updatestatus(){
+         $status = $this->input->post('status');
+        $this->db->where('id',$status);
+      $branchid=$this->db->get('sub_branch')->row()->status;
+      if($branchid == 1){
+        $data= array("status" => 0);
+        //print_r($data);
+        $this->db->where('id',$status);
+        $this->db->update("sub_branch",$data);
+
+    }else{
+        $data= array("status" => 1);
+         $this->db->where('id',$status);
+        $this->db->update("sub_branch",$data);
+   	 }
 	}
 }
 ?>

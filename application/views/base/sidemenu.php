@@ -73,13 +73,13 @@
                                             </a>
                                         </li>
                                          <li class="">
-                                            <a href="<?php echo base_url();?>adminController/branchRequest">
+                                            <a href="<?php echo base_url();?>subbranchController/branchApprove">
                                                 <span class="pcoded-mtext">Requested Sub Branch</span>
                                             </a>
                                         </li>
 
                                          <li class="">
-                                        <a href="<?php echo base_url();?>examconfiguration/examConfigur">
+                                        <a href="<?php echo base_url();?>subbranchController/showsubBranch">
                                                 <span class="pcoded-mtext">Show  Sub Branch</span>
                                             </a>
                                         </li>

@@ -29,8 +29,10 @@
 						<?php 
 
 $a=$this->session->userdata('username');
-
-							$this->db->where('status',1);
+$this->db->where('username',$a);
+$branchId=$this->db->get('branch')->row();
+$this->db->where('branch_id',$branchId->id);
+							$this->db->where('status',0);
 						$view = $this->db->get('sub_branch')->result();
 						$i=1;
 					 foreach($view as $row){
@@ -79,7 +81,7 @@ $a=$this->session->userdata('username');
  	let status = stID.id;
  	//alert(status);
  $.ajax({
-					url: "<?= base_url() ?>adminController/updatestatus",
+					url: "<?= base_url() ?>subbranchController/updatestatus",
 					type: 'POST',
 					data: {"status": status},
 					success: function(data){
