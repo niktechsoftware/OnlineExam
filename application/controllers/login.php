@@ -122,7 +122,7 @@ class login extends CI_Controller {
         $local_country = $this->input->post('local_country');
         $local_pincode = $this->input->post('local_pincode');
         $password = $this->input->post('password');
-      echo  $pass=md5($password);
+    
         $data = array(
                 'name' => $name,
                 'dob' => $dob,

@@ -228,19 +228,28 @@ class AdminController extends CI_Controller{
 
 	}
 	public function showAdminBranch(){
-		$data['title'] = 'Branch Registration Area';
+		$data['title'] = 'Branch List Area';
 			$data['headercss'] = 'adminStud_css';
 			$data['header'] = 'header';
 			$data['sidemenu'] = 'sidemenu';
-			$data['contend'] = 'adminBranchReg';
-			$data['subtitle'] = 'Branch Registration';
+			$data['contend'] = 'showAdminBranch';
+			$data['subtitle'] = 'Branch List';
 			$data['customizer'] = 'customizer';
 			$data['footer'] = 'footer';
 			$data['footerjs'] = 'adminStud_js';
 	  		$this->load->view("base/body", $data);
 	}
 	public function branchReg(){
-
+		$data['title'] = 'Branch List Area';
+			$data['headercss'] = 'adminStud_css';
+			$data['header'] = 'header';
+			$data['sidemenu'] = 'sidemenu';
+			$data['contend'] = 'adminBranchReg';
+			$data['subtitle'] = 'Branch List';
+			$data['customizer'] = 'customizer';
+			$data['footer'] = 'footer';
+			$data['footerjs'] = 'adminStud_js';
+	  		$this->load->view("base/body", $data);
 	}
 }
 ?>
