@@ -210,7 +210,7 @@ if(strlen($data1->row()->photo)>0){
                     ?>
 
                      <?php $subbranch=$this->session->userdata('login_type');
-                      if($subbranch==3)
+                      if($subbranch==4)
                       {
                         ?>
                          <a href="<?php echo base_url();?>/index.php/subbranchController/viewsubBranch">

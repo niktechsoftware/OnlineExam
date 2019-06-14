@@ -110,15 +110,16 @@ class SubbranchController extends CI_Controller{
       $branchid=$this->db->get('sub_branch')->row()->status;
       if($branchid == 1){
         $data= array("status" => 0);
-        //print_r($data);
         $this->db->where('id',$status);
         $this->db->update("sub_branch",$data);
-
     }else{
         $data= array("status" => 1);
          $this->db->where('id',$status);
         $this->db->update("sub_branch",$data);
    	 }
+	}
+	public function branchView(){
+
 	}
 }
 ?>
