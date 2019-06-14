@@ -39,7 +39,7 @@
                                     </a>
                                     <ul class="pcoded-submenu">
                                         <li class="">
-                                        <a href="<?php echo base_url();?>adminController/examConfigur">
+                                        <a href="<?php echo base_url();?>adminController/showAdminBranch">
                                                 <span class="pcoded-mtext">Branch Registration</span>
                                             </a>
                                         </li>
