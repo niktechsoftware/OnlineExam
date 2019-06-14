@@ -39,9 +39,9 @@
                                     </a>
                                     <ul class="pcoded-submenu">
 
-                                         <li class="">
-                                        <a href="<?php echo base_url();?>branchController/branchIndex">
-                                                <span class="pcoded-mtext">Branch Registration</span>
+                                        <li class="">
+                                        <a href="<?php echo base_url();?>adminController/branchReg">
+                                             <span class="pcoded-mtext">Branch Registration</span>
                                             </a>
                                         </li>
                                         <li class="">
