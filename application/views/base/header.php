@@ -179,26 +179,53 @@ if(strlen($data1->row()->photo)>0){
                   </div>
                   <ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn"
                     data-dropdown-out="fadeOut">
-                    <li>
+                   <!--  <li>
                       <a href="#!">
                         <i class="feather icon-settings"></i> Settings
                       </a>
-                    </li>
+                    </li> --><?php $branch=$this->session->userdata('login_type');?>
                     <li>
-                      <a href="user-profile.html">
+                  <?php    if($branch==2)
+                      {
+                        ?>
+                         <a href="<?php echo base_url();?>/index.php/branchController/viewBranch">
                         <i class="feather icon-user"></i> Profile
                       </a>
-                    </li>
+                  
+                    </li> <?php   }
+
+                    ?>
                     <li>
-                      <a href="email-inbox.html">
-                        <i class="feather icon-mail"></i> My Messages
+                      <?php $std=$this->session->userdata('login_type');
+                      if($std==3)
+                      {
+                        ?>
+                         <a href="<?php echo base_url();?>/index.php/studentController/studentprofile">
+                        <i class="feather icon-user"></i> Profile
                       </a>
-                    </li>
-                    <li>
+                  
+                      
+                    </li> <?php   }
+
+                    ?>
+
+                     <?php $subbranch=$this->session->userdata('login_type');
+                      if($subbranch==3)
+                      {
+                        ?>
+                         <a href="<?php echo base_url();?>/index.php/subbranchController/viewsubBranch">
+                        <i class="feather icon-user"></i> Profile
+                      </a>
+                  
+                      
+                    </li> <?php   }
+
+                    ?>
+                   <!--  <li>
                       <a href="auth-lock-screen.html">
                         <i class="feather icon-lock"></i> Lock Screen
                       </a>
-                    </li>
+                    </li> -->
                     <li>
                       <a href="<?php echo base_url();?>welcome/logout">
                         <i class="feather icon-log-out"></i> Logout

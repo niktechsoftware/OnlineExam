@@ -38,7 +38,7 @@ class SubbranchController extends CI_Controller{
 			'country' => $branchCountry,
 			'pincode' => $pincode,
 			//'username' => $usename,
-			'login_type' => 2,
+			'login_type' => 4,
 			'status' => 0,
 			'password' =>$password,
 			'branch_id'=>$id,

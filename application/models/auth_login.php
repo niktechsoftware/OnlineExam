@@ -30,6 +30,7 @@ class Auth_login extends CI_Model {
 		 }
 		 $this->db->where('username', $username);
 		$this->db->where('password',$password);
+		$this->db->where('status',1);
 		 $query = $this->db->get('branch');
 		if ($query->num_rows() > 0)
 		{
@@ -49,6 +50,7 @@ class Auth_login extends CI_Model {
 		 }
 		 $this->db->where('username', $username);
 		$this->db->where('password',$password);
+		$this->db->where('status',1);
 		 $query1 = $this->db->get('stud_registration');
 		if ($query1->num_rows() > 0)
 		{
@@ -58,6 +60,28 @@ class Auth_login extends CI_Model {
 		        "username" => $ress->username,
 		        "password" => $ress->password,
 				"login_type" => 3,
+				"is_login" => true,
+				"is_lock" => true,
+				"login_date" => date("d-M-Y"),
+				"login_time" => date("H:i:s"),
+		         "name" => $res->name,
+		    );
+		    return $loginData;
+		 }
+
+
+		  $this->db->where('username', $username);
+		$this->db->where('password',$password);
+		$this->db->where('status',1);
+		 $query1 = $this->db->get('sub_branch');
+		if ($query1->num_rows() > 0)
+		{
+		    $ress = $query1->row();
+		    $loginData = array(
+		        "id" => $res->id,
+		        "username" => $ress->username,
+		        "password" => $ress->password,
+				"login_type" => 4,
 				"is_login" => true,
 				"is_lock" => true,
 				"login_date" => date("d-M-Y"),

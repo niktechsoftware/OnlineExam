@@ -50,7 +50,7 @@
                                             </a>
                                         </li>
                                         <li class="">
-                                            <a href="<?php echo base_url();?>examconfiguration/quesConfigur">
+                                            <a href="<?php echo base_url();?>adminController/branchRequest">
                                                 <span class="pcoded-mtext">Requested Branch</span>
                                             </a>
                                         </li>
@@ -86,9 +86,17 @@
 
 
 
-                                    <?php  endif;?><?php if(($this->session->userdata("login_type")==2)||($this->session->userdata("login_type")==4)):?>
+                                    <?php  endif;?>
+                                    <?php if(($this->session->userdata("login_type")==2)):?>
                                         <li class=" ">
                                             <a href="<?php echo base_url();?>branchController/viewBranch">
+                                                <span class="pcoded-mtext" >View Profile</span>
+                                            </a>
+                                        </li>
+                                        <?php  endif;?>
+                                         <?php if(($this->session->userdata("login_type")==4)):?>
+                                        <li class=" ">
+                                            <a href="<?php echo base_url();?>subbranchController/viewsubBranch">
                                                 <span class="pcoded-mtext" >View Profile</span>
                                             </a>
                                         </li>
