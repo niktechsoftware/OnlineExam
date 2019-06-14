@@ -39,12 +39,17 @@
                                     </a>
                                     <ul class="pcoded-submenu">
                                         <li class="">
-                                        <a href="<?php echo base_url();?>examconfiguration/examConfigur">
+                                        <a href="<?php echo base_url();?>adminController/examConfigur">
+                                                <span class="pcoded-mtext">Branch Registration</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                        <a href="<?php echo base_url();?>adminController/showAdminBranch">
                                                 <span class="pcoded-mtext">Show Branch</span>
                                             </a>
                                         </li>
                                         <li class="">
-                                            <a href="<?php echo base_url();?>examconfiguration/quesConfigur">
+                                            <a href="<?php echo base_url();?>adminController/branchRequest">
                                                 <span class="pcoded-mtext">Requested Branch</span>
                                             </a>
                                         </li>
@@ -77,7 +82,7 @@
                                             </a>
                                         </li>
                                          <li class="">
-                                            <a href="<?php echo base_url();?>adminController/branchRequest">
+                                            <a href="">
                                                 <span class="pcoded-mtext">Requested Sub Branch</span>
                                             </a>
                                         </li>
