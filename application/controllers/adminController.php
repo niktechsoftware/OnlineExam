@@ -31,16 +31,72 @@ class AdminController extends CI_Controller{
         $this->db->update("branch",$data);
    	 }
 	}
-	public function branchView(){
-		$data['title'] = 'Branch View  Area';
+	public function updateBranchDetailView(){
+		$data['title'] = 'Branch Update  Area';
 			$data['headercss'] = 'branchCss';
 			$data['header'] = 'header';
 			$data['sidemenu'] = 'sidemenu';
-			$data['contend'] = 'branchView';
-			$data['subtitle'] = ' Branch View';
+			$data['contend'] = 'updatebranchDetailView';
+			$data['subtitle'] = 'Pending Branch Request';
 			$data['customizer'] = 'customizer';
 			$data['footer'] = 'footer';
 			$data['footerjs'] = 'branchJs';
+	  		$this->load->view("base/body", $data);
+	}
+		public function updatebranchRegistration(){
+			$id = $this->uri->segment(3);
+		$branch_Name = $this->input->post('branch_name');
+		$mobile = $this->input->post('mobile');
+		$email = $this->input->post('email');
+		$photo =  trim($_FILES['photo']['name']);
+		$address = $this->input->post('address');
+		$branchCity = $this->input->post('branch_city');
+		$branchState = $this->input->post('branch_state');
+		$branchCountry = $this->input->post('branch_country');
+		$pincode = $this->input->post('branch_pincode');
+		$password = $this->input->post('password');
+		$data =array(
+			'branch_name' => $branch_Name,
+			'mobile_no' => $mobile,
+			'email_id' => $email,
+			'photo' => $photo,
+			'address' => $address,
+			'city' => $branchCity,
+			'state' => $branchState,
+			'country' => $branchCountry,
+			'pincode' => $pincode,
+			'password' =>$password
+		);
+		$this->db->where("id",$id);
+		$query = $this->db->update("branch",$data);
+		if($query)
+		{
+			$this->load->library('upload');
+			$image_path = realpath(APPPATH . '../assets/images/branch');
+			$config['upload_path'] = $image_path;
+			$config['allowed_types'] = 'gif|jpg|jpeg|png';
+			$config['max_size'] = '6048';
+			$config['file_name'] = $photo;
+		}
+		if (!empty($_FILES['photo']['name'])) {
+			$this->upload->initialize($config);
+			$this->upload->do_upload('photo');
+		}
+//print_r($query);exit();
+		redirect(base_url()."adminController/branchRequest");
+
+	
+	}
+	public function adminbranchView(){
+		$data['title'] = 'Branch View  Area';
+			$data['headercss'] = 'adminStud_css';
+			$data['header'] = 'header';
+			$data['sidemenu'] = 'sidemenu';
+			$data['contend'] = 'adminbranchView';
+			$data['subtitle'] = ' Branch View';
+			$data['customizer'] = 'customizer';
+			$data['footer'] = 'footer';
+			$data['footerjs'] = 'adminStud_js';
 	  		$this->load->view("base/body", $data);
 	}
 	public function studentRequest(){
@@ -98,7 +154,7 @@ class AdminController extends CI_Controller{
 	}
 	public function studRegistration(){
 		$id = $this->uri->segment(3);
-		print_r($id);
+		//print_r($id);
 		$name = $this->input->post('name');
 		$dob = $this->input->post('dob');
 		$email = $this->input->post('email');
@@ -168,9 +224,20 @@ class AdminController extends CI_Controller{
 			$this->upload->initialize($config);
 			$this->upload->do_upload('photo');
 		}
-//print_r($query);exit();
 		redirect(base_url()."adminController/studentRequest");
 
+	}
+	public function showAdminBranch(){
+		$data['title'] = 'Branch List Area';
+			$data['headercss'] = 'adminStud_css';
+			$data['header'] = 'header';
+			$data['sidemenu'] = 'sidemenu';
+			$data['contend'] = 'showAdminBranch';
+			$data['subtitle'] = 'Branch List';
+			$data['customizer'] = 'customizer';
+			$data['footer'] = 'footer';
+			$data['footerjs'] = 'adminStud_js';
+	  		$this->load->view("base/body", $data);
 	}
 }
 ?>

@@ -2,10 +2,10 @@
 	<div class="col-md-12">
       <?php  $id= $this->uri->segment(3);
                   $uname= $this->session->userdata('username');
-                 // print_r($id);
-                  //print_r($uname);?>
+                  //print_r($id);
+                 // print_r($uname);?>
 		<h3><?php echo $subtitle;?></h3>
-		<form method="post" action="<?php echo base_url()?>adminController/branchRegistration"  class="form-detail" enctype="multipart/form-data">
+		<form method="post" action="<?php echo base_url()?>adminController/updatebranchRegistration/<?php echo $id;?>"  class="form-detail" enctype="multipart/form-data">
 			 <div class="panel panel-calendar  exam_panel_body">
                 <div class="panel-heading bg_info border-light">
                     <h5 class="panel-title text-center">Branch Registration</h5>
@@ -13,10 +13,10 @@
                <div class="panel-body">
                <div class="text-black text-large exam_panel">
                	<?php 
-               	$this->db->where('username',$uname);
-                  //$this->db->where('id',$id);
+               	//$this->db->where('username',$uname);
+                  $this->db->where('id',$id);
                	$row = $this->db->get('branch');
-                  print_r($row);
+                 // print_r($row);
                   if($row->num_rows()>0)
                   {                 
 ?>
@@ -25,23 +25,35 @@
                        <div class="row">
                           <div class="col-md-4">
                            <div class="row">
-                                 <div class="col-md-3"><label> Photo</label></div>
-                                 <div class="col-md-9">
+                                 <!-- <div class="col-md-3"><label> Photo</label></div> -->
+                                 <div class="col-md-12">
                                     <div class="form-group form-primary">
                                    <img width="200px" height="200px;" src="<?php echo base_url()?>assets/images/branch/<?php echo $row->row()->photo;?>">
+                                   <input type="file" name="photo">
                                     <span class="form-bar"></span>
                                 </div>
                                  </div>
+                                
                               </div>
                               <hr>
                              <div class="row">
-                                 <div class="col-md-4"><label>User Name</label></div>
-                                 <div class="col-md-8">
+                                 <div class="col-md-3"><label>User Name</label></div>
+                                 <div class="col-md-9">
                                     <div class="form-group form-primary">
                                    <label><?php echo $row->row()->username;?></label>
                                     <span class="form-bar"></span>
                                 </div>
                                  </div>
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-3"><label>Password</label></div>
+                                 <div class="col-md-9">
+                                    <div class="form-group form-primary">
+                                   <input type="text" name="password" class="form-control" required="" value="<?php echo $row->row()->password;?>" >
+                                    <span class="form-bar"></span>
+                                  </div>
+                                 </div>
+                                 
                               </div>
                           </div>
                           <div class="col-md-8">
@@ -54,6 +66,7 @@
                                     <span class="form-bar"></span>
                                 </div>
                                  </div>
+                                 
                               </div>
                                <div class="row">
                                  <div class="col-md-3"><label>Mobile No</label></div>
@@ -63,6 +76,7 @@
                                     <span class="form-bar"></span>
                                 </div>
                                  </div>
+                                
                               </div>
                               <div class="row">
                                  <div class="col-md-3"><label>Email Id</label></div>
@@ -72,6 +86,7 @@
                                     <span class="form-bar"></span>
                                 </div>
                                  </div>
+                                 
                               </div>
                               <div class="row">
                                  <div class="col-md-3"><label>Address</label></div>
@@ -81,6 +96,7 @@
                                     <span class="form-bar"></span>
                                 </div>
                                  </div>
+                                 
                               </div>
                                <div class="row">
                                  <div class="col-md-3"><label>City</label></div>
@@ -90,6 +106,7 @@
                                     <span class="form-bar"></span>
                                 </div>
                                  </div>
+                               
                               </div>
                                <div class="row">
                                  <div class="col-md-3"><label>State</label></div>
@@ -99,6 +116,7 @@
                                     <span class="form-bar"></span>
                                 </div>
                                  </div>
+                                 
                               </div>
                               <div class="row">
                                  <div class="col-md-3"><label>Country</label></div>
@@ -108,6 +126,7 @@
                                     <span class="form-bar"></span>
                                 </div>
                                  </div>
+                                 
                               </div>
                               <div class="row">
                                  <div class="col-md-3"><label>Pincode</label></div>
@@ -117,9 +136,17 @@
                                     <span class="form-bar"></span>
                                 </div>
                                  </div>
-                              </div>
                           </div>
+                          
+                                 
+                          </div>
+
                        </div>
+                        <div class="row">
+                                 <div class="col-md-12">
+                                    <button class="btn btn-info btn-block">Update Details</button>
+                                </div>
+                                 </div>
                     </div>
                  </div>      
 					<?php }?>
