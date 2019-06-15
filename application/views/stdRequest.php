@@ -25,13 +25,20 @@
 					</tr>
 					</thead>
 					<tbody>
-						<?php $view = $this->db->get('stud_registration')->result();
+						<?php 
+						$a=$this->session->userdata('username');
+$this->db->where('username',$a);
+$branchId=$this->db->get('branch')->row();
+$this->db->where('branch_id',$branchId->id);
+							$this->db->where('status',0);
+						$view = $this->db->get('stud_registration')->result();
 						$i=1;
+
 					 foreach($view as $row){
 					 ?>
 						<tr>
 						<th><?php echo $i;?></th>
-						<th><a href="<?php echo base_url(); ?>adminController/studView/<?php echo $row->id;?>" ><?php echo $row->username;?></a></th>
+						<th><?php echo $row->username;?></th>
 						<th><?php echo $row->name;?></th>
 						<th><?php echo $row->mobile_no;?></th>
 						<th><?php echo $row->email_id;?></th>

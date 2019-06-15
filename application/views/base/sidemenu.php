@@ -114,18 +114,18 @@
                                     </a>
                                     <ul class="pcoded-submenu"><?php if(($this->session->userdata("login_type")==2)||($this->session->userdata("login_type")==4)):?>
                                         <li class=" ">
-                                            <a href="<?php echo base_url();?>studentController/studentIndex">
+                                            <a href="<?php echo base_url();?>branchController/studentIndex">
                                                 <span class="pcoded-mtext" >Registration</span>
                                             </a>
                                         </li>
 
                                          <li class="">
-                                            <a href="<?php echo base_url();?>examconfiguration/quesConfigur">
+                                            <a href="<?php echo base_url();?>branchController/showStudList">
                                                 <span class="pcoded-mtext">Show Student</span>
                                             </a>
                                         </li>
                                        <li class="">
-                                            <a href="<?php echo base_url();?>adminController/studentRequest">
+                                            <a href="<?php echo base_url();?>branchController/studentRequest">
                                                 <span class="pcoded-mtext">Requested Student</span>
                                             </a>
                                         </li>
@@ -141,7 +141,7 @@
                                      <?php  if(($this->session->userdata("login_type")==3) || ($this->session->userdata("login_type")==2) || ($this->session->userdata("login_type")==4) ):?>
                 
                                         <li class=" ">
-                                            <a href="<?php echo base_url();?>studentController/studentIndex">
+                                            <a href="<?php echo base_url();?>branchController/branchExamSection">
                                                 <span class="pcoded-mtext" >Exam Section</span>
                                             </a>
                                         </li><?php  endif;?>

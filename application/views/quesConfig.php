@@ -103,7 +103,7 @@
                                 </div>
                                 <div class="col-md-4">
                                    <a href="#" class="btn btn-sm btn-round btn-primary" id="uploadQuesButton"><i class="ion-checkmark-round"></i>
-                              Add Question</a>
+                              Upload Question</a>
                                 </div>
                               </div>
                             </div>

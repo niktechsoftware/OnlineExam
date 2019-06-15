@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-md-12">
 		<h3><?php echo $subtitle;?></h3>
-		<form method="post" action="<?php echo base_url()?>studentController/studRegistration"  class="form-detail" enctype="multipart/form-data">
+		<form method="post" action="<?php echo base_url()?>branchController/studRegistration"  class="form-detail" enctype="multipart/form-data">
 			 <div class="panel panel-calendar  exam_panel_body">
                 <div class="panel-heading bg_info border-light">
                     <h5 class="panel-title text-center">Registration Form</h5>
@@ -75,11 +75,7 @@
                   			<th>Disability Description</th>
                   		<td><input type="text" name="disDescription" class="form-control" ></td>
                   	</tr>
-                  	<tr>
-                  		<th>Exam Name</th>
-                  		<td><input type="text" name="ename" class="form-control" ></td>
-                  		
-                  	</tr>
+                  	
                   	<tr><th colspan="4">Permanent Address</th></tr>
                   	<tr>
                   		<th>Address</th>
@@ -116,13 +112,10 @@
                   	<tr>
                   		<th>Country</th>
                   		<td><input type="text" class="form-control" name="loc_country" required=""></td>
+                              <th>Password</th>
+                              <td><input type="password" name="pwd" class="form-control" required=""></td>
                   	</tr>
-                  	<tr>
-                  		<th>Username</th>
-                  		<td><input type="text" name="username" class="form-control" required="" ></td>
-                  		<th>Password</th>
-                  		<td><input type="password" name="pwd" class="form-control" required=""></td>
-                  	</tr>
+                  	
                   	<tr>
                   		<td class="text-center"><input type="submit" name="branchSubmit" class="btn btn-md btn-primary" required="" value="Submit"></td>
                   		<td class="text-center"> <input type="reset" name="branchreset" class="btn btn-md btn-primary" required="" value="Reset"></td>

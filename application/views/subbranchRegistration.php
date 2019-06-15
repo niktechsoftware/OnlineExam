@@ -23,7 +23,7 @@
                   	</tr>
                   	<tr>
                   		<th style=" padding-top: 20px;">Branch Photo</th>
-                  		<td><input type="file" name="branch_img" class="form-control" ></td>
+                  		<td><input type="file" name="photo" class="form-control" ></td>
                   	</tr>
                   	<tr>
                   		<th style=" padding-top: 20px;">Address</th>

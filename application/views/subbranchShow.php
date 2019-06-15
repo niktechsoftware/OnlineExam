@@ -29,7 +29,9 @@
 						<?php 
 
 $a=$this->session->userdata('username');
-
+	$this->db->where('username',$a);
+	$branchId = $this->db->get('branch')->row();
+	$this->db->where('branch_id',$branchId->id);
 							$this->db->where('status',1);
 						$view = $this->db->get('sub_branch')->result();
 						$i=1;
@@ -38,7 +40,7 @@ $a=$this->session->userdata('username');
 					 ?>
 						<tr>
 						<th><?php echo $i;?></th>
-						<th> <a href="<?php echo base_url(); ?>adminController/adminbranchView/<?php echo $row->id;?>" ><?php echo $row->username;?></a></th>
+						<th> <a href="<?php echo base_url(); ?>subbranchController/subbranchView/<?php echo $row->id;?>" ><?php echo $row->username;?></a></th>
 						<th><?php echo $row->branch_name;?></th>
 						<th><?php echo $row->mobile_no;?></th>
 						<th><?php echo $row->email_id;?></th>

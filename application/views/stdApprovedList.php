@@ -1,4 +1,3 @@
-
 <div class="row">
 	<div class="col-md-12">
 		<div class="row">
@@ -18,32 +17,32 @@
 						<tr>
 						<th> No</th>
 						<th>Username</th>
-						<th>Branch Name</th>
+						<th>Name</th>
 						<th>Mobile No</th>
 						<th>Email Id</th>
+						<th>Qualification</th>
 						<th>Status</th>
 					</tr>
 					</thead>
-
 					<tbody>
 						<?php 
-
-$a=$this->session->userdata('username');
+						$a=$this->session->userdata('username');
 $this->db->where('username',$a);
 $branchId=$this->db->get('branch')->row();
 $this->db->where('branch_id',$branchId->id);
-							$this->db->where('status',0);
-						$view = $this->db->get('sub_branch')->result();
+							$this->db->where('status',1);
+						$view = $this->db->get('stud_registration')->result();
 						$i=1;
+
 					 foreach($view as $row){
-					 	//print_r($row);
 					 ?>
 						<tr>
 						<th><?php echo $i;?></th>
-						<th> <?php echo $row->username;?></th>
-						<th><?php echo $row->branch_name;?></th>
+						<th><a href="<?php echo base_url(); ?>branchController/branchViewProfile/<?php echo $row->id;?>" ><?php echo $row->username;?></a></th>
+						<th><?php echo $row->name;?></th>
 						<th><?php echo $row->mobile_no;?></th>
 						<th><?php echo $row->email_id;?></th>
+						<th><?php echo $row->education;?></th>
 						<?php 		
 							if($row->status == 0){ ?>
 								<th><a href="" class="btn btn-sm btn-info" id="<?php echo $row->id;?>" value="0" onclick="myFunction(this)"><i class="fa fa-trash-o"></i>Approve For Activation</a></th>
@@ -51,8 +50,7 @@ $this->db->where('branch_id',$branchId->id);
 							else{?>
 							<th><a href="#" class="btn btn-sm btn-success" id="<?php echo $row->id;?>" value="1" onclick="myFunction(this)"><i class="fa fa-trash-o"></i>Approved</a></th>
 						<?php }
-							?></th>
-						
+							?>
 					</tr>
 				<?php $i++;}?>
 					</tbody>
@@ -60,9 +58,10 @@ $this->db->where('branch_id',$branchId->id);
 						<tr>
 						<th> No</th>
 						<th>Username</th>
-						<th>Branch Name</th>
+						<th>Name</th>
 						<th>Mobile No</th>
 						<th>Email Id</th>
+						<th>Qualification</th>
 						<th>Status</th>
 					</tr>
 					</tfoot>
@@ -76,12 +75,11 @@ $this->db->where('branch_id',$branchId->id);
 </div>
 <script>
 	
-			
 			function myFunction(stID) {
  	let status = stID.id;
  	//alert(status);
  $.ajax({
-					url: "<?= base_url() ?>subbranchController/updatestatus",
+					url: "<?= base_url() ?>adminController/updateStudStatus",
 					type: 'POST',
 					data: {"status": status},
 					success: function(data){

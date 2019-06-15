@@ -18,20 +18,20 @@ class SubbranchController extends CI_Controller{
 		$branch_Name = $this->input->post('branch_name');
 		$mobile = $this->input->post('mobile');
 		$email = $this->input->post('email');
-		$bImage =  trim($_FILES['branch_img']['name']);
+		$photo =  trim($_FILES['photo']['name']);
 		$address = $this->input->post('address');
 		$branchCity = $this->input->post('branch_city');
 		$branchState = $this->input->post('branch_state');
 		$branchCountry = $this->input->post('branch_country');
 		$pincode = $this->input->post('branch_pincode');
-		$usename = $this->input->post('branch_username');
+		//$usename = $this->input->post('branch_username');
 		$password = $this->input->post('branch_pwd');
 		$id=$this->session->userdata('id');
 		$data =array(
 			'branch_name' => $branch_Name,
 			'mobile_no' => $mobile,
 			'email_id' => $email,
-			'photo' => $bImage,
+			'photo' => $photo,
 			'address' => $address,
 			'city' => $branchCity,
 			'state' => $branchState,
@@ -57,11 +57,11 @@ class SubbranchController extends CI_Controller{
 			$config['upload_path'] = $image_path;
 			$config['allowed_types'] = 'gif|jpg|jpeg|png';
 			$config['max_size'] = '6048';
-			$config['file_name'] = $bImage;
+			$config['file_name'] = $photo;
 		}
 		if (!empty($_FILES['photo']['name'])) {
 			$this->upload->initialize($config);
-			$this->upload->do_upload('branch_img');
+			$this->upload->do_upload('photo');
 		}
 		redirect(base_url('/subbranchController/subbranchIndex'));
 	}
@@ -75,9 +75,6 @@ class SubbranchController extends CI_Controller{
 		$data['customizer'] = 'customizer';
 		$data['footer'] = 'footer';
 		$data['footerjs'] = 'branchViewJs';
-		//$this->load->model('branchModel');
-		//$branch = $this->branchModel->branchView();
-		//$data['view'] =$branch;
     $this->load->view("base/body", $data);
 	}
 	public function showsubBranch(){
@@ -119,7 +116,83 @@ class SubbranchController extends CI_Controller{
    	 }
 	}
 	public function branchView(){
+		$data['title'] = ' Sub Branch View Area';
+		$data['headercss'] = 'branchViewCss';
+		$data['header'] = 'header';
+		$data['sidemenu'] = 'sidemenu';
+		$data['contend'] = 'branchApprove';
+		$data['subtitle'] = 'Search  Sub Branch';
+		$data['customizer'] = 'customizer';
+		$data['footer'] = 'footer';
+		$data['footerjs'] = 'branchViewJs';
+		 $this->load->view("base/body", $data);
+	}
+	public function subbranchView(){
+		$data['title'] = 'Sub Branch Update Area';
+		$data['headercss'] = 'branchViewCss';
+		$data['header'] = 'header';
+		$data['sidemenu'] = 'sidemenu';
+		$data['contend'] = 'subbranchView';
+		$data['subtitle'] = 'Update Sub Branch';
+		$data['customizer'] = 'customizer';
+		$data['footer'] = 'footer';
+		$data['footerjs'] = 'branchViewJs';
+		 $this->load->view("base/body", $data);
+	}
+	public function updatesubBranchDetailView(){
+		$data['title'] = 'Branch Update  Area';
+			$data['headercss'] = 'branchViewCss';
+			$data['header'] = 'header';
+			$data['sidemenu'] = 'sidemenu';
+			$data['contend'] = 'updatesubbranchDetail';
+			$data['subtitle'] = 'Pending Branch Request';
+			$data['customizer'] = 'customizer';
+			$data['footer'] = 'footer';
+			$data['footerjs'] = 'branchViewJs';
+	  		$this->load->view("base/body", $data);
+	}
+	public function updatesubbranchReg(){
+			$id = $this->uri->segment(3);
+		$branch_Name = $this->input->post('branch_name');
+		$mobile = $this->input->post('mobile');
+		$email = $this->input->post('email');
+		$photo =  trim($_FILES['photo']['name']);
+		$address = $this->input->post('address');
+		$branchCity = $this->input->post('branch_city');
+		$branchState = $this->input->post('branch_state');
+		$branchCountry = $this->input->post('branch_country');
+		$pincode = $this->input->post('branch_pincode');
+		$password = $this->input->post('password');
+		$data =array(
+			'branch_name' => $branch_Name,
+			'mobile_no' => $mobile,
+			'email_id' => $email,
+			'photo' => $photo,
+			'address' => $address,
+			'city' => $branchCity,
+			'state' => $branchState,
+			'country' => $branchCountry,
+			'pincode' => $pincode,
+			'password' =>$password
+		);
+		$this->db->where("id",$id);
+		$query = $this->db->update("sub_branch",$data);
+		if($query)
+		{
+			$this->load->library('upload');
+			$image_path = realpath(APPPATH . '../assets/images/subbranch');
+			$config['upload_path'] = $image_path;
+			$config['allowed_types'] = 'gif|jpg|jpeg|png';
+			$config['max_size'] = '6048';
+			$config['file_name'] = $photo;
+		}
+		if (!empty($_FILES['photo']['name'])) {
+			$this->upload->initialize($config);
+			$this->upload->do_upload('photo');
+		}
+		redirect(base_url()."subbranchController/showsubBranch");
 
+	
 	}
 }
 ?>
