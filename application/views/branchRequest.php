@@ -38,7 +38,7 @@ $a=$this->session->userdata('username');
 					 ?>
 						<tr>
 						<th><?php echo $i;?></th>
-						<th> <a href="<?php echo base_url(); ?>adminController/adminbranchView/<?php echo $row->id;?>" ><?php echo $row->username;?></a></th>
+						<th> <?php echo $row->username;?></th>
 						<th><?php echo $row->branch_name;?></th>
 						<th><?php echo $row->mobile_no;?></th>
 						<th><?php echo $row->email_id;?></th>
