@@ -8,15 +8,13 @@
 		<form method="post" action="<?php echo base_url()?>adminController/updatebranchRegistration/<?php echo $id;?>"  class="form-detail" enctype="multipart/form-data">
 			 <div class="panel panel-calendar  exam_panel_body">
                 <div class="panel-heading bg_info border-light">
-                    <h5 class="panel-title text-center">Branch Registration</h5>
+                    <h5 class="panel-title text-center">Update Branch Detail</h5>
                 </div>
                <div class="panel-body">
                <div class="text-black text-large exam_panel">
                	<?php 
-               	//$this->db->where('username',$uname);
                   $this->db->where('id',$id);
                	$row = $this->db->get('branch');
-                 // print_r($row);
                   if($row->num_rows()>0)
                   {                 
 ?>
@@ -25,10 +23,9 @@
                        <div class="row">
                           <div class="col-md-4">
                            <div class="row">
-                                 <!-- <div class="col-md-3"><label> Photo</label></div> -->
                                  <div class="col-md-12">
                                     <div class="form-group form-primary">
-                                   <img width="200px" height="200px;" src="<?php echo base_url()?>assets/images/branch/<?php echo $row->row()->photo;?>">
+                                   <img width="150px" height="170px;" src="<?php echo base_url()?>assets/images/branch/<?php echo $row->row()->photo;?>">
                                    <input type="file" name="photo">
                                     <span class="form-bar"></span>
                                 </div>

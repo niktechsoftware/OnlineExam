@@ -1,5 +1,8 @@
  <div class="page-body">
-
+<?php
+   $username=$this->session->userdata('username');
+  //print_r($id);
+?>
    <div class="row">
      <div class="col-sm-12">
        <!-- Material tab card start -->

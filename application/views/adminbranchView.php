@@ -25,10 +25,10 @@
                        <div class="row">
                           <div class="col-md-4">
                            <div class="row">
-                                 <div class="col-md-3"><label> Photo</label></div>
-                                 <div class="col-md-8">
+                                 
+                                 <div class="col-md-11">
                                     <div class="form-group form-primary">
-                                   <img width="200px" height="200px;" src="<?php echo base_url()?>assets/images/branch/<?php echo $row->row()->photo;?>">
+                                   <img width="150px" height="170px;" src="<?php echo base_url()?>assets/images/branch/<?php echo $row->row()->photo;?>">
                                    <input type="file" name="imgPhoto">
                                     <span class="form-bar"></span>
                                 </div>
@@ -37,8 +37,8 @@
                               </div>
                               <hr>
                              <div class="row">
-                                 <div class="col-md-3"><label>User Name</label></div>
-                                 <div class="col-md-9">
+                                 <div class="col-md-4"><label>User Name</label></div>
+                                 <div class="col-md-8">
                                     <div class="form-group form-primary">
                                    <label><?php echo $row->row()->username;?></label>
                                     <span class="form-bar"></span>

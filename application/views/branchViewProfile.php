@@ -28,7 +28,7 @@
                                                
                                                 <div class="col-md-11">
                                                       <div class="form-group form-primary">
-                                                        <img width="200px" height="200px;" src="<?php echo base_url()?>assets/images/student/<?php echo $row->row()->photo;?>">
+                                                        <img width="150px" height="170px;" src="<?php echo base_url()?>assets/images/student/<?php echo $row->row()->photo;?>">
                                                             <span class="form-bar"></span>
                                                             <input type="file" name="photo">
                                                         </div>

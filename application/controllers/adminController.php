@@ -37,7 +37,7 @@ class AdminController extends CI_Controller{
 			$data['header'] = 'header';
 			$data['sidemenu'] = 'sidemenu';
 			$data['contend'] = 'updatebranchDetailView';
-			$data['subtitle'] = 'Pending Branch Request';
+			$data['subtitle'] = 'Update Branch';
 			$data['customizer'] = 'customizer';
 			$data['footer'] = 'footer';
 			$data['footerjs'] = 'branchJs';
@@ -55,6 +55,20 @@ class AdminController extends CI_Controller{
 		$branchCountry = $this->input->post('branch_country');
 		$pincode = $this->input->post('branch_pincode');
 		$password = $this->input->post('password');
+		if(!$photo){
+			$data =array(
+			'branch_name' => $branch_Name,
+			'mobile_no' => $mobile,
+			'email_id' => $email,
+			//'photo' => $photo,
+			'address' => $address,
+			'city' => $branchCity,
+			'state' => $branchState,
+			'country' => $branchCountry,
+			'pincode' => $pincode,
+			'password' =>$password
+		);
+		}else{
 		$data =array(
 			'branch_name' => $branch_Name,
 			'mobile_no' => $mobile,
@@ -66,7 +80,7 @@ class AdminController extends CI_Controller{
 			'country' => $branchCountry,
 			'pincode' => $pincode,
 			'password' =>$password
-		);
+		);}
 		$this->db->where("id",$id);
 		$query = $this->db->update("branch",$data);
 		if($query)
@@ -83,7 +97,7 @@ class AdminController extends CI_Controller{
 			$this->upload->do_upload('photo');
 		}
 //print_r($query);exit();
-		redirect(base_url()."adminController/branchRequest");
+		redirect(base_url()."adminController/updatebranchDetailView");
 
 	
 	}

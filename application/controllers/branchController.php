@@ -285,6 +285,38 @@ class BranchController extends CI_Controller{
 		$loc_pincode = $this->input->post('loc_pincode');
 		$loc_country = $this->input->post('loc_country');
 		$id=$this->uri->segment(3);
+		if(!$photo){
+			$data = array(
+				'name' => $name,
+				'dob' => $dob,
+				'email_id' =>$email,
+				'mobile_no' => $mobile,
+				'education' => $education,
+				'aadhar_card_no' => $adhar,
+				//'photo' => $photo,
+				'father_name' => $father_name,
+				'mother_name' => $mother_name,
+				'exam_status' => $exam_status,
+				'exam_name' => $exam_name,
+				'permanent_add' => $per_add,
+				'permanent_city' => $per_city,
+				'permanent_state' => $per_state,
+				'permanent_pincode' => $per_pincode,
+				'permanent_country' => $per_country,
+				'local_address' => $loc_address,
+				'local_city' => $loc_city,
+				'local_state' => $loc_status,
+				'local_country' => $loc_country,
+				'local_pincode' => $loc_pincode,
+				'disabilities_status' => $disability,
+				'disabilities_descrp' => $disabilities_descrp,
+				'religion' => $religion,
+				'category' =>$category,
+				'gender' => $gender,
+				'created_date' => date('Y-m-d'),
+				'password' => $dob
+			);
+		}else{
 			$data = array(
 				'name' => $name,
 				'dob' => $dob,
@@ -315,7 +347,7 @@ class BranchController extends CI_Controller{
 				'created_date' => date('Y-m-d'),
 				'password' => $dob
 			);
-			
+			}
        $this->db->where("id",$id);
 		$query = $this->db->update("stud_registration",$data);
 		if($query)
