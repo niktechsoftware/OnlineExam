@@ -12,7 +12,7 @@
                                     </a>
                                    
                                 </li>
-                                <?php if(($this->session->userdata("login_type")==2) || ($this->session->userdata("login_type")==4) ):?>
+                                <?php if(($this->session->userdata("login_type")==1)):?>
                 
                                 <li class="pcoded-hasmenu">
                                     <a href="#">
@@ -25,13 +25,36 @@
                                                 <span class="pcoded-mtext">Exam Configure</span>
                                             </a>
                                         </li>
+                                       <!--  <li class="">
+                                            <a href="<?php echo base_url();?>examconfiguration/quesConfigur">
+                                                <span class="pcoded-mtext">Question Configure</span>
+                                            </a>
+                                        </li> -->
+                                    </ul>
+                                </li><?php  endif; ?>
+                             <?php if(($this->session->userdata("login_type")==2)):?>
+                                <li class="pcoded-hasmenu">
+                                    <a href="#">
+                                        <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                                        <span class="pcoded-mtext">Configuration</span>
+                                    </a>
+                                    <ul class="pcoded-submenu">
+                                        <li class="">
+                                        <a href="<?php echo base_url();?>branchController/branchExamConfig">
+                                                <span class="pcoded-mtext">Exam Configure</span>
+                                            </a>
+                                        </li>
                                         <li class="">
                                             <a href="<?php echo base_url();?>examconfiguration/quesConfigur">
                                                 <span class="pcoded-mtext">Question Configure</span>
                                             </a>
                                         </li>
                                     </ul>
-                                </li><?php  endif; if(($this->session->userdata("login_type")==1)):?>
+                                </li>
+                                <?php endif;?>
+
+                                <?php if(($this->session->userdata("login_type")==1)):?>
+
                                  <li class="pcoded-hasmenu">
                                     <a href="#">
                                         <span class="pcoded-micon"><i class="feather icon-home"></i></span>

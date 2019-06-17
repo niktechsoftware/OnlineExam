@@ -12,8 +12,7 @@ class login extends CI_Controller {
             $this->load->model('auth_login');
 
             $loginData = $this->auth_login->getLoginData($username,$password);
-
-
+           
              if ($loginData['is_login'])
              {
 
@@ -42,7 +41,7 @@ class login extends CI_Controller {
 
              }
               else
-                 {
+                 { 
                  	redirect('welcome/index');
                  }
 	}

@@ -46,8 +46,16 @@ class Auth_login extends CI_Model {
 				"login_time" => date("H:i:s"),
 		         "branch_name" => $res->branch_name,
 		    );
+
 		    return $loginData;
+		 }else{ ?>
+		 	<script>
+		 	alert("Your Account not activated Please Contact with Admin");
+		 </script>
+		 	<?php
+		 	redirect('welcome/index','refresh');
 		 }
+
 		 $this->db->where('username', $username);
 		$this->db->where('password',$password);
 		$this->db->where('status',1);
@@ -70,26 +78,26 @@ class Auth_login extends CI_Model {
 		 }
 
 
-		  $this->db->where('username', $username);
-		$this->db->where('password',$password);
-		$this->db->where('status',1);
-		 $query1 = $this->db->get('sub_branch');
-		if ($query1->num_rows() > 0)
-		{
-		    $ress = $query1->row();
-		    $loginData = array(
-		        "id" => $res->id,
-		        "username" => $ress->username,
-		        "password" => $ress->password,
-				"login_type" => 4,
-				"is_login" => true,
-				"is_lock" => true,
-				"login_date" => date("d-M-Y"),
-				"login_time" => date("H:i:s"),
-		         "name" => $res->name,
-		    );
-		    return $loginData;
-		 }
+		//   $this->db->where('username', $username);
+		// $this->db->where('password',$password);
+		// $this->db->where('status',1);
+		//  $query1 = $this->db->get('sub_branch');
+		// if ($query1->num_rows() > 0)
+		// {
+		//     $ress = $query1->row();
+		//     $loginData = array(
+		//         "id" => $res->id,
+		//         "username" => $ress->username,
+		//         "password" => $ress->password,
+		// 		"login_type" => 4,
+		// 		"is_login" => true,
+		// 		"is_lock" => true,
+		// 		"login_date" => date("d-M-Y"),
+		// 		"login_time" => date("H:i:s"),
+		//          "name" => $res->name,
+		//     );
+		//     return $loginData;
+		//  }
 	
 	}
 	

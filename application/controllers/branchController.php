@@ -379,6 +379,134 @@ class BranchController extends CI_Controller{
 	  		$this->load->view("base/body", $data);
 	}
 	///end student registration code
-	
+
+	///Exam Configuration section code start
+		public function branchExamConfig(){
+			$data['title'] = 'Branch Exam Section   Area';
+			$data['headercss'] = 'branchExamCss';
+			$data['header'] = 'header';
+			$data['sidemenu'] = 'sidemenu';
+			$data['contend'] = 'branchExamConfig';
+			$data['subtitle'] = 'Exam Section';
+			$data['customizer'] = 'customizer';
+			$data['footer'] = 'footer';
+			$data['footerjs'] = 'branchExamJs';
+	  		$this->load->view("base/body", $data);
+		} 
+		public function addtest(){
+			$examHead = $this->input->post('examHead');
+			$testname  = $this->input->post('testnm');
+			$testDes = $this->input->post('testDes');
+			$testmark = $this->input->post('testmark');
+			
+			$this->load->model('branchModel');
+		if(strlen($testname)>1&&strlen($testDes)>1&&strlen($testmark)>1){
+		$testListView = $this->branchModel->addTestModel($examHead,$testname,$testDes,$testmark);
+			}else{
+				$testListView = $this->branchModel->addsTestModel();
+			}
+				$data['testListview'] = $testListView;
+				$this->load->view("ajax/addTest",$data);
+			
+		}
+		public function updateTest(){
+			$this->load->model('branchModel');
+		if($query = $this->branchModel->updateTestModel($this->input->post("testId"),$this->input->post("testName"),$this->input->post('testDesc'),$this->input->post('testMark'))){
+			?>
+			<script>
+			        $.post("<?php echo base_url('branchController/addtest') ?>", function(data){
+			            $("#addTest1").html(data);
+					});
+			</script>
+			<?php 
+		}
+		}
+		public function deleteTest(){
+		$this->load->model('branchModel');
+		if($query = $this->branchModel->deleteTestModel($this->input->post("testId"))){
+			?>
+			<script>
+			        $.post("<?php echo base_url('branchController/addtest') ?>", function(data){
+			            $("#addTest1").html(data);
+					});
+			</script>
+			<?php 
+		}
+	}
+	// add update delete test code end
+	// Exam configuration code end 
+	//branch Profile update code
+			public function UpdateBranch(){
+			$data['title'] = 'Branch Update Section   Area';
+			$data['headercss'] = 'branchViewCss';
+			$data['header'] = 'header';
+			$data['sidemenu'] = 'sidemenu';
+			$data['contend'] = 'UpdateBranch';
+			$data['subtitle'] = 'Branch Profile';
+			$data['customizer'] = 'customizer';
+			$data['footer'] = 'footer';
+			$data['footerjs'] = 'branchViewJs';
+	  		$this->load->view("base/body", $data);
+			}
+			public function branchUpdateDetail(){
+				$photo = $this->input->post('photo');
+				$password = $this->input->post('password');
+				$branch_name = $this->input->post('branch_name');
+				$mobile = $this->input->post('mobile');
+				$email = $this->input->post('email');
+				$address = $this->input->post('address');
+				$branch_city = $this->input->post('branch_city');
+				$branch_state = $this->input->post('branch_state');
+				$branch_country = $this->input->post('branch_country');
+				$branch_pincode = $this->input->post('branch_pincode');
+				$id = $this->uri->segment(3);
+				if(!$photo){
+				$data = array(
+					'password' =>$password,
+					'branch_name' => $branch_name,
+					'mobile_no' => $mobile,
+					'email_id' =>$email,
+					'address' => $address,
+					'city' => $branch_city,
+					'state' => $branch_state,
+					'country' => $branch_country,
+					'pincode' => $branch_pincode,
+					'created_date' => date('Y-m-d')
+				);
+			}
+			else{
+				$data = array(
+					'photo' => $photo,
+					'password' =>$password,
+					'branch_name' => $branch_name,
+					'mobile_no' => $mobile,
+					'email_id' =>$email,
+					'address' => $address,
+					'city' => $branch_city,
+					'state' => $branch_state,
+					'country' => $branch_country,
+					'pincode' => $branch_pincode,
+					'created_date' => date('Y-m-d')
+				);
+			}
+			 $this->db->where("id",$id);
+		$query = $this->db->update("branch",$data);
+		if($query)
+		{
+			$this->load->library('upload');
+			$image_path = realpath(APPPATH . '../assets/images/branch');
+			$config['upload_path'] = $image_path;
+			$config['allowed_types'] = 'gif|jpg|jpeg|png';
+			$config['max_size'] = '6048';
+			$config['file_name'] = $photo;
+		}
+		if (!empty($_FILES['photo']['name'])) {
+			$this->upload->initialize($config);
+			$this->upload->do_upload('photo');
+		}
+		redirect(base_url()."branchController/viewBranch");
+			}
+	// branch profile code end
+
 }
 ?>

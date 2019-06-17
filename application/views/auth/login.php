@@ -106,8 +106,7 @@
                       position: relative;">
                       <div class="card-header">
                         <h5>Login Here</h5>
-                        <span>Please Login here to access the Dashboard</span>
-
+                       
                       </div>
                       <div class="card-block">
                         <div class="j-wrapper j-wrapper-640">
