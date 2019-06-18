@@ -58,7 +58,7 @@
                                  <li class="pcoded-hasmenu">
                                     <a href="#">
                                         <span class="pcoded-micon"><i class="feather icon-home"></i></span>
-                                        <span class="pcoded-mtext">Admin</span>
+                                        <span class="pcoded-mtext">Branch</span>
                                     </a>
                                     <ul class="pcoded-submenu">
 
@@ -69,7 +69,7 @@
                                         </li>
                                         <li class="">
                                         <a href="<?php echo base_url();?>adminController/showAdminBranch">
-                                                <span class="pcoded-mtext">Show Branch</span>
+                                                <span class="pcoded-mtext">Approved Branch</span>
                                             </a>
                                         </li>
                                         <li class="">
@@ -135,7 +135,7 @@
                                         <span class="pcoded-micon"><i class="feather icon-clipboard"></i></span>
                                         <span class="pcoded-mtext" >Student</span>
                                     </a>
-                                    <ul class="pcoded-submenu"><?php if(($this->session->userdata("login_type")==2)||($this->session->userdata("login_type")==4)):?>
+                                    <ul class="pcoded-submenu"><?php if(($this->session->userdata("login_type")==2)):?>
                                         <li class=" ">
                                             <a href="<?php echo base_url();?>branchController/studentIndex">
                                                 <span class="pcoded-mtext" >Registration</span>
@@ -144,12 +144,12 @@
 
                                          <li class="">
                                             <a href="<?php echo base_url();?>branchController/showStudList">
-                                                <span class="pcoded-mtext">Show Student</span>
+                                                <span class="pcoded-mtext">Approved Student List</span>
                                             </a>
                                         </li>
                                        <li class="">
                                             <a href="<?php echo base_url();?>branchController/studentRequest">
-                                                <span class="pcoded-mtext">Requested Student</span>
+                                                <span class="pcoded-mtext">Requested Student List</span>
                                             </a>
                                         </li>
 

@@ -47,7 +47,7 @@ $a=$this->session->userdata('username');
                         <th><a href="" class="btn btn-sm btn-info" id="<?php echo $row->id;?>" value="0" onclick="myFunction(this)"><i class="fa fa-trash-o"></i>Approve For Activation</a></th>
                      <?php }
                      else{?>
-                     <th><a href="#" class="btn btn-sm btn-success" id="<?php echo $row->id;?>" value="1" onclick="myFunction(this)"><i class="fa fa-trash-o"></i>Approved</a></th>
+                     <th><a href="#" class="btn btn-sm btn-danger" id="<?php echo $row->id;?>" value="1" onclick="myFunction(this)"><i class="fa fa-trash-o"></i>Disapproved</a></th>
                   <?php }
                      ?></th>
                   

@@ -143,10 +143,6 @@
 
              $this->db->where('username',$uname);
             $data2=  $this->db->get('branch');
-
-          
-
-
               ?>
               <li class="user-profile header-notification">
                 <div class="dropdown-primary dropdown">
@@ -172,61 +168,69 @@ if(strlen($data1->row()->photo)>0){
                      <img width="30px" height="40px;" src="<?php echo base_url()?>adminform/assets/images/admin/<?php echo $data1->row()->photo;?>">
                      <?php  }else{echo "hii";} }}
                      ?>
-
-                    
                     <span><?php echo $uname?></span>
                     <i class="feather icon-chevron-down"></i>
                   </div>
                   <ul class="show-notification profile-notification dropdown-menu" data-dropdown-in="fadeIn"
                     data-dropdown-out="fadeOut">
-                    <!-- <li>
+                   <!--  <li>
                       <a href="#!">
                         <i class="feather icon-settings"></i> Settings
                       </a>
                     </li> -->
-                   <?php $admin=$this->session->userdata('login_type');?>
+                    <?php $admin=$this->session->userdata('login_type');?>
                     <?php    if($admin==1) { ?>
                     <li>
-                         <a href="<?php echo base_url();?>/index.php/adminController/viewAdmin">
+                         <a href="<?php echo base_url();?>/index.php/branchController/viewBranch">
                         <i class="feather icon-user"></i> Profile
                       </a>
                     </li> 
-                  <?php   } 
-                      $branch=$this->session->userdata('login_type');
-                         if($branch==2) {
+                  <?php   } ?>
+                   
+                    <?php $branch=$this->session->userdata('login_type');?>
+                    <li>
+                        <?php    if($branch==2) {
                         ?>
-                         <li>
                          <a href="<?php echo base_url();?>/index.php/branchController/viewBranch">
                         <i class="feather icon-user"></i> Profile
                       </a>
                     </li> <?php   }
-                    $std=$this->session->userdata('login_type');
+                    ?>
+                    <li>
+                      <?php $std=$this->session->userdata('login_type');
                       if($std==3)
                       {
-                    ?>
-                   <li>
+                        ?>
                          <a href="<?php echo base_url();?>/index.php/studentController/studentprofile">
                         <i class="feather icon-user"></i> Profile
                       </a>
                     </li> <?php   }
 
                     ?>
-                   
-                    <!-- <li>
-                      <a href="email-inbox.html">
-                        <i class="feather icon-mail"></i> My Messages
+
+                    <!--  <?php //$subbranch=$this->session->userdata('login_type');
+                      if($subbranch==4)
+                      {
+                        ?>
+                         <a href="<?php //echo base_url();?>/index.php/subbranchController/viewsubBranch">
+                        <i class="feather icon-user"></i> Profile
                       </a>
-                    </li> -->
-                    <!-- <li>
+                  
+                      
+                    </li> <?php   }
+
+                    ?> -->
+                   <!--  <li>
                       <a href="auth-lock-screen.html">
                         <i class="feather icon-lock"></i> Lock Screen
                       </a>
                     </li> -->
-                     <li>
+                    <li>
                       <a href="<?php echo base_url();?>welcome/logout">
                         <i class="feather icon-log-out"></i> Logout
                       </a>
                     </li>
+                  </ul>
 
                 </div>
               </li>

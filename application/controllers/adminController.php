@@ -323,5 +323,102 @@ class AdminController extends CI_Controller{
 		redirect(base_url('/adminController/branchReg'));
 	
 	}
+	public function viewAdmin(){
+		$data['title'] = 'Admin Profile';
+			$data['headercss'] = 'branchCss';
+			$data['header'] = 'header';
+			$data['sidemenu'] = 'sidemenu';
+			$data['contend'] = 'viewAdmin';
+			$data['subtitle'] = 'Update Branch';
+			$data['customizer'] = 'customizer';
+			$data['footer'] = 'footer';
+			$data['footerjs'] = 'branchJs';
+	  		$this->load->view("base/body", $data);
+	}
+	public function updateAdmin(){
+		$data['title'] = 'Admin Profile';
+			$data['headercss'] = 'branchCss';
+			$data['header'] = 'header';
+			$data['sidemenu'] = 'sidemenu';
+			$data['contend'] = 'viewUpdateAdmin';
+			$data['subtitle'] = 'Update Branch';
+			$data['customizer'] = 'customizer';
+			$data['footer'] = 'footer';
+			$data['footerjs'] = 'branchJs';
+	  		$this->load->view("base/body", $data);
+	}
+	public function adminUpdateProfile(){
+		$photo =  trim($_FILES['photo']['name']);
+		$password = $this->input->post('password');
+		$name = $this->input->post('name');
+		$mobile = $this->input->post('mobile');
+		$father_name = $this->input->post('father_name');
+		$dob = $this->input->post('dob');
+		$email = $this->input->post('email');
+		$gender = $this->input->post('gender');
+		$address = $this->input->post('address');
+		$city = $this->input->post('city');
+		$state = $this->input->post('state');
+		$country = $this->input->post('country');
+		$pincode = $this->input->post('pincode');
+		$adhar = $this->input->post('adharno');
+		$category = $this->input->post('category');
+		$religion = $this->input->post('religion');
+		$uname= $this->session->userdata('username');
+		if(!$photo){
+		$data = array(
+			'name' => $name,
+			'father_name' => $father_name,
+			'mobile_no' => $mobile,
+			'email_id' => $email,
+			'aadhar_card_no' => $adhar,
+			//'photo' => $photo,
+			'password' => $password,
+			'gender' => $gender,
+			'address' => $address,
+			'city' => $city,
+			'state' =>$state,
+			'country' => $country,
+			'religious' => $religion,
+			'category' => $category,
+			'pincode' => $pincode,
+			'dob' => $dob
+		);}else{
+			$data = array(
+			'name' => $name,
+			'father_name' => $father_name,
+			'mobile_no' => $mobile,
+			'email_id' => $email,
+			'aadhar_card_no' => $adhar,
+			'photo' => $photo,
+			'password' => $password,
+			'gender' => $gender,
+			'address' => $address,
+			'city' => $city,
+			'state' =>$state,
+			'country' => $country,
+			'religious' => $religion,
+			'category' => $category,
+			'pincode' => $pincode,
+			'dob' => $dob
+		);
+		}
+		$this->db->where("username",$uname);
+		$query = $this->db->update("general_setting",$data);
+		if($query)
+		{
+			$this->load->library('upload');
+			$image_path = realpath(APPPATH . '../adminform/assets/images/admin');
+			$config['upload_path'] = $image_path;
+			$config['allowed_types'] = 'gif|jpg|jpeg|png';
+			$config['max_size'] = '6048';
+			$config['file_name'] = $photo;
+		}
+		if (!empty($_FILES['photo']['name'])) {
+			$this->upload->initialize($config);
+			$this->upload->do_upload('photo');
+		}
+		redirect(base_url()."adminController/viewAdmin");
+	}
 }
-?>
+?> 

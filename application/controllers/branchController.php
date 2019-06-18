@@ -392,7 +392,50 @@ class BranchController extends CI_Controller{
 			$data['footer'] = 'footer';
 			$data['footerjs'] = 'branchExamJs';
 	  		$this->load->view("base/body", $data);
-		} 
+		}
+		///add exam code 
+		 public function addbranchExam(){
+		$exam=$this->input->post('examName');
+		$userName = $this->session->userdata('username');
+		$this->db->where('username',$userName);
+		$id=$this->db->get('branch')->row();
+		$branchId = $id->id;
+		$this->load->model('branchModel');
+		if($exam){
+		$examList = $this->branchModel->addExam($exam,$branchId);
+	}else{
+		$examList = $this->branchModel->addsExam();
+	}
+		$data['examList'] = $examList;
+		$this->load->view("ajax/addBranchExam",$data);
+	}
+	//add update delete exam code start
+	public function updateExam(){
+		$this->load->model('branchModel');
+		if($query = $this->branchModel->updateExam($this->input->post("examId"),$this->input->post("examName"))){
+			?>
+			<script>
+			        $.post("<?php echo base_url('branchController/addbranchExam') ?>", function(data){
+			            $("#examAdd1").html(data);
+					});
+			</script>
+			<?php 
+		}
+	}
+	public function deleteExam(){
+		$this->load->model('branchModel');
+		if($query = $this->branchModel->deleteExam($this->input->post("examId"))){
+			?>
+			<script>
+			        $.post("<?php echo base_url('branchController/addbranchExam') ?>", function(data){
+			            $("#examAdd1").html(data);
+					});
+			</script>
+			<?php 
+		}
+	}
+	// add update delete exam code end
+	// add update delete test code start
 		public function addtest(){
 			$examHead = $this->input->post('examHead');
 			$testname  = $this->input->post('testnm');

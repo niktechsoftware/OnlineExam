@@ -35,45 +35,96 @@
 <script src="<?php echo base_url();?>assets/js/jquery-3.4.0.min.js"></script>
 
 <!-- Mirrored from colorlib.com//polygon/adminty/default/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 May 2019 05:29:56 GMT -->
+
 <script >
    $(document).ready(function() {
    // jquery('#branchview').DataTable(); 
-   /// add test code start
-    // start add test code
-        $("#addTestbutton").click(function(){
-          var examHead = $('#examName').val();
+    // add exam code start
+      $("#addExamButton").click(function(){
+        var examName = $('#addExam').val();
+        alert("Your exam is successfully created");
+        $.post("<?php echo base_url('branchController/addbranchExam') ?>", {examName : examName}, function(data){
+                $("#examAdd1").html(data);
+        });
+        $('#addExam').val("");
+        });
+       var examName = $('#addExam').val();
+     $.post("<?php echo base_url('branchController/addbranchExam') ?>", {examName : examName}, function(data){
+                $("#examAdd1").html(data);
+        });
+ // End exam code
+      // start add test code
+        $("#addTestButton").click(function(){
+          var examHead = $('#examListshow').val();
           var testnm = $('#addTest').val();
-           var testDes = $('#descTest').val();
-           var testmark = $('#marksTest').val();
-           //alert(examHead);alert(testnm); alert(testDes); alert(testmark);
-           alert("Your Test  Successfully Added");
+          var testDes = $('#descTest').val();
+          var testmark = $('#marksTest').val();
+        //  alert(examHead);alert(testnm); alert(testDes); alert(testmark);
+          alert("Your Test  Successfully Added");
           $.post("<?php echo base_url('branchController/addtest')?>",{
-          examHead : examHead,
-             testnm :testnm,
-            testDes : testDes,
-             testmark : testmark
-           }, function(data){
-             $("#addTest1").html(data);
-           });
-          $('#addTest').val("");
-          $('#descTest').val("");
-           $('#marksTest').val("");
-         });
-        var examHead = $('#examListshow').val();
-           var testnm = $('#addTest').val();
-           var testDes = $('#descTest').val();
-           var testmark = $('#marksTest').val();
-           $.post("<?php echo base_url('branchController/addtest')?>",{
             examHead : examHead,
             testnm :testnm,
             testDes : testDes,
             testmark : testmark
           }, function(data){
             $("#addTest1").html(data);
-            //alert(data);
           });
-     // End add test code
-  // add test code end
+          $('#addTest').val("");
+          $('#descTest').val("");
+          $('#marksTest').val("");
+        });
+        var examHead = $('#examListshow').val();
+          var testnm = $('#addTest').val();
+          var testDes = $('#descTest').val();
+          var testmark = $('#marksTest').val();
+          $.post("<?php echo base_url('branchController/addtest')?>",{
+            examHead : examHead,
+            testnm :testnm,
+            testDes : testDes,
+            testmark : testmark
+          }, function(data){
+            $("#addTest1").html(data);
+          });
+      // End add test code
+        //start add subject code
+          //js code 
+             $("#examListsubShow").change(function(){
+                    var testnm = $("#examListsubShow").val();
+                    $.post("addSubject2",{testnm : testnm}, function(data){
+                    $("#testListshow").html(data);
+                        });
+                });
+             
+          //js code end
+          $("#addSubjectButton").click(function(){
+              var examsubject = $('#examListsubShow').val();
+              var examTest = $('#testListshow').val();
+              var subName = $('#addSubject').val();
+              var subQuesNo = $('#addQuestion').val();
+             //  alert(examsubject); alert(examTest);alert(subName); alert(subQuesNo);
+               alert("Your Subject successfully Added");
+                $.post("<?php echo base_url('branchController/addSubject')?>",{
+            examsubject : examsubject,
+            examTest :examTest,
+            subName : subName,
+            subQuesNo : subQuesNo
+          }, function(data){
+            $("#addSubject1").html(data);
+          });
+             });
+          var examsubject = $('#examListsubShow').val();
+              var examTest = $('#testListshow').val();
+              var subName = $('#addSubject').val();
+              var subQuesNo = $('#addQuestion').val();
+                $.post("<?php echo base_url('branchController/addSubject')?>",{
+            examsubject : examsubject,
+            examTest :examTest,
+            subName : subName,
+            subQuesNo : subQuesNo
+          }, function(data){
+            $("#addSubject1").html(data);
+          });
+        //End add subject code
     });
   </script>
 
