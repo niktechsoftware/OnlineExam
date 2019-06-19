@@ -1,7 +1,7 @@
 <?php
 $i = 1;
 if(isset($testListview)):
-	//print_r($testListview->result());
+	//print_r($testListview);
 ?>
 	<div class="text-white text-sm pull-left space10">
 			<table class=" table-bordered table-hover table">
@@ -14,7 +14,6 @@ if(isset($testListview)):
 					<th>Delete</th>
 				</tr>
 			<?php foreach ($testListview->result() as $row):
-				//print_r($row->exam_head_id);
 				$exam_id = $row->exam_head_id;
 				$this->db->where('id',$exam_id);
 				$exam = $this->db->get('exam_head')->result();
@@ -22,13 +21,13 @@ if(isset($testListview)):
 			 ?>
 
 				<tr>
-					<?php foreach($exam as $examm){ ?>
+					<?php foreach($exam as $examm):?>
 					<td>
-						<input type="text" id="examnm<?php echo $i;?>" size="13" value="<?php echo $examm->exam_head;?>">
+						<lable style="color: black;"><?php echo $examm->exam_head;?></lable>
 
 						<input type="hidden" id="testId<?php echo $i;?>" size="13" value="<?php echo $row->id; ?>">
 					</td>
-					<?php }?>
+					<?php endforeach;?>
 					<td>
 						<input type="text" id="testnm<?php echo $i;?>" size="13" value="<?php echo $row->test_name;?>" onkeyup="this.value=this.value.toUpperCase();">
 						<input type="hidden" id="testId<?php echo $i;?>" size="13" value="<?php echo $row->id; ?>">
@@ -57,23 +56,23 @@ if(isset($testListview)):
 			<?php
 		endif;
 		?>
-
-<script>
-
-	    <?php for($j = 1; $j < $i; $j++){ ?>
-
-			    $("#edittest<?php echo $j;?>").click(function(){
-		    		var testId = $('#testId<?php echo $j;?>').val();	
-		     		var testName = $('#testnm<?php echo $j;?>').val();
-		     		var testDesc = $('#testDesc<?php echo $j;?>').val();
-		     		var testMark = $('#testMarks<?php echo $j;?>').val();
-		     		alert(testId);alert(testName);alert(testDesc);alert(testMark);
-		     		alert("your test is successfully updated");
+<script type="text/javascript">
+	<?php for($j=1; $j<$i; $j++){ ?>
+			$('#edittest<?php echo $j;?>').click(function(){
+					var testId = $('#testId<?php echo $j;?>').val();
+					var testnm = $('#testnm<?php echo $j;?>').val();
+					var testDesc = $('#testDesc<?php echo $j;?>').val();
+					var testMarks = $('#testMarks<?php echo $j;?>').val();
+					alert(testId);
+					alert(testnm);
+					alert(testDesc);
+					alert(testMarks);
+					alert("your test is successfully updated");
 		     		var form_data = {
 							testId : testId,
-							testName : testName,
+							testnm : testName,
 							testDesc : testDesc,
-							testMark : testMark
+							testMarks : testMark
 						};
 				$.ajax({
 					url: "<?php echo site_url("branchController/updateTest") ?>",
@@ -83,17 +82,17 @@ if(isset($testListview)):
 						$("#addTest1").html(msg);
 					}
 				});
-		        });
-			    $("#deleteTest<?php echo $j; ?>").click(function(){
+			});
+			$("#deleteTest<?php echo $j; ?>").click(function(){
 		    		var testId = $('#testId<?php echo $j; ?>').val();
 		    		$.post("<?php echo site_url('branchController/deleteTest') ?>", {testId : testId}, function(data){
 		                $("#addTest1").html(data);
 		    		})
-		        });  
-                         input.addEventListener("keyup", function () {
-                          var x = document.getElementById("testnm<?php echo $j;?>");
-                             x.value = x.value.toUpperCase();
+		        }); 
+			 // input.addEventListener("keyup", function () {
+    //                       var x = document.getElementById("testnm<?php echo $j;?>");
+    //                          x.value = x.value.toUpperCase();
                           
-                  });
-                    <?php } ?>   
+    //               });
+		<?php } ?>
 </script>

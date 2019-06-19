@@ -70,9 +70,22 @@
 			   return $query;
 		}
 		public function addsTestModel(){
-			//$quer = $this->db->where('exam_head_id',$examnm);
+		// $userName = $this->session->userdata('username');
+		// $this->db->where('username',$userName);
+		// $id=$this->db->get('branch')->row();
+		// $branchId = $id->id;
+		// $this->db->where('branch_id',$branchId);
+		// $examId=$this->db->get('exam_head')->result();
+		// //print_r($examId);
+		// foreach($examId as $exam1){
+
+		// print_r($exam1);
+         // $this->db->where('exam_head_id',$exam1->id);
 			$query = $this->db->get("test_name");
+			
 			return $query;
+		//}
+		//exit;
 		}
 		public function updateTestModel($testId,$testName,$testDesc,$testMark){
 		$val = array(
@@ -101,5 +114,73 @@
 		}
 		//end add test section
 		// end add test section
+
+		//start add Subject section
+	public function addSubjectModel($examsubHead,$subtestname,$subName,$subQuesNo){
+				$db = array(
+					"subject_name" => $subName,
+					"exam_head_id" => $examsubHead,
+					"test_name_id" => $subtestname,
+					"subject_ques_no" => $subQuesNo
+				);
+				if(strlen($subName)>1){
+					$this->db->insert("subject",$db);
+				}
+				$query = $this->db->get("subject");
+				return $query;
+			}
+			public function addsSubjectModel(){
+				$query = $this->db->get("subject");
+				return $query;
+			}
+			public function updateSubjectModel($subId,$subName,$questionNo){
+				$val = array(
+				"subject_name" => $subName,
+				"subject_ques_no" => $questionNo
+				);
+				$this->db->where("id",$subId);
+				$query = $this->db->update("subject",$val);
+				return true;
+		}
+	public function deleteSubjectModel($subId){
+		  $subject=$this->db->get('subject')->result();
+		   	  	$this->db->where("id",$subId);
+		    $query = $this->db->delete("subject");
+		    return $query;
+		}
+		//end add Subject section
+			///ADD UPDATE DELETE SECTION OF QUESTION STart
+			public function addQuestionModel($question ,$subject_ID){
+				$db = array(
+					"question" => $question,
+					"subject_id" => $subject_ID
+				);
+				if(strlen($question) > 1){
+					$this->db->insert("question",$db);
+				}
+				$query = $this->db->get("question");
+				return $query;
+			}
+	public function addsQuestionModel(){
+		$query = $this->db->get("question");
+		return $query;
 	}
+	public function updateQuestionModel($quesId,$quesnm){
+				$val = array(
+				"question" => $quesnm
+				);
+				$this->db->where("id",$quesId);
+				$query = $this->db->update("question",$val);
+				return true;
+		}
+		
+	public function deleteQuestionModel($quesId){
+		  $question=$this->db->get('question')->result();
+		   	  	$this->db->where("id",$quesId);
+		    $query = $this->db->delete("question");
+		    return $query;
+		}
+		///ADD UPDATE DELETE SECTION OF QUESTION END
+	}
+	
 ?>

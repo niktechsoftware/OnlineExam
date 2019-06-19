@@ -449,6 +449,7 @@ class BranchController extends CI_Controller{
 				$testListView = $this->branchModel->addsTestModel();
 			}
 				$data['testListview'] = $testListView;
+				//print_r($data);exit();
 				$this->load->view("ajax/addTest",$data);
 			
 		}
@@ -477,6 +478,58 @@ class BranchController extends CI_Controller{
 		}
 	}
 	// add update delete test code end
+	// add update delete Subject code start
+		function addSubject2(){
+		$em = $this->input->post('testnm');
+		$this->db->where('exam_head_id',$em);
+        $var = $this->db->get("test_name");
+            if($var->num_rows() > 0){
+                echo '<option value="">-Select Test Name-</option>';
+                foreach ($var->result() as $row){
+                    echo '<option value="'.$row->id.'">'.$row->test_name.'</option>';
+                }
+            }
+        }
+        public function addSubject(){
+			$examsubHead = $this->input->post('examsubject');
+			$subtestname  = $this->input->post('examTest');
+			$subName = $this->input->post('subName');
+			$subQuesNo = $this->input->post('subQuesNo');
+			
+			$this->load->model('branchModel');
+		if(strlen($subName)>1){
+		$subjectListView = $this->branchModel->addSubjectModel($examsubHead,$subtestname,$subName,$subQuesNo);
+			}else{
+				$subjectListView = $this->branchModel->addsSubjectModel();
+			}
+				$data['subjectListView'] = $subjectListView;
+				$this->load->view("ajax/addSubject",$data);
+		}
+		public function updateSubject(){
+			$this->load->model('branchModel');
+		if($query = $this->branchModel->updateSubjectModel($this->input->post("subId"),$this->input->post("subName"),$this->input->post('questionNo'))){
+			?>
+			<script>
+			        $.post("<?php echo base_url('branchController/addSubject') ?>", function(data){
+			            $("#addSubject1").html(data);
+					});
+			</script>
+			<?php 
+		}
+		}
+		public function deleteSubject(){
+			$this->load->model('examconfigmodel');
+		if($query = $this->branchModel->deleteSubjectModel($this->input->post("subId"))){
+			?>
+			<script>
+			        $.post("<?php echo base_url('branchController/addSubject') ?>", function(data){
+			            $("#addSubject1").html(data);
+					});
+			</script>
+			<?php 
+		}
+		}
+	// add update delete Subject code end
 	// Exam configuration code end 
 	//branch Profile update code
 			public function UpdateBranch(){
@@ -550,6 +603,81 @@ class BranchController extends CI_Controller{
 		redirect(base_url()."branchController/viewBranch");
 			}
 	// branch profile code end
+	///question configuration code start
+		public function quesConfigur(){
+		$data['title'] = 'Question Configur Area';
+		$data['headercss'] = 'branchExamCss';
+		$data['header'] = 'header';
+		$data['sidemenu'] = 'sidemenu';
+		$data['contend'] = 'quesConfig';
+		$data['subtitle'] = 'Question Configuration';
+		$data['customizer'] = 'customizer';
+		$data['footer'] = 'footer';
+		$data['footerjs'] = 'question_js';
+    $this->load->view("base/body", $data);
+	}
+	///ADD UPDATE DELETE  Question SECTION CODE STRART
+		public function addTest2(){
+		$tst = $this->input->post('examnm');
+		$this->db->where('exam_head_id',$tst);
+        $var = $this->db->get("test_name");
+            if($var->num_rows() > 0){
+                echo '<option value="">-Select Test Name-</option>';
+                foreach ($var->result() as $row){
+                    echo '<option value="'.$row->id.'">'.$row->test_name.'</option>';
+                }
+            }
+        }
+        public function addSubject3(){
+        	$sub = $this->input->post('subnm');
+        	$this->db->where('test_name_id',$sub);
+        	$var = $this->db->get("subject");
+        	if($var){
+        		echo '<option value="">-Select Test Name-</option>';
+                foreach ($var->result() as $row){
+                    echo '<option value="'.$row->id.'">'.$row->subject_name.'</option>';
+                }
+        	}
+        }
+        	public function addQuestion(){
+		$question=$this->input->post('questionName');
+		$subject_ID = $this->input->post('subject_id');
+		$this->load->model('branchModel');
+		if(strlen($question)>1 && $subject_ID){
+		$questionListView = $this->branchModel->addQuestionModel($question,$subject_ID);
+			}else{
+				$questionListView = $this->branchModel->addsQuestionModel();
+			}
+				$data['questionList'] = $questionListView;
+				$this->load->view("ajax/addQuestion",$data);
+	}
+
+	public function updateQuestion(){
+		$this->load->model('branchModel');
+		if($query = $this->branchModel->updateQuestionModel($this->input->post("quesId"),$this->input->post("quesnm"))){
+			?>
+			<script>
+			        $.post("<?php echo base_url('branchController/addQuestion') ?>", function(data){
+			            $("#questionAdd1").html(data);
+					});
+			</script>
+			<?php 
+		}
+	}
+
+	public function deleteQuestion(){
+		$this->load->model('branchModel');
+		if($query = $this->branchModel->deleteQuestionModel($this->input->post("quesId"))){
+			?>
+			<script>
+			        $.post("<?php echo base_url('branchController/addQuestion') ?>", function(data){
+			            $("#questionAdd1").html(data);
+					});
+			</script>
+			<?php 
+		}
+	}
+	///question configuration code end
 
 }
 ?>

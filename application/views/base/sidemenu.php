@@ -45,7 +45,7 @@
                                             </a>
                                         </li>
                                         <li class="">
-                                            <a href="<?php echo base_url();?>examconfiguration/quesConfigur">
+                                            <a href="<?php echo base_url();?>branchController/quesConfigur">
                                                 <span class="pcoded-mtext">Question Configure</span>
                                             </a>
                                         </li>

@@ -79,7 +79,7 @@ $this->db->where('branch_id',$branchId->id);
  	let status = stID.id;
  	//alert(status);
  $.ajax({
-					url: "<?= base_url() ?>adminController/updateStudStatus",
+					url: "<?= base_url() ?>branchController/updateStudStatus",
 					type: 'POST',
 					data: {"status": status},
 					success: function(data){

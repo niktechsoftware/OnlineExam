@@ -85,6 +85,10 @@
                             <div class="panel-body">
                                <div class="form-group">
                                 <?php 
+                                $username=$this->session->userdata('username');
+                                 $this->db->where('username' ,$username);
+                                 $branch = $this->db->get('branch')->row();
+                                 $this->db->where('branch_id',$branch->id);
                                    $view=  $this->db->get("exam_head")->result(); 
                                    ?>
                                    <select id="examListshow" class="form-control" required="">
@@ -132,14 +136,11 @@
                             </div>
                             <div class="form-group">
                               <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-12 text-center">
                                  <a href="#" class="btn btn-sm btn-round btn-primary" id="addTestButton"><i class="ion-checkmark-round"></i>
                               Add Test </a>
                                 </div>
                               </div>
-                            </div>
-                           <div class="alert txt_css"> Type a<strong> Test Name ,Description </strong>and its <strong>Marks </strong>,and press Add Test Button.If All details are added
-                              successfully then it show in right side panel where you can change the all details and also you can Delete it.
                             </div>
                           </div>
                         </div>
@@ -175,8 +176,12 @@
                             </div>
                             <div class="panel-body">
                               <div class="form-group">
-                                 <?php 
+                                 <?php  $username=$this->session->userdata('username');
+                                 $this->db->where('username' ,$username);
+                                 $branch = $this->db->get('branch')->row();
+                                 $this->db->where('branch_id',$branch->id);
                                    $view=  $this->db->get("exam_head")->result(); 
+                                  // $view=  $this->db->get("exam_head")->result(); 
                                   ?>
                                    <select id="examListsubShow" class="form-control" required="">
                                       <option value="">Select Exam Head</option>

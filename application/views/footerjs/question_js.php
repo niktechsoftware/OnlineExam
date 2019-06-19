@@ -54,7 +54,7 @@
          var questionName = $('#addQuestion').val();
          var subject_id = $('#subQuesList').val();
             alert("Your Quesiton Succesfully Added");
-         $.post("<?php echo base_url('examconfiguration/addQuestion')?>",{
+         $.post("<?php echo base_url('branchController/addQuestion')?>",{
           subject_id : subject_id,
           questionName : questionName}, function(data)
             { $("#questionAdd1").html(data);
@@ -64,7 +64,7 @@
       /// side show value in Question section
       var questionName = $('#addQuestion').val();
       var subject_id = $('#subQuesList').val();
-           $.post("<?php echo base_url('examconfiguration/addQuestion')?>",{subject_id : subject_id,
+           $.post("<?php echo base_url('branchController/addQuestion')?>",{subject_id : subject_id,
             questionName : questionName
          }, function(data){
             $("#questionAdd1").html(data);
@@ -76,7 +76,7 @@
           var image = $('#image_file').val();
           alert(image);
           alert(" your file Succesfully upload");
-          $.post("<?php echo base_url('examconfiguration/uploadQues')?>",{image : image},function(data){
+          $.post("<?php echo base_url('branchController/uploadQues')?>",{image : image},function(data){
             $("").html(data);
           });
         });
@@ -110,7 +110,7 @@
                 $("#nop").change(function(){
           var nop = $("#nop").val();
           //alert(nop);
-           $.post("<?php echo site_url('quesConfigController/updateOption') ?>", {nop : nop},function(data){
+           $.post("<?php echo site_url('branchController/updateOption') ?>", {nop : nop},function(data){
                     $("#addOption1").html(data);
           }); 
         });
