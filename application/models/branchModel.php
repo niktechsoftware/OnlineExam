@@ -15,7 +15,12 @@
 	}
 
 	public function addsExam(){
-		//$this->db->where("school_code",$this->session->userdata("school_code"));
+		
+		$username=$this->session->userdata('username');
+		$this->db->where('username',$username);
+		$branch = $this->db->get('branch')->row();
+		//print_r($branch->id);exit();
+		$this->db->where('branch_id',$branch->id);
 		$query = $this->db->get("exam_head");
 		return $query;
 	}

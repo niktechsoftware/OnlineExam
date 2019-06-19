@@ -1,9 +1,10 @@
 <?php
 	class Examconfigmodel extends CI_Model{
 		//add exam section start
-		public function addExam($exam){
+		public function addExam($exam,$branchId){
 		$db = array(
 			"exam_head" => $exam,
+			"branch_id" => $branchId
 				//"school_code"=>$this->session->userdata("school_code"),
 		);
 		if(strlen($exam) > 1){

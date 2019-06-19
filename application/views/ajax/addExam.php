@@ -5,6 +5,7 @@ if(isset($examList)):
 		<div class="text-white text-sm pull-left space10 ">
 		    <table class="table table-borered table-striped">
 		        <tr style="color:black;">
+		        	<th>Branch Name</th>
 		            <th>Exam Name</th>
 		            <th>Edit</th>
 		            <th>Delete</th>
@@ -13,6 +14,15 @@ if(isset($examList)):
 		            	foreach ($examList->result() as $row):
 		       ?>
 		         <tr>
+		         		<?php $this->db->where('id',$row->branch_id);
+		         		$branch = $this->db->get('branch')->result();
+		         		?>
+		         	<td>
+		         		<?php foreach($branch as $branchName){
+		         			//print_r($branchName);?>
+        			<label style="color: black;"><?php echo $branchName->branch_name;?></label>
+        			<input type="hidden" id="examId<?php echo $i;?>" size="13" value="<?php echo $row->id; ?>"><?php }?>
+        			</td>
 		             <td>
         			<input type="text" id="examValue<?php echo $i;?>" size="13" value="<?php echo $row->exam_head;?>" >
         			<input type="hidden" id="examId<?php echo $i;?>" size="13" value="<?php echo $row->id; ?>">

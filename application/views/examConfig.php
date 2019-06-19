@@ -21,21 +21,45 @@
                    <a class="nav-link active" data-toggle="tab" href="#examadd" role="tab">Add Exam Head</a>
                    <div class="slide"></div>
                  </li>
-                 <li class="nav-item">
+                 <!-- <li class="nav-item">
                    <a class="nav-link" data-toggle="tab" href="#addtestPanel" role="tab">Add Test</a>
                    <div class="slide"></div>
                  </li>
                   <li class="nav-item">
                    <a class="nav-link" data-toggle="tab" href="#addsub" role="tab">Add Subject</a>
                    <div class="slide"></div>
-                 </li>
+                 </li> -->
                </ul>
                <!-- Tab panes -->
                <div class="tab-content card-block">
                  <div class="tab-pane active" id="examadd" role="tabpanel">
-                   
-                 <div class="row" style="padding-top: 20px;">
-                   <div class="col-sm-6">
+                   <div class="row">
+                     <div class="col-md-6">
+                        <div class="panel panel-calendar  exam_panel_body">
+                        <div class="panel-heading bg_info border-light">
+                          <h5 class="panel-title">Branch Name</h5>
+                        </div>
+                        <div class="panel-body">
+                          <div class="text-black text-large exam_panel">
+                            <div class="form-group">
+                              <div class="row">
+                                <div class="col-md-12">
+                                  <select name="branchName" id="branchName" class="form-control" >
+                                    <option value="">-Select Branch-</option>
+                                      <?php $row = $this->db->get('branch')->result();
+                                          foreach($row as $row1){
+                                      ?>
+                                    <option value="<?php echo $row1->id;?>"><?php echo $row1->branch_name;?></option>
+                                  <?php }?>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>  
+                          </div>
+                        </div>
+                      </div>
+                     </div>
+                    <div class="col-sm-6">
                       <div class="panel panel-calendar  exam_panel_body">
                         <div class="panel-heading bg_info border-light">
                           <h5 class="panel-title">Add Exam Head</h5>
@@ -61,7 +85,11 @@
                         </div>
                       </div>
                     </div>
-                   <div class="col-sm-6">
+                    
+                   </div>
+                 <div class="row" style="padding-top: 20px;">
+                   
+                   <div class="col-sm-12">
                       <div class="panel panel-calendar  exam_panel_body">
                         <div class="panel-heading bg_info border-light">
                           <h5 class="panel-title">Exam List</h5>

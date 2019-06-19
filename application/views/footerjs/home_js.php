@@ -38,14 +38,20 @@
     // add exam code start
       $("#addExamButton").click(function(){
         var examName = $('#addExam').val();
+        var branchId = $('#branchName').val();
+       // alert(branchId);
         alert("Your exam is successfully created");
-        $.post("<?php echo base_url('examconfiguration/addExam') ?>", {examName : examName}, function(data){
+        $.post("<?php echo base_url('examconfiguration/addExam') ?>", {examName : examName,
+          branchId : branchId}, function(data){
                 $("#examAdd1").html(data);
         });
         $('#addExam').val("");
+
         });
        var examName = $('#addExam').val();
-     $.post("<?php echo base_url('examconfiguration/addExam') ?>", {examName : examName}, function(data){
+       var branchId = $('#branchName').val();
+     $.post("<?php echo base_url('examconfiguration/addExam') ?>", {examName : examName,
+      branchId : branchId}, function(data){
                 $("#examAdd1").html(data);
         });
  // End exam code
