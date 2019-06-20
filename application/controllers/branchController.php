@@ -441,16 +441,28 @@ class BranchController extends CI_Controller{
 			$testname  = $this->input->post('testnm');
 			$testDes = $this->input->post('testDes');
 			$testmark = $this->input->post('testmark');
-			
 			$this->load->model('branchModel');
 		if(strlen($testname)>1&&strlen($testDes)>1&&strlen($testmark)>1){
-		$testListView = $this->branchModel->addTestModel($examHead,$testname,$testDes,$testmark);
+
+		$query = $this->branchModel->addTestModel($examHead,$testname,$testDes,$testmark);
+		$data['testListview'] = $query;
+				//print_r($data['testListview1']);exit();
+				$this->load->view("ajax/addTest",$data);
 			}else{
 				$testListView = $this->branchModel->addsTestModel();
-			}
-				$data['testListview'] = $testListView;
-				//print_r($data);exit();
+
+				foreach($testListView as $exam1){
+					//print_r($exam1);
+        		$this->db->where('exam_head_id',$exam1->id);
+			$query = $this->db->get("test_name");
+			//print_r($query);
+			$data['testListview'] = $query;
+				//print_r($data['testListview1']);exit();
 				$this->load->view("ajax/addTest",$data);
+		}
+			}//exit();
+				
+				
 			
 		}
 		public function updateTest(){
@@ -678,6 +690,44 @@ class BranchController extends CI_Controller{
 		}
 	}
 	///question configuration code end
+	
+		///ADD UPDATE DELETE option SECTION CODE START
+	///SELECT BOX CODE START
+	 public function addTestOpt(){
+        	$exam = $this->input->post('examnmOpt');
+        	$this->db->where('exam_head_id',$exam);
+        	$var = $this->db->get("test_name");
+        	if($var){
+        		echo '<option value="">-Select Test Name-</option>';
+                foreach ($var->result() as $row){
+                    echo '<option value="'.$row->id.'">'.$row->test_name.'</option>';
+                }
+        	}
+        }
+        public function addSubjectOpt(){
+        	$test = $this->input->post('testnmOpt');
+        	$this->db->where('test_name_id',$test);
+        	$var = $this->db->get('subject');
+        	if($var){
+        		echo '<option value="">-Select Subject Name-</option>';
+        		foreach($var->result() as $row){
+        			echo '<option value="'.$row->id.'">'.$row->subject_name.'</option>';
+        		}
+        	}
 
+        }
+        public function addQuesOpt(){
+        	$sub = $this->input->post('subjectnmOpt');
+        	$this->db->where('subject_id',$sub);
+        	$var = $this->db->get('question');
+        	if($var){
+        		echo '<option value="">-Select Question-</option>';
+        		foreach($var->result() as $row){
+        			echo '<option value="'.$row->id.'">'.$row->question.'</option>';
+        		}
+        	}
+        }
+	///SELECT BOX CODE END 
+	/// add update delete option code end
 }
 ?>

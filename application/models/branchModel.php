@@ -70,21 +70,15 @@
 			   return $query;
 		}
 		public function addsTestModel(){
-		// $userName = $this->session->userdata('username');
-		// $this->db->where('username',$userName);
-		// $id=$this->db->get('branch')->row();
-		// $branchId = $id->id;
-		// $this->db->where('branch_id',$branchId);
-		// $examId=$this->db->get('exam_head')->result();
-		// //print_r($examId);
-		// foreach($examId as $exam1){
-
-		// print_r($exam1);
-         // $this->db->where('exam_head_id',$exam1->id);
-			$query = $this->db->get("test_name");
-			
-			return $query;
-		//}
+		$userName = $this->session->userdata('username');
+		$this->db->where('username',$userName);
+		$id=$this->db->get('branch')->row();
+		$branchId = $id->id;
+		$this->db->where('branch_id',$branchId);
+		$examId=$this->db->get('exam_head')->result();
+		//print_r($examId);
+		
+		return $examId;
 		//exit;
 		}
 		public function updateTestModel($testId,$testName,$testDesc,$testMark){
@@ -181,6 +175,13 @@
 		    return $query;
 		}
 		///ADD UPDATE DELETE SECTION OF QUESTION END
+		///option code start
+			function insertoption($data)
+			{ 
+				$query1 = $this->db->insert("ques_option",$data);
+				return true;
+			}
+		///option code end
 	}
 	
 ?>

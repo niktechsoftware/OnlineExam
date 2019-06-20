@@ -39,7 +39,13 @@
               <div class="panel-body">
                 <div class="form-group">
                   
-                  <?php $examShow = $this->db->get("exam_head")->result();?>
+                  <?php
+                      $username = $this->session->userdata('username');
+                      $this->db->where('username',$username);
+                      $branch = $this->db->get('branch')->row();
+                      $this->db->where('branch_id',$branch->id);
+                   $examShow = $this->db->get("exam_head")->result();
+                   ?>
                   <select id="examQuesList" class="form-control">
                     <option value="">Select Exam Head</option>
                     <?php foreach($examShow as $view){?>
@@ -184,7 +190,7 @@
                             </div>
                             <div class="panel-body">
                               <div class="form-group">
-                                <select id="quesListopt" class="form-control">
+                                <select id="quesListopt" name="quesListopt" class="form-control">
                                 </select>
                               </div>
                             </div>
@@ -194,7 +200,7 @@
                
                     <!--------->
                     <div class="row exam_panel">
-                   <div class="col-sm-6">
+                   <div class="col-sm-7">
                       <div class="panel panel-calendar  exam_panel_body">
                         <div class="panel-heading bg-info border-light">
                           <h5 class="panel-title">Add Option Number</h5>
@@ -209,6 +215,8 @@
                                <div class="col-sm-6">
                                  <select class="form-control" id="nop" name="nop" >
                                     <option value="-nop-">-NOP-</option>
+                                    <option value="2">2</option>
+                                    <option value="4">3</option>
                                     <option value="5">4</option>
                                     <option value="6">5</option>
                                    
@@ -216,14 +224,15 @@
                                </div>
                              </div>
                            </div>
-                            <div class="alert alert-warning"> Type a Test name and press Add Test Name.If Test Name added
+                          <div class="col-md-12" id="sectionList"></div>
+                           <!--  <div class="alert alert-warning"> Type a Test name and press Add Test Name.If Test Name added
                               successfully then it show in right side panel where you can change the name and Delete it.
-                            </div>
+                            </div> -->
                           </div>
                         </div>
                       </div>
                     </div>
-                     <div class="col-sm-6">
+                     <div class="col-sm-5">
                       <div class="panel panel-calendar  exam_panel_body">
                         <div class="panel-heading bg-info border-light">
                           <h5 class="panel-title"> Test Name List</h5>

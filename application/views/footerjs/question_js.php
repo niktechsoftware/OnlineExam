@@ -91,30 +91,41 @@
                 });
            $("#testListOpt").change(function(){
                     var testnmOpt = $("#testListOpt").val();
-                    alert(testnmOpt);
+                   // alert(testnmOpt);
                     $.post("addSubjectOpt",{testnmOpt : testnmOpt}, function(data){
                     $("#subjectListOpt").html(data);
-                    alert(data);
+                   // alert(data);
                         });
                 });
            $("#subjectListOpt").change(function(){
             var subjectnmOpt = $("#subjectListOpt").val();
-            alert(subjectnmOpt);
+           // alert(subjectnmOpt);
             $.post("addQuesOpt",{subjectnmOpt : subjectnmOpt},function(data){
               $("#quesListopt").html(data);
-              alert(data);
+             // alert(data);
             })
 
            })
         //select box code end
-                $("#nop").change(function(){
+               // $("createBody").hide();
+        $("#nop").change(function(){
           var nop = $("#nop").val();
           //alert(nop);
-           $.post("<?php echo site_url('branchController/updateOption') ?>", {nop : nop},function(data){
-                    $("#addOption1").html(data);
+           $.post("<?php echo base_url('quesConfigController/updatePeriod') ?>", {nop : nop},function(data){
+                    $("#sectionList").html(data);
           }); 
         });
+        ////
+          $('#quesListopt').change(function(){
+            var quesID = $('#quesListopt').val();
+             $.post("<?php echo base_url('quesConfigController/updatePeriod') ?>", {quesID : quesID
+         }, function(data){
+                $("#sectionList").html(data);
+        });
+          });
+        ////
       //code of option end
+
   });
 
   </script>

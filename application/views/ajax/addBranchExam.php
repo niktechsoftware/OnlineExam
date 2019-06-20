@@ -50,8 +50,8 @@ endif;
 		    		var examId = $('#examId<?php echo $j; ?>').val();	
 		    		var examName = $('#examValue<?php echo $j; ?>').val();
 		    		alert("your exam is successfully updated");
-		    		alert(examId);
-		    		alert(examName);
+		    		//alert(examId);
+		    		//alert(examName);
 		    		var form_data = {
 							examId : examId,
 							examName : examName
@@ -66,6 +66,14 @@ endif;
 					}
 				});
 			});
+			  $("#delete<?php echo $j; ?>").click(function(){
+		    		var examId = $('#examId<?php echo $j; ?>').val();	
+		    		//alert(streamName);
+		    		$.post("<?php echo site_url('branchController/deleteExam') ?>", {examId : examId}, function(data){
+		                $("#examAdd1").html(data);
+		                //alert(data);
+		    		})
+		        });
 		<?php
 	}?>
 </script>
