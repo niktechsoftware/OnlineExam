@@ -49,6 +49,11 @@
                                                 <span class="pcoded-mtext">Question Configure</span>
                                             </a>
                                         </li>
+                                        <li class="">
+                                            <a href="<?php echo base_url();?>branchController/marksConfigur">
+                                                <span class="pcoded-mtext">Marks Configure</span>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <?php endif;?>
@@ -83,7 +88,7 @@
                             </ul><?php  endif;?>
                           <?php  if(($this->session->userdata("login_type")==2) ):?>
                 
-                            <ul class="pcoded-item pcoded-left-item">
+                          <!--   <ul class="pcoded-item pcoded-left-item">
                              <li class="pcoded-hasmenu">
                                     <a href="#">
                                         <span class="pcoded-micon"><i class="feather icon-clipboard"></i></span>
@@ -126,7 +131,7 @@
                                         <?php  endif;?>
                                </ul>
                            </li><?php  endif;?>
-                           </ul>
+                           </ul> -->
                          <!--  <div class="pcoded-navigatio-lavel">Student</div> -->
                          <?php if(($this->session->userdata("login_type")==2)||($this->session->userdata("login_type")==4)||($this->session->userdata("login_type")==3)):?>
                             <ul class="pcoded-item pcoded-left-item">

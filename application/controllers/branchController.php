@@ -387,7 +387,7 @@ class BranchController extends CI_Controller{
 			$data['header'] = 'header';
 			$data['sidemenu'] = 'sidemenu';
 			$data['contend'] = 'branchExamConfig';
-			$data['subtitle'] = 'Exam Section';
+			$data['subtitle'] = 'Exam Configuration ';
 			$data['customizer'] = 'customizer';
 			$data['footer'] = 'footer';
 			$data['footerjs'] = 'branchExamJs';
@@ -617,6 +617,7 @@ class BranchController extends CI_Controller{
 	// branch profile code end
 	///question configuration code start
 		public function quesConfigur(){
+			//$data['view']= $this->input->post('quesID');
 		$data['title'] = 'Question Configur Area';
 		$data['headercss'] = 'branchExamCss';
 		$data['header'] = 'header';
@@ -723,11 +724,86 @@ class BranchController extends CI_Controller{
         	if($var){
         		echo '<option value="">-Select Question-</option>';
         		foreach($var->result() as $row){
-        			echo '<option value="'.$row->id.'">'.$row->question.'</option>';
+        			echo '<option  value="'.$row->id.'">'.$row->question.'</option>';
         		}
         	}
-        }
+        }    
+         public function addQuesOption(){
+        	$que = $this->input->post('quesOptionId');
+        	$this->db->where('id',$que);
+        	$var = $this->db->get('question');
+        	$data['var1']= $var->row();
+        	$this->load->view('addOptionValue',$data);
+        }    
 	///SELECT BOX CODE END 
+        	public function addQuesOptionValue(){
+        		$ques_id = $this->input->post('quesID');
+        		$optionNo = $this->input->post('option');
+        		$optionDesc = $this->input->post('optionDesc');
+        		$data = array(
+        			'question_id' => $ques_id,
+        			'option_no' => $optionNo,
+        			'option_value' => $optionDesc
+        		);
+        		$insert=$this->db->insert('ques_option',$data);
+        		echo "Success";
+        		//redirect(base_url()."branchController/quesConfigur");
+        	}
+        		
+        ///
 	/// add update delete option code end
+        
+  
+    ///SeLECT Box code
+                                  
+       public function addTestMarks(){
+       	$exam = $this->input->post('examnmMarks');
+        	$this->db->where('exam_head_id',$exam);
+        	$var = $this->db->get("test_name");
+        	if($var){
+        		echo '<option value="">-Select Test Name-</option>';
+                foreach ($var->result() as $row){
+                    echo '<option value="'.$row->id.'">'.$row->test_name.'</option>';
+                }
+        	}
+       }
+       public function addSubjectMarks(){
+       		$test = $this->input->post('testnmMarks');
+        	$this->db->where('test_name_id',$test);
+        	$var = $this->db->get('subject');
+        	if($var){
+        		echo '<option value="">-Select Subject Name-</option>';
+        		foreach($var->result() as $row){
+        			echo '<option value="'.$row->id.'">'.$row->subject_name.'</option>';
+        		}
+        	}
+       }
+       public function addQuesMarks(){
+        	$sub = $this->input->post('subjectnmMarks');
+        	$this->db->where('subject_id',$sub);
+        	$var = $this->db->get('question');
+        	if($var){
+        		echo '<option value="">-Select Question-</option>';
+        		foreach($var->result() as $row){
+        			echo '<option value="'.$row->id.'">'.$row->question.'</option>';
+        		}
+        	
+        }
+       }
+    ///select box code end
+       /// Marks section code start
+       	public function marksConfigur(){
+       	$data['title'] = 'Marks Configur Area';
+		$data['headercss'] = 'marksCSS';
+		$data['header'] = 'header';
+		$data['sidemenu'] = 'sidemenu';
+		$data['contend'] = 'marksConfigur';
+		$data['subtitle'] = 'Marks Configuration';
+		$data['customizer'] = 'customizer';
+		$data['footer'] = 'footer';
+		$data['footerjs'] = 'marksJS';
+   		 $this->load->view("base/body", $data);
+       	}
+       /// Marks Section Code end
 }
 ?>

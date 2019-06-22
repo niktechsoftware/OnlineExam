@@ -23,7 +23,7 @@
                    <div class="slide"></div>
                  </li>
                   <li class="nav-item">
-                   <a class="nav-link" data-toggle="tab" href="#addoptvalue" role="tab">Add Option Value</a>
+                   <a class="nav-link" data-toggle="tab" href="#addmaxMarks" role="tab">Add Max Marks</a>
                    <div class="slide"></div>
                  </li>
                </ul>
@@ -190,7 +190,7 @@
                             </div>
                             <div class="panel-body">
                               <div class="form-group">
-                                <select id="quesListopt" name="quesListopt" class="form-control">
+                                <select id="quesListopt" name="quesListopt"  class="form-control">
                                 </select>
                               </div>
                             </div>
@@ -200,39 +200,17 @@
                
                     <!--------->
                     <div class="row exam_panel">
-                   <div class="col-sm-7">
+                   <div class="col-sm-12">
                       <div class="panel panel-calendar  exam_panel_body">
                         <div class="panel-heading bg-info border-light">
                           <h5 class="panel-title">Add Option Number</h5>
                         </div>
-                        <div class="panel-body">
-                          <div class="text-black text-large exam_panel">
-                           <div class="form-group">
-                             <div class="row">
-                              <div class="col-sm-6">
-                                <h6>Number of option</h6>
-                              </div>
-                               <div class="col-sm-6">
-                                 <select class="form-control" id="nop" name="nop" >
-                                    <option value="-nop-">-NOP-</option>
-                                    <option value="2">2</option>
-                                    <option value="4">3</option>
-                                    <option value="5">4</option>
-                                    <option value="6">5</option>
-                                   
-                                  </select>
-                               </div>
-                             </div>
-                           </div>
-                          <div class="col-md-12" id="sectionList"></div>
-                           <!--  <div class="alert alert-warning"> Type a Test name and press Add Test Name.If Test Name added
-                              successfully then it show in right side panel where you can change the name and Delete it.
-                            </div> -->
-                          </div>
+                        <div class="panel-body" id="quesOption">
+                        
                         </div>
                       </div>
                     </div>
-                     <div class="col-sm-5">
+                     <!-- <div class="col-sm-5">
                       <div class="panel panel-calendar  exam_panel_body">
                         <div class="panel-heading bg-info border-light">
                           <h5 class="panel-title"> Test Name List</h5>
@@ -241,85 +219,74 @@
                          
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                  </div>
                  </div>
                  <!---end add option section----->
                  <!----option value tab start--->
-                 <div class="tab-pane" id="addoptvalue" role="tabpanel">
-                  <!----------->
-                    <div class="row" >
-                        <div class="col-sm-4">
+                 <div class="tab-pane" id="addmaxMarks" role="tabpanel">
+                         <!---------->
+                <div class="row" >
+                        <div class="col-sm-3">
                           <div class="panel">
                             <div class="panel-heading bg-primary">
                               <h6 class="panel-title ">Exam Head</h6>
                             </div>
                             <div class="panel-body">
                               <div class="form-group">
-                                <select id="streamListshow" class="form-control">
-                                  <option value="">Select Exam Head</option>
+                                <select id="examMarksList" class="form-control">
+                                  <option>-Select Exam-</option>
+                                 <?php foreach($examShow as $view){?>
+                               <option value="<?php echo $view->id;?>"><?php echo $view->exam_head;?></option>
+                                <?php } ?>
                                 </select>
                               </div>
                             </div>
                           </div>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
                           <div class="panel">
                             <div class="panel-heading bg-primary">
                               <h6 class="panel-title">Test</h6>
                             </div>
                             <div class="panel-body">
                               <div class="form-group">
-                                <select id="sectionshow" class="form-control">
+                                <select id="testListMarks" class="form-control">
 
                                 </select>
                               </div>
                             </div>
                           </div>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
                           <div class="panel">
                             <div class="panel-heading bg-primary">
                               <h6 class="panel-title">Subject</h6>
                             </div>
                             <div class="panel-body">
                               <div class="form-group">
-                                <select id="classshow" class="form-control">
+                                <select id="subjectListMarks" class="form-control">
                                 </select>
                               </div>
                             </div>
                           </div>
                         </div>
-                       </div>
-                       <div class="row">
-                         <div class="col-sm-6">
+                         <div class="col-sm-3">
                           <div class="panel">
                             <div class="panel-heading bg-primary">
                               <h6 class="panel-title">Question</h6>
                             </div>
                             <div class="panel-body">
                               <div class="form-group">
-                                <select id="classshow" class="form-control">
-                                </select>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-sm-6">
-                          <div class="panel">
-                            <div class="panel-heading bg-primary">
-                              <h6 class="panel-title">Option</h6>
-                            </div>
-                            <div class="panel-body">
-                              <div class="form-group">
-                                <select id="classshow" class="form-control">
+                                <select id="quesListMarks" name="quesListopt" class="form-control">
                                 </select>
                               </div>
                             </div>
                           </div>
                         </div>
                        </div>
-                  <!---------->
+               
+                    <!--------->
                     <div class="row exam_panel">
                    <div class="col-sm-6">
                       <div class="panel panel-calendar  exam_panel_body">
@@ -329,10 +296,35 @@
                         <div class="panel-body">
                           <div class="text-black text-large exam_panel">
                             <span id="name" style="color:red;"></span>
-                            <input type="text" id="addStream" onkeyup="myFunction()">
-                            <a href="#" class="btn btn-sm btn-round btn-primary" id="addStreamButton"><i class="ion-checkmark-round"></i>
-                              Add Subject</a><!--<br--><br><br>
-                            <div class="alert alert-warning"> Type a subject  and press Add Subject.If Subject added successfully then it show in right side panel where you can change the name and Delete it.
+                            <div class="form-group">
+                              <div class="row">
+                                <div class="col-md-4 text-center">
+                                    <label>Max Marks</label>
+                                </div>
+                                <div class="col-md-8">
+                                  <input type="number" name="maxMarks" class="form-control" id="maxMarks">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                               <div class="row">
+                                <div class="col-md-4 text-center ">
+                                    <label>Negative Marks</label>
+                                </div>
+                                <div class="col-md-8">
+                                   <input type="number" name="negMarks" class="form-control" id="negMarks">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="row">
+                                <div class="col-md-12 text-center">
+                                  <a href="#" class="btn btn-sm btn-round btn-primary" id="addMarksButton"><i class="ion-checkmark-round"></i>
+                                    Add Subject</a>
+                                </div>
+                              </div>
+                            </div>
+                              <div class="alert alert-warning"> Type a subject  and press Add Subject.If Subject added successfully then it show in right side panel where you can change the name and Delete it.
                             </div>
                           </div>
                         </div>
@@ -343,15 +335,7 @@
                         <div class="panel-heading bg-info border-light">
                           <h5 class="panel-title"> Subject List</h5>
                         </div>
-                        <div class="panel-body">
-                          <div class="text-black text-large exam_panel">
-                            <span id="name" style="color:red;"></span>
-                            <input type="text" id="addStream" onkeyup="myFunction()">
-                            <a href="#" class="btn btn-sm btn-round btn-primary" id="addStreamButton"><i class="ion-checkmark-round"></i>
-                              Edit</a><!--<br-->&nbsp;&nbsp;<a href="#" class="btn btn-sm btn-round btn-primary" id="addStreamButton"><i class="ion-checkmark-round"></i>
-                              Delete</a><br><br>
-                           
-                          </div>
+                        <div class="panel-body" id="maxMarks">
                         </div>
                       </div>
                     </div>

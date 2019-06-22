@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-md-12">
 		<h3><?php echo $subtitle;?></h3>
-		<form method="post" action="<?php echo base_url()?>branchController/studRegistration"  class="form-detail" enctype="multipart/form-data">
+		<form method="post"  name="form1" action="<?php echo base_url()?>branchController/studRegistration"  class="form-detail" enctype="multipart/form-data">
 			 <div class="panel panel-calendar  exam_panel_body">
                 <div class="panel-heading bg_info border-light">
                     <h5 class="panel-title text-center">Registration Form</h5>
@@ -35,7 +35,7 @@
                   			</select>
                   		</td>
                   		<th>Adhar Card No</th>
-                  		<td><input type="number" name="adhar_card" class="form-control" required=""></td>
+                  		<td><input type="text" name="adhar_card" data-type="adhaar-number" maxlength="12" class="form-control" required=""></td>
                   	</tr>
                   	<tr>
                   		<th>Image</th>
@@ -63,10 +63,10 @@
                   	</tr>
                   	<tr>
                   		<th>If You Given Any Exam</th>
-                  		<td><input type="radio" name="estatus" value="1">&nbsp;&nbsp;Yes
-                  			<input type="radio" name="estatus" value="0">&nbsp;&nbsp;No</td>
+                  		<td><input type="radio" name="estatus" id="estatus"  value="1">&nbsp;&nbsp;Yes
+                  			<input type="radio" name="estatus" id="estatus" value="0">&nbsp;&nbsp;No</td>
                   			<th>Exam Name</th>
-                  		<td><input type="text" name="ename" class="form-control" ></td>
+                  		<td><input type="text" name="ename" id="ename" class="form-control" ></td>
                   	</tr>
                   	<tr>
                   		<th>If  Any Disabilities</th>
@@ -94,6 +94,7 @@
                   		<th>Country</th>
                   		<td><input type="text" class="form-control" name="per_country" required=""></td>
                   	</tr>
+                        <tr><th colspan="4"><input type="checkbox" name="billingtoo" onclick="FillBilling(this.form)"></th></tr>
                   	<tr>
                   		<th colspan="4">Local Address</th>
                   	</tr>
@@ -128,3 +129,4 @@
 		</form>
 	</div>
 </div>
+

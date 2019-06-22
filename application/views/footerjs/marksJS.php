@@ -1,6 +1,4 @@
-
-    <script data-cfasync="false" src="<?php echo base_url();?>assets/js/email-decode.min.js"></script>
-    <script type="59edefb75604f457019ed4b6-text/javascript" src="<?php echo base_url();?>assets/bower_components/jquery/js/jquery.min.js"></script>
+    <script data-cfasync="false" src="<?php echo base_url();?>assets/js/email-decode.min.js"></script><script type="59edefb75604f457019ed4b6-text/javascript" src="<?php echo base_url();?>assets/bower_components/jquery/js/jquery.min.js"></script>
     <script type="59edefb75604f457019ed4b6-text/javascript" src="<?php echo base_url();?>assets/bower_components/jquery-ui/js/jquery-ui.min.js"></script>
     <script type="59edefb75604f457019ed4b6-text/javascript" src="<?php echo base_url();?>assets/bower_components/popper.js/js/popper.min.js"></script>
     <script type="59edefb75604f457019ed4b6-text/javascript" src="<?php echo base_url();?>assets/bower_components/bootstrap/js/bootstrap.min.js"></script>
@@ -23,7 +21,6 @@
     <script type="59edefb75604f457019ed4b6-text/javascript" src="<?php echo base_url();?>assets/js/script.min.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="<?php echo base_url();?>assets/js/google.js" type="59edefb75604f457019ed4b6-text/javascript"></script>
-
 <script type="59edefb75604f457019ed4b6-text/javascript">
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -33,61 +30,15 @@
 </script>
 <script src="<?php echo base_url();?>assets/js/rocket-loader.min.js" data-cf-settings="59edefb75604f457019ed4b6-|49" defer=""></script>
 <script src="<?php echo base_url();?>assets/js/jquery-3.4.0.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-<script scr="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 <!-- Mirrored from colorlib.com//polygon/adminty/default/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 May 2019 05:29:56 GMT -->
 <script >
-    $(document).ready(function() {
-         $('#branchView').DataTable();
-         //branch Request
-         $('#branchReq').DataTable();
-    });
-    $(document).ready(function(){
-      /// aadhar card validation
-   $('[data-type="adhaar-number"]').keyup(function() {
-            var value = $(this).val();
-            value = value.replace(/\D/g, "").split(/(?:([\d]{4}))/g).filter(s => s.length > 0).join("-");
-            $(this).val(value);
-          });
-        $('[data-type="adhaar-number"]').on("change, blur", function() {
-          var value = $(this).val();
-          var maxLength = $(this).attr("maxLength");
-          if (value.length != maxLength) {
-            $(this).addClass("highlight-error");
-          } else {
-            $(this).removeClass("highlight-error");
-          }
-        });
-        //
-          $("#estatus").keyup(function(){
+    
+  $(document).ready(function() {
+   
 
-    $("#ename").val("Dolly Duck");
   });
-    });
-  
-  </script>
-  <script type="text/javascript">
-// function data_copy1()
-// {
-// if(document.form1.copy[0].checked){alert('hiii');
-// document.form1.loc_address.value=document.form1.per_address.value;
-// //document.form1.loc_city.value=document.form1.per_city.value=
-// //document.form1.loc_state.value=document.form1.per_state.value;
-// //document.form1.loc_pincode.value=document.form1.per_pincode.value;
-// // document.form1.loc_country.value=document.form1.per_country.value;
-// }
-// }
-function FillBilling(f) {
 
-  if(f.billingtoo.checked == true) {
-    f.loc_address.value=f.per_address.value;
-  f.per_city.value = f.loc_city.value;
-  f.loc_state.value = f.per_state.value;
-  f.loc_pincode.value = f.per_pincode.value;
-  f.per_city.value = f.loc_city.value;
-  }
-}
-</script>
+  </script>
+
 

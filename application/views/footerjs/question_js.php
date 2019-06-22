@@ -103,28 +103,77 @@
             $.post("addQuesOpt",{subjectnmOpt : subjectnmOpt},function(data){
               $("#quesListopt").html(data);
              // alert(data);
-            })
+            });
 
-           })
+           });
+           $("#quesListopt").change(function(){
+            var quesOptionId = $("#quesListopt").val();
+           // alert(subjectnmOpt);
+            $.post("addQuesOption",{quesOptionId : quesOptionId},function(data){
+              $("#quesOption").html(data);
+              //alert(data);
+            });
+
+           });
         //select box code end
                // $("createBody").hide();
-        $("#nop").change(function(){
-          var nop = $("#nop").val();
-          //alert(nop);
-           $.post("<?php echo base_url('quesConfigController/updatePeriod') ?>", {nop : nop},function(data){
-                    $("#sectionList").html(data);
-          }); 
-        });
-        ////
-          $('#quesListopt').change(function(){
-            var quesID = $('#quesListopt').val();
-             $.post("<?php echo base_url('quesConfigController/updatePeriod') ?>", {quesID : quesID
-         }, function(data){
-                $("#sectionList").html(data);
-        });
-          });
-        ////
+        
+        //   $('#quesListopt').change(function(){
+        //     var quesID = $('#quesListopt').val();
+        //      $.post("<?php //echo base_url('branchController/quesConfigur') ?>", {quesID : quesID
+        //  }, function(data){
+        //         $("#optno").html(data);
+        // });
+        //   });
+        // ////
       //code of option end
+      ///code of max marks start
+          ////select
+          $("#examMarksList").change(function(){
+                    var examnmMarks = $("#examMarksList").val();
+                    $.post("addTestMarks",{examnmMarks : examnmMarks}, function(data){
+                    $("#testListMarks").html(data);
+                        });
+                });
+           $("#testListMarks").change(function(){
+                    var testnmMarks = $("#testListMarks").val();
+                   // alert(testnmOpt);
+                    $.post("addSubjectMarks",{testnmMarks : testnmMarks}, function(data){
+                    $("#subjectListMarks").html(data);
+                   // alert(data);
+                        });
+                });
+                   $("#subjectListMarks").change(function(){
+            var subjectnmMarks = $("#subjectListMarks").val();
+           // alert(subjectnmOpt);
+            $.post("addQuesMarks",{subjectnmMarks : subjectnmMarks},function(data){
+              $("#quesListMarks").html(data);
+             // alert(data);
+            });
+
+           });
+          ////select
+           $("#addMarksButton").click(function(){
+         var questionName = $('#addQuestion').val();
+         var subject_id = $('#subQuesList').val();
+            alert("Your Quesiton Succesfully Added");
+         $.post("<?php echo base_url('branchController/addQuestion')?>",{
+          subject_id : subject_id,
+          questionName : questionName}, function(data)
+            { $("#maxMarks").html(data);
+         });
+         $("#addQuestion").val("");
+      });
+      /// side show value in Question section
+      var questionName = $('#addQuestion').val();
+      var subject_id = $('#subQuesList').val();
+           $.post("<?php echo base_url('branchController/addQuestion')?>",{subject_id : subject_id,
+            questionName : questionName
+         }, function(data){
+            $("#maxMarks").html(data);
+         });
+          
+      ///code of max marks end
 
   });
 
