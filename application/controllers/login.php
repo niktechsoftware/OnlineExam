@@ -15,7 +15,6 @@ class login extends CI_Controller {
            
              if ($loginData['is_login'])
              {
-
                 if($loginData['login_type']==1)
                 {
                 $this->session->set_userdata($loginData);
@@ -27,18 +26,15 @@ class login extends CI_Controller {
                      redirect("/welcome/branch", 'refresh');
                  }
                  else if($loginData['login_type']==3){
-                    $this->session->set_userdata($loginData);
+                     $this->session->set_userdata($loginData);
+                  //echo $aa=  $this->session->set_userdata($loginData);
+                   // exit();
                 redirect("/welcome/studDashboard", 'refresh');
                  }
-
                  else{
-
                       $this->session->set_userdata($loginData);
                 redirect("/welcome/subbranchDashboard", 'refresh');
-               
-
                  }
-
              }
               else
                  { 

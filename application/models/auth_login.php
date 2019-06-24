@@ -48,12 +48,6 @@ class Auth_login extends CI_Model {
 		    );
 
 		    return $loginData;
-		 }else{ ?>
-		 	<script>
-		 	alert("Your Account not activated Please Contact with Admin");
-		 </script>
-		 	<?php
-		 	redirect('welcome/index','refresh');
 		 }
 
 		 $this->db->where('username', $username);
@@ -75,6 +69,12 @@ class Auth_login extends CI_Model {
 		         "name" => $res->name,
 		    );
 		    return $loginData;
+		 }else{ ?>
+		 	<script>
+		 	alert("Your Account not activated Please Contact with Admin");
+		 </script>
+		 	<?php
+		 	redirect('welcome/index','refresh');
 		 }
 
 

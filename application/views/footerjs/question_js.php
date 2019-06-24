@@ -91,30 +91,25 @@
                 });
            $("#testListOpt").change(function(){
                     var testnmOpt = $("#testListOpt").val();
-                   // alert(testnmOpt);
                     $.post("addSubjectOpt",{testnmOpt : testnmOpt}, function(data){
                     $("#subjectListOpt").html(data);
-                   // alert(data);
                         });
                 });
            $("#subjectListOpt").change(function(){
             var subjectnmOpt = $("#subjectListOpt").val();
-           // alert(subjectnmOpt);
             $.post("addQuesOpt",{subjectnmOpt : subjectnmOpt},function(data){
               $("#quesListopt").html(data);
-             // alert(data);
             });
 
            });
            $("#quesListopt").change(function(){
             var quesOptionId = $("#quesListopt").val();
-           // alert(subjectnmOpt);
             $.post("addQuesOption",{quesOptionId : quesOptionId},function(data){
               $("#quesOption").html(data);
-              //alert(data);
             });
 
            });
+           
         //select box code end
                // $("createBody").hide();
         

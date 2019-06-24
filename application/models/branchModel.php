@@ -182,6 +182,19 @@
 				return true;
 			}
 		///option code end
+			///option update code start
+					public function updateOption($questionId,$optionNo,$optionValue){
+		$val = array(
+				"option_value" => $optionValue,
+				//"school_code"=>$this->session->userdata("school_code"),
+		);
+		$this->db->where("question_id",$questionId);
+		$this->db->where('option_no',$optionNo);
+		$query = $this->db->update("ques_option",$val);
+		return true;
+	}
+			///option update code end
+
 			
 	}
 	

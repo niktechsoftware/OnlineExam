@@ -38,13 +38,12 @@
               </div>
               <div class="panel-body">
                 <div class="form-group">
-                  
                   <?php
                       $username = $this->session->userdata('username');
                       $this->db->where('username',$username);
                       $branch = $this->db->get('branch')->row();
                       $this->db->where('branch_id',$branch->id);
-                   $examShow = $this->db->get("exam_head")->result();
+                     $examShow = $this->db->get("exam_head")->result();
                    ?>
                   <select id="examQuesList" class="form-control">
                     <option value="">Select Exam Head</option>
@@ -186,7 +185,7 @@
                          <div class="col-sm-3">
                           <div class="panel">
                             <div class="panel-heading bg-primary">
-                              <h6 class="panel-title">Question</h6>
+                              <h6 class="panel-title">Question No.</h6>
                             </div>
                             <div class="panel-body">
                               <div class="form-group">

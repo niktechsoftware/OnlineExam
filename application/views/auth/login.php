@@ -139,15 +139,11 @@
                                   </div>
                                 </div>
                               </div>
-
                               <div class="j-response"></div>
-
                             </div>
-
                             <div class="j-footer">
                               <button type="submit" class="btn btn-primary">Login</button>
                             </div>
-
                           </form>
                         </div>
                       </div>

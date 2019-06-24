@@ -648,7 +648,7 @@ class BranchController extends CI_Controller{
         	if($var){
         		echo '<option value="">-Select Test Name-</option>';
                 foreach ($var->result() as $row){
-                    echo '<option value="'.$row->id.'">'.$row->subject_name.'</option>';
+                    echo '<option value="'.$row->id.'">'.$row->subject_name.'('.$row->subject_ques_no.')</option>';
                 }
         	}
         }
@@ -724,7 +724,7 @@ class BranchController extends CI_Controller{
         	if($var){
         		echo '<option value="">-Select Question-</option>';
         		foreach($var->result() as $row){
-        			echo '<option  value="'.$row->id.'">'.$row->question.'</option>';
+        			echo '<option  value="'.$row->id.'">'.$row->ques_no.'</option>';
         		}
         	}
         }    
@@ -749,6 +749,18 @@ class BranchController extends CI_Controller{
         		echo "Success";
         		//redirect(base_url()."branchController/quesConfigur");
         	}
+        		public function updateOption(){
+				$this->load->model('branchmodel');
+				if($query = $this->branchmodel->updateOption($this->input->post("questionId"),$this->input->post("optionNo"),$this->input->post('optionValue'))){
+					?>
+					<script>
+					        $.post("<?php echo base_url('branchController/quesConfigur') ?>", function(data){
+					            $("#quesOption").html(data);
+							});
+					</script>
+					<?php 
+				}
+			}
         		
         ///
 	/// add update delete option code end
@@ -805,5 +817,6 @@ class BranchController extends CI_Controller{
    		 $this->load->view("base/body", $data);
        	}
        /// Marks Section Code end
+
 }
 ?>
