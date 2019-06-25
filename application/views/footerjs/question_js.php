@@ -180,7 +180,54 @@
          }, function(data){
             $("#maxMarks").html(data);
          });
-          
+          ///add maks marks code
+                  // start add Question code
+      $("#addMarksButton").click(function(){
+         var testMarksID = $('#testListMarks').val();
+         var subjectMarks = $('#subjectListMarks').val();
+         var maxMarks = $('#maxMarks').val();
+         var negMarksStatus = $('#nev_status').val();
+         var negMarks = $('#negMarks').val();
+         var canceStatus = $('#cance_status').val();
+         var canceMarks = $('#canceMarks').val();
+         // alert(testMarksID);alert(subjectMarks);
+         // alert(maxMarks);alert(negMarksStatus);
+         // alert(negMarks);
+         // alert(canceStatus);
+         // alert(canceMarks);
+            alert("Your Marks Succesfully Added");
+         $.post("<?php echo base_url('branchController/addMaxMarks')?>",{
+          testMarksID : testMarksID,
+          subjectMarks : subjectMarks,
+          maxMarks : maxMarks,
+          negMarksStatus : negMarksStatus,
+          negMarks : negMarks,
+          canceStatus : canceStatus,
+           canceMarks : canceMarks}, function(data)
+            { $("#maxMarks").html(data);
+         });
+       //  $("#addQuestion").val("");
+      });
+      /// side show value in Question section
+     var testMarksID = $('#testListMarks').val();
+         var subjectMarks = $('#subjectListMarks').val();
+         var maxMarks = $('#maxMarks').val();
+         var negMarksStatus = $('#nev_status').val();
+         var negMarks = $('#negMarks').val();
+         var canceStatus = $('#cance_status').val();
+         var canceMarks = $('#canceMarks').val();
+         $.post("<?php echo base_url('branchController/addMaxMarks')?>",{
+          testMarksID : testMarksID,
+          subjectMarks : subjectMarks,
+          maxMarks : maxMarks,
+          negMarksStatus : negMarksStatus,
+          negMarks : negMarks,
+          canceStatus : canceStatus,
+           canceMarks : canceMarks}, function(data)
+            { $("#maxMarks").html(data);
+            alert(data);
+         });
+
       ///code of max marks end
 
   });

@@ -63,19 +63,20 @@
                   	</tr>
                   	<tr>
                   		<th>If You Given Any Exam</th>
-                  		<td id="estatus" onchange="toggle();"><input type="radio" name="estatus"   value="1">&nbsp;&nbsp;Yes
-                  			<input type="radio" name="estatus"  checked="checked" value="0">&nbsp;&nbsp;No</td>
+                  		<td ><input type="radio" name="estatus"  onclick="toggle();"  value="1">&nbsp;&nbsp;Yes
+                  			<input type="radio" name="estatus"  checked="checked" id="estatus" value="0">&nbsp;&nbsp;No</td>
                   			<th>Exam Name</th>
-                  		<td id="ename"><input type="text" name="ename"  class="form-control" ></td>
+                  		<td ><input type="text" name="ename" id="ename" class="form-control" style="display:none;"></td>
                   	</tr>
                   	<tr>
                   		<th>If  Any Disabilities</th>
-                  		<td><input type="radio" name="disability" value="1">&nbsp;&nbsp;Yes
+                  		<td><input type="radio" name="disability" onclick="toggle1();" value="1">&nbsp;&nbsp;Yes
                   			<input type="radio" name="disability" checked="checked" value="0">&nbsp;&nbsp;No</td>
                   			<th>Disability Description</th>
-                  		<td><input type="text" name="disDescription" class="form-control" ></td>
+                  		<td><input type="text" name="disDescription" id="disDescription" class="form-control"  style="display:none;"></td>
                   	</tr>
                   	
+
                   	<tr><th colspan="4">Permanent Address</th></tr>
                   	<tr>
                   		<th>Address</th>

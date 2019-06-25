@@ -667,7 +667,7 @@ class BranchController extends CI_Controller{
         	$var = $this->db->get('subject');
         	print_r($var->result());
         	$data['var1']= $var->result();
-        	$this->load->view('addQuestionValue',$data);
+        	$this->load->view('ajax/addquestionValue',$data);
         }
         public function addQuestion(){
 		$question=$this->input->post('questionName');
@@ -821,18 +821,41 @@ class BranchController extends CI_Controller{
        }
     ///select box code end
        /// Marks section code start
-       	public function marksConfigur(){
-       	$data['title'] = 'Marks Configur Area';
-		$data['headercss'] = 'marksCSS';
-		$data['header'] = 'header';
-		$data['sidemenu'] = 'sidemenu';
-		$data['contend'] = 'marksConfigur';
-		$data['subtitle'] = 'Marks Configuration';
-		$data['customizer'] = 'customizer';
-		$data['footer'] = 'footer';
-		$data['footerjs'] = 'marksJS';
-   		 $this->load->view("base/body", $data);
-       	}
+  //      	public function marksConfigur(){
+  //      	$data['title'] = 'Marks Configur Area';
+		// $data['headercss'] = 'marksCSS';
+		// $data['header'] = 'header';
+		// $data['sidemenu'] = 'sidemenu';
+		// $data['contend'] = 'marksConfigur';
+		// $data['subtitle'] = 'Marks Configuration';
+		// $data['customizer'] = 'customizer';
+		// $data['footer'] = 'footer';
+		// $data['footerjs'] = 'marksJS';
+  //  		 $this->load->view("base/body", $data);
+  //      	}
+       	  public function addMaxMarks(){
+		$testMarksID=$this->input->post('testMarksID');
+		$subjectMarksID = $this->input->post('subjectMarks');
+		$maxMarks = $this->input->post('maxMarks');
+		$negMarksStatus = $this->input->post('negMarksStatus');
+		$negMarks = $this->input->post('negMarks');
+		$canceStatus = $this->input->post('canceStatus');
+		$canceMarks = $this->input->post('canceMarks');
+		print_r($testMarksID);
+		print_r($subjectMarksID);
+		$this->load->model('branchmodel');
+		// print_r($testMarksID);
+		// print_r($subjectMarksID);exit();
+		if(!$subjectMarksID){
+		$marksListView = $this->branchmodel->addMarksModel($testMarksID,$subjectMarksID,$maxMarks,$negMarksStatus,$negMarks,$canceStatus,$canceMarks);
+		print_r($marksListView);exit();
+			}else{
+				$marksListView = $this->branchmodel->addsMarksModel();
+			}
+				$data['marksList'] = $marksListView;
+				//print_r($data);exit();
+				$this->load->view("ajax/addMarks",$data);
+	}
        /// Marks Section Code end
 
 }

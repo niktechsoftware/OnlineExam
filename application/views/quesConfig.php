@@ -88,7 +88,7 @@
               </div>
               <div class="panel-body">
                 <div class="form-group">
-                  <select id="subQuesNoList" class="form-control" name="subQuesNoList">
+                  <select id="subQuesNoList" class="form-control" name="subQuesNoList" >
                   </select>
                 </div>
               </div>
@@ -96,17 +96,17 @@
           </div>
         </div>
                  <div class="row" style="padding-top: 20px;">
-                   <div class="col-sm-6">
+                   <div class="col-sm-7">
                       <div class="panel panel-calendar  exam_panel_body">
                         <div class="panel-heading bg-info border-light">
                           <h5 class="panel-title">Add /Upload Question</h5>
                         </div>
                         <div class="panel-body" id="questionValue">
-                         
+                          
                         </div>
                       </div>
                     </div>
-                   <div class="col-sm-6">
+                   <div class="col-sm-5">
                       <div class="panel panel-calendar  exam_panel_body">
                         <div class="panel-heading bg_info border-light">
                           <h5 class="panel-title">Question List</h5>
@@ -211,7 +211,7 @@
                  <div class="tab-pane" id="addmaxMarks" role="tabpanel">
                          <!---------->
                 <div class="row" >
-                        <div class="col-sm-3">
+                        <div class="col-sm-4">
                           <div class="panel">
                             <div class="panel-heading bg-primary">
                               <h6 class="panel-title ">Exam Head</h6>
@@ -228,7 +228,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-4">
                           <div class="panel">
                             <div class="panel-heading bg-primary">
                               <h6 class="panel-title">Test</h6>
@@ -242,7 +242,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-4">
                           <div class="panel">
                             <div class="panel-heading bg-primary">
                               <h6 class="panel-title">Subject</h6>
@@ -255,7 +255,7 @@
                             </div>
                           </div>
                         </div>
-                         <div class="col-sm-3">
+                         <!-- <div class="col-sm-3">
                           <div class="panel">
                             <div class="panel-heading bg-primary">
                               <h6 class="panel-title">Question</h6>
@@ -267,7 +267,7 @@
                               </div>
                             </div>
                           </div>
-                        </div>
+                        </div> -->
                        </div>
                
                     <!--------->
@@ -291,12 +291,39 @@
                               </div>
                             </div>
                             <div class="form-group">
-                               <div class="row">
-                                <div class="col-md-4 text-center ">
-                                    <label>Negative Marks</label>
+                              <div class="row">
+                                <div class="col-md-12">
+                                  <label>Negative Marks</label>
                                 </div>
-                                <div class="col-md-8">
+                              </div>
+                            </div>
+                            <div class="form-group">
+                               <div class="row">
+                                <div class="col-md-6">
+                                  &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="nev_status" id="nev_status" value="1">Yes&nbsp;&nbsp;&nbsp;&nbsp;
+                                 <input type="radio" name="nev_status" id="nev_status" value="0">No
+
+                                </div>
+                                <div class="col-md-6">
                                    <input type="number" name="negMarks" class="form-control" id="negMarks">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="row">
+                                <div class="col-md-12">
+                                <label>Cancellation Marks</label>
+                              </div>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="row">
+                                <div class="col-md-6">
+                                  &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" name="cance_status" id="cance_status" value="1">Yes&nbsp;&nbsp;&nbsp;&nbsp;
+                                 <input type="radio" name="cance_status" id="cance_status" value="0">No
+                                </div>
+                                <div class="col-md-6">
+                                  <input type="number" name="canceMarks" id="canceMarks" class="form-control">
                                 </div>
                               </div>
                             </div>

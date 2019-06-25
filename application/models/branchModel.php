@@ -195,7 +195,30 @@
 	}
 			///option update code end
 
-			
+			/// Max Marks code start
+				public function addMarksModel($testMarksID,$subjectMarksID,$maxMarks,$negMarksStatus,$negMarks,$canceStatus,$canceMarks){
+					//print_r($testMarksID);exit();
+				$db = array(
+					"test_name_id" => $testMarksID,
+					"subject_id" => $subjectMarksID,
+					"max_marks" => $maxMarks,
+					"negative_marks_status" => $negMarksStatus,
+					"negative_marks" => $negMarks,
+					"cancle_marks_status" => $canceStatus,
+					"cancle_marks" => $canceMarks
+				);//print_r($db);exit();
+				// if(!$maxMarks){
+					$this->db->insert("marking",$db);
+				// }
+				
+				//print_r($query);exit();
+				return true;
+			}
+	public function addsMarksModel(){
+		$query = $this->db->get("marking");
+		return $query;
+	}
+	///max marks code end
 	}
 	
 ?>

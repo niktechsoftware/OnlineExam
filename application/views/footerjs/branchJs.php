@@ -45,9 +45,12 @@
          $('#branchView').DataTable();
          //branch Request
          $('#branchReq').DataTable();
+
     });
     $(document).ready(function(){
+
       /// aadhar card validation
+
    $('[data-type="adhaar-number"]').keyup(function() {
             var value = $(this).val();
             value = value.replace(/\D/g, "").split(/(?:([\d]{4}))/g).filter(s => s.length > 0).join("-");
@@ -79,12 +82,26 @@ function FillBilling(f) {
   f.per_city.value = f.loc_city.value;
   }
 }
-function toogle(estatus) {
-       if (document.getElementById(estatus).style.visibility = 'hidden') {
-            document.getElementById(ename).style.visibility = 'visible'; 
-       } else {
-            document.getElementById(ename).style.visibility = 'hidden'
-       }
+
+function toggle() {
+  var element=document.getElementById('ename');
+
+  if ( element.style.display!='none' ) {
+    element.style.display='none';
+  } else {
+    element.style.display='block';
+  }
+}
+
+
+function toggle1() {
+  var element=document.getElementById('disDescription');
+
+  if ( element.style.display!='none' ) {
+    element.style.display='none';
+  } else {
+    element.style.display='block';
+  }
 }
 </script>
 
