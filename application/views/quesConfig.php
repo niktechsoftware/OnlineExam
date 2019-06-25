@@ -31,7 +31,7 @@
                <div class="tab-content card-block">
                  <div class="tab-pane active" id="quesadd" role="tabpanel">
                     <div class="row" >
-          <div class="col-sm-4">
+          <div class="col-sm-3">
             <div class="panel">
               <div class="panel-heading bg-primary">
                 <h6 class="panel-title ">Exam Head</h6>
@@ -55,7 +55,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-3">
             <div class="panel">
               <div class="panel-heading bg-primary">
                 <h6 class="panel-title">Test</h6>
@@ -68,7 +68,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-3">
             <div class="panel">
               <div class="panel-heading bg-primary">
                 <h6 class="panel-title">Subject</h6>
@@ -81,6 +81,19 @@
               </div>
             </div>
           </div>
+          <div class="col-sm-3">
+            <div class="panel">
+              <div class="panel-heading bg-primary">
+                <h6 class="panel-title">Question No</h6>
+              </div>
+              <div class="panel-body">
+                <div class="form-group">
+                  <select id="subQuesNoList" class="form-control" name="subQuesNoList">
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
                  <div class="row" style="padding-top: 20px;">
                    <div class="col-sm-6">
@@ -88,36 +101,8 @@
                         <div class="panel-heading bg-info border-light">
                           <h5 class="panel-title">Add /Upload Question</h5>
                         </div>
-                        <div class="panel-body">
-                          <div class="text-black text-large exam_panel">
-                            <div class="form-group">
-                              <div class="row">
-                                <div class="col-md-8">
-                                   <textarea type="text" id="addQuestion" onkeyup="this.value = this.value.toUpperCase();" placeholder="Enter Question" class="form-control"></textarea>
-                                </div>
-                                <div class="col-md-4">
-                                   <a href="#" class="btn btn-sm btn-round btn-primary" id="addQuestionButton"><i class="ion-checkmark-round"></i>
-                              Add Question</a>
-                                </div>
-                              </div>
-                            </div>
-                            <form enctype="multipart/form-data" action="/upload/image" method="post">
-                            <div class="form-group">
-                              <div class="row">
-                                <div class="col-md-8">
-                                   <input type="file" name="fileUpload" id="image_file">
-                                </div>
-                                <div class="col-md-4">
-                                   <a href="#" class="btn btn-sm btn-round btn-primary" id="uploadQuesButton"><i class="ion-checkmark-round"></i>
-                              Upload Question</a>
-                                </div>
-                              </div>
-                            </div>
-                          </form>
-                            <div class="alert alert-warning"> Type a <strong>Question </strong> and press Add Question Button.If Question added
-                              successfully then it show in right side panel where you can Edit the question and Delete it.<p>Also you can upload document of Questions.</p>
-                            </div>
-                          </div>
+                        <div class="panel-body" id="questionValue">
+                         
                         </div>
                       </div>
                     </div>

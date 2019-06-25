@@ -38,8 +38,10 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 <!-- Mirrored from colorlib.com//polygon/adminty/default/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 May 2019 05:29:56 GMT -->
-<script >
+<script>
+ 
     $(document).ready(function() {
+
          $('#branchView').DataTable();
          //branch Request
          $('#branchReq').DataTable();
@@ -61,24 +63,12 @@
           }
         });
         //
-          $("#estatus").keyup(function(){
-
-    $("#ename").val("Dolly Duck");
-  });
+   
     });
   
   </script>
   <script type="text/javascript">
-// function data_copy1()
-// {
-// if(document.form1.copy[0].checked){alert('hiii');
-// document.form1.loc_address.value=document.form1.per_address.value;
-// //document.form1.loc_city.value=document.form1.per_city.value=
-// //document.form1.loc_state.value=document.form1.per_state.value;
-// //document.form1.loc_pincode.value=document.form1.per_pincode.value;
-// // document.form1.loc_country.value=document.form1.per_country.value;
-// }
-// }
+
 function FillBilling(f) {
 
   if(f.billingtoo.checked == true) {
@@ -88,6 +78,13 @@ function FillBilling(f) {
   f.loc_pincode.value = f.per_pincode.value;
   f.per_city.value = f.loc_city.value;
   }
+}
+function toogle(estatus) {
+       if (document.getElementById(estatus).style.visibility = 'hidden') {
+            document.getElementById(ename).style.visibility = 'visible'; 
+       } else {
+            document.getElementById(ename).style.visibility = 'hidden'
+       }
 }
 </script>
 

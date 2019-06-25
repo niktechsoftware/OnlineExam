@@ -91,8 +91,6 @@ class BranchController extends CI_Controller{
 			$data['footerjs'] = 'branchJs';
 	  		$this->load->view("base/body", $data);
 		}
-
-
 		public function studRegistration(){
 			$name = $this->input->post('name');
 			$dob = $this->input->post('dob');
@@ -648,11 +646,30 @@ class BranchController extends CI_Controller{
         	if($var){
         		echo '<option value="">-Select Test Name-</option>';
                 foreach ($var->result() as $row){
-                    echo '<option value="'.$row->id.'">'.$row->subject_name.'('.$row->subject_ques_no.')</option>';
+                    echo '<option value="'.$row->id.'">'.$row->subject_name.'</option>';
                 }
         	}
         }
-        	public function addQuestion(){
+        public function addQuesNo3(){
+        	$quesNo = $this->input->post('quesNo');
+        	$this->db->where('id',$quesNo);
+        	$var = $this->db->get("subject");
+        	if($var){
+        		echo '<option value="">-Select Test Name-</option>';
+                foreach ($var->result() as $row){
+                    echo '<option value="'.$row->id.'">'.$row->subject_ques_no.'</option>';
+                }
+        	}
+        }
+        	public function addQuesvalue3(){
+        	$que = $this->input->post('quesNo1');
+        	$this->db->where('id',$que);
+        	$var = $this->db->get('subject');
+        	print_r($var->result());
+        	$data['var1']= $var->result();
+        	$this->load->view('addQuestionValue',$data);
+        }
+        public function addQuestion(){
 		$question=$this->input->post('questionName');
 		$subject_ID = $this->input->post('subject_id');
 		$this->load->model('branchModel');

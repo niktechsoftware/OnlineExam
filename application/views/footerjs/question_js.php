@@ -48,6 +48,19 @@
                     $("#subQuesList").html(data);
                         });
                 });
+     $("#subQuesList").change(function(){
+                    var quesNo = $("#subQuesList").val();
+                    $.post("addQuesNo3",{quesNo : quesNo}, function(data){
+                    $("#subQuesNoList").html(data);
+                        });
+                });
+     $("#subQuesNoList").change(function(){
+                    var quesNo1 = $("#subQuesNoList").val();
+                    $.post("addQuesvalue3",{quesNo1 : quesNo1}, function(data){
+                    $("#questionValue").html(data);
+                        });
+                });
+
     //end select code
              // start add Question code
       $("#addQuestionButton").click(function(){
