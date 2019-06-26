@@ -58,24 +58,30 @@ class Auth_login extends CI_Model {
 		{
 		    $ress = $query1->row();
 		    $loginData = array(
-		        "id" => $res->id,
+		        "id" => $ress->id,
 		        "username" => $ress->username,
 		        "password" => $ress->password,
+				"name" => $ress->name,
+				"email"=>$ress->email_id,
+				"mobile"=>$ress->mobile_no,
 				"login_type" => 3,
 				"is_login" => true,
 				"is_lock" => true,
 				"login_date" => date("d-M-Y"),
 				"login_time" => date("H:i:s"),
-		         "name" => $res->name,
-		    );
+		         
+			);
+			
+			$this->session->set_userdata($loginData);// my
 		    return $loginData;
 		 }else{ ?>
-		 	<script>
-		 	alert("Your Account not activated Please Contact with Admin");
-		 </script>
-		 	<?php
-		 	redirect('welcome/index','refresh');
-		 }
+
+			<script>
+			alert("Your Account not activated Please Contact with Admin");
+		</script>
+			<?php
+			redirect('welcome/index','refresh');
+		}
 
 
 		//   $this->db->where('username', $username);

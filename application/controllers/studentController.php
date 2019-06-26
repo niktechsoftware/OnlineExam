@@ -115,5 +115,67 @@
 		
 		}
 		
+		public function student_dashboard()
+		{
+				$data['title'] = 'Student Dashboard Page';
+				$data['headercss'] = 'home_css';
+				$data['header'] = 'header';
+				$data['sidemenu'] = 'sidemenu';
+				$data['contend'] = 'student_dashboard';
+				$data['customizer'] = 'customizer';
+				$data['footer'] = 'footer';
+				$data['footerjs'] = 'home_js';
+			$this->load->view("base/body", $data);
+		}
+		public function exam_instruction()//()examstart
+		{
+			
+				$data['title'] = 'Exam Instruction Page';
+				$data['headercss'] = 'branchCss';
+				$data['header'] = 'header';
+				$data['sidemenu'] = 'sidemenu';
+				$data['contend'] = 'exam_instruction_view';//exam_startview 
+				$data['subtitle'] = 'Branch Registration';
+				$data['customizer'] = 'customizer';
+				$data['footer'] = 'footer';
+				$data['footerjs'] = 'branchJs';
+				$this->load->view("base/body", $data);
+			
+		}
+		public function exam_start()
+		{
+				// $data['title'] = 'Student Dashboard Page';
+				// $data['headercss'] = 'home_css';
+				// $data['header'] = 'header';
+				// $data['sidemenu'] = 'sidemenu';
+				// $data['contend'] = 'exam_start_view';
+				// $data['customizer'] = 'customizer';
+				// $data['footer'] = '';
+				// $data['footerjs'] = 'home_js';
+				// $this->load->view("base/body", $data);
+
+			// $data['title'] = 'Exam page';
+			// $data['headercss'] = 'home_css';
+			// $data['header'] = 'header';
+			// $data['contend'] = 'exam_start_view';
+			// $this->load->view('base/body', $data); 
+			
+			$this->load->view('exam_start_view');
+		}
+		public function select_test()
+		{
+				$data['title'] = 'Select test Page';
+				$data['headercss'] = 'home_css';
+				$data['header'] = 'header';
+				$data['sidemenu'] = 'sidemenu';
+				$data['contend'] = 'select_test_view';
+				$data['customizer'] = 'customizer';
+				$data['footer'] = 'footer';
+				$data['footerjs'] = 'home_js';
+				$this->load->view("base/body", $data);
+		}
+
+		
+		
 	}
 ?>
