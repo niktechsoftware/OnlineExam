@@ -5,6 +5,7 @@
                         <div class="pcoded-inner-navbar main-menu">
                             <!-- <div class="pcoded-navigatio-lavel">Navigation</div> -->
                             <ul class="pcoded-item pcoded-left-item">
+                            <?php if(($this->session->userdata("login_type")==1) || ($this->session->userdata("login_type")==2)):?>
                                 <li class="pcoded-hasmenu">   <!--active pcoded-trigger-->
                                     <a href="<?php echo base_url('index.php/welcome/home');?>">
                                         <span class="pcoded-micon"><i class="feather icon-home"></i></span>
@@ -12,6 +13,16 @@
                                     </a>
                                    
                                 </li>
+                            <?php endif;
+                            if(($this->session->userdata("login_type")==3)): ?>
+                                <li class="pcoded-hasmenu">   <!--active pcoded-trigger-->
+                                    <a href="<?php echo base_url('studentController/student_dashboard');?>">
+                                        <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                                         <span class="pcoded-mtext">Student Dashboard</span>
+                                    </a>
+                                   
+</li>
+<?php endif;?>
                                 <?php if(($this->session->userdata("login_type")==1)):?>
                 
                                 <li class="pcoded-hasmenu">
@@ -166,11 +177,17 @@
                                                 <span class="pcoded-mtext" >View Profile</span>
                                             </a>
                                         </li><?php  endif;?>
-                                     <?php  if(($this->session->userdata("login_type")==3) || ($this->session->userdata("login_type")==2) || ($this->session->userdata("login_type")==4) ):?>
+                                     <?php  if( $this->session->userdata("login_type")==2):?>
                 
                                         <li class=" ">
                                             <a href="<?php echo base_url();?>branchController/branchExamSection">
                                                 <span class="pcoded-mtext" >Exam Section</span>
+                                            </a>
+                                        </li><?php  endif;?>
+                                        <?php  if( $this->session->userdata("login_type")==3):?>
+                                        <li class=" ">
+                                            <a href="<?php echo base_url();?>studentController/exam_instruction">
+                                                <span class="pcoded-mtext" >Exam Start</span>
                                             </a>
                                         </li><?php  endif;?>
                                         

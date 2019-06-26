@@ -28,7 +28,7 @@ class login extends CI_Controller {
                  }
                  else if($loginData['login_type']==3){
                     $this->session->set_userdata($loginData);
-                redirect("/welcome/studDashboard", 'refresh');
+                redirect("/studentController/student_dashboard", 'refresh');
                  }
 
                  else{
