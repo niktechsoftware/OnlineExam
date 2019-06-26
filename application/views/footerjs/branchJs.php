@@ -76,10 +76,10 @@ function FillBilling(f) {
 
   if(f.billingtoo.checked == true) {
     f.loc_address.value=f.per_address.value;
-  f.per_city.value = f.loc_city.value;
+  f.loc_city.value = f.per_city.value;
   f.loc_state.value = f.per_state.value;
   f.loc_pincode.value = f.per_pincode.value;
-  f.per_city.value = f.loc_city.value;
+  f.loc_country.value = f.per_country.value;
   }
 }
 
