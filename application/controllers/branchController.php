@@ -841,22 +841,56 @@ class BranchController extends CI_Controller{
 		$negMarks = $this->input->post('negMarks');
 		$canceStatus = $this->input->post('canceStatus');
 		$canceMarks = $this->input->post('canceMarks');
-		print_r($testMarksID);
-		print_r($subjectMarksID);
 		$this->load->model('branchmodel');
-		// print_r($testMarksID);
-		// print_r($subjectMarksID);exit();
-		if(!$subjectMarksID){
+		if($subjectMarksID != 0){
 		$marksListView = $this->branchmodel->addMarksModel($testMarksID,$subjectMarksID,$maxMarks,$negMarksStatus,$negMarks,$canceStatus,$canceMarks);
-		print_r($marksListView);exit();
 			}else{
 				$marksListView = $this->branchmodel->addsMarksModel();
 			}
 				$data['marksList'] = $marksListView;
-				//print_r($data);exit();
 				$this->load->view("ajax/addMarks",$data);
 	}
+	public function updateMarks(){
+		// echo $this->input->post("marksId");
+		// exit();
+		$this->load->model('branchmodel');
+		if($query = $this->branchmodel->updateMarks($this->input->post("marksId"),$this->input->post("maxMarks"),$this->input->post('negMarks'),$this->input->post('cancleMarks'))){
+			?>
+			<script>
+			        $.post("<?php echo base_url('branchController/addMaxMarks') ?>", function(data){
+			            $("#maxMarks1").html(data);
+					});
+			</script>
+			<?php 
+		}
+	}
+	public function deleteMarks(){
+		$this->load->model('branchmodel');
+		if($query = $this->branchmodel->deleteMarks($this->input->post("marksId"))){
+			?>
+			<script>
+			        $.post("<?php echo base_url('branchController/addMaxMarks') ?>", function(data){
+			            $("#maxMarks1").html(data);
+					});
+			</script>
+			<?php 
+		}
+	}
        /// Marks Section Code end
+	////subject Detail Area code start
+		public function subjectDetail(){
+		$data['title'] = 'Subject Detail Area';
+		$data['headercss'] = 'subjectDetailCSS';
+		$data['header'] = 'header';
+		$data['sidemenu'] = 'sidemenu';
+		$data['contend'] = 'subDetailView';
+		$data['subtitle'] = 'Subject Details';
+		$data['customizer'] = 'customizer';
+		$data['footer'] = 'footer';
+		$data['footerjs'] = 'subDetailJs';
+    $this->load->view("base/body", $data);
+		}
+	///subject detail area code end
 
 }
 ?>

@@ -202,22 +202,44 @@
 					"test_name_id" => $testMarksID,
 					"subject_id" => $subjectMarksID,
 					"max_marks" => $maxMarks,
-					"negative_marks_status" => $negMarksStatus,
+					"negative_mark_status" => $negMarksStatus,
 					"negative_marks" => $negMarks,
 					"cancle_marks_status" => $canceStatus,
 					"cancle_marks" => $canceMarks
-				);//print_r($db);exit();
-				// if(!$maxMarks){
+				);
+
+				if($maxMarks != 0){
 					$this->db->insert("marking",$db);
-				// }
-				
-				//print_r($query);exit();
-				return true;
+				}
+				$query = $this->db->get("marking");
+				return $query;
 			}
 	public function addsMarksModel(){
 		$query = $this->db->get("marking");
 		return $query;
 	}
+	public function updateMarks($marksId,$maxMarks,$negMarks,$cancleMarks){
+		$val = array(
+				"max_marks" => $maxMarks,
+				"negative_marks" => $negMarks,
+				"cancle_marks" => $cancleMarks
+		);
+		$this->db->where("id",$marksId);
+		$query = $this->db->update("marking",$val);
+		return true;
+	}
+	public function deleteMarks($marksId){
+		  $marks=$this->db->get('marking')->result();
+		foreach ($marks as $value) {
+		   	  if($value->max_marks==$examId){
+                echo "<script>alert('you can not delete this exam because this exam is already used in class');</script>";
+                return false;
+		   	  }
+		   }
+		   	  	$this->db->where("id",$marksId);
+		    $query = $this->db->delete("marking");
+		    return $query;
+		}
 	///max marks code end
 	}
 	

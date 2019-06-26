@@ -182,7 +182,7 @@
          });
           ///add maks marks code
                   // start add Question code
-      $("#addMarksButton").click(function(){
+      $("#addMaxMarksButton").click(function(){
          var testMarksID = $('#testListMarks').val();
          var subjectMarks = $('#subjectListMarks').val();
          var maxMarks = $('#maxMarks').val();
@@ -190,22 +190,16 @@
          var negMarks = $('#negMarks').val();
          var canceStatus = $('#cance_status').val();
          var canceMarks = $('#canceMarks').val();
-         // alert(testMarksID);alert(subjectMarks);
-         // alert(maxMarks);alert(negMarksStatus);
-         // alert(negMarks);
-         // alert(canceStatus);
-         // alert(canceMarks);
             alert("Your Marks Succesfully Added");
-         $.post("<?php echo base_url('branchController/addMaxMarks')?>",{
-          testMarksID : testMarksID,
+         $.post("<?php echo base_url('branchController/addMaxMarks')?>",{testMarksID : testMarksID,
           subjectMarks : subjectMarks,
           maxMarks : maxMarks,
           negMarksStatus : negMarksStatus,
           negMarks : negMarks,
           canceStatus : canceStatus,
            canceMarks : canceMarks}, function(data)
-            { $("#maxMarks").html(data);
-         });
+            { $("#maxMarks1").html(data);
+         });alert(data);
        //  $("#addQuestion").val("");
       });
       /// side show value in Question section
@@ -224,8 +218,8 @@
           negMarks : negMarks,
           canceStatus : canceStatus,
            canceMarks : canceMarks}, function(data)
-            { $("#maxMarks").html(data);
-            alert(data);
+            { $("#maxMarks1").html(data);
+           // alert(data);
          });
 
       ///code of max marks end

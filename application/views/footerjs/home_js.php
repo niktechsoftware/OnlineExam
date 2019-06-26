@@ -39,7 +39,6 @@
       $("#addExamButton").click(function(){
         var examName = $('#addExam').val();
         var branchId = $('#branchName').val();
-       // alert(branchId);
         alert("Your exam is successfully created");
         $.post("<?php echo base_url('examconfiguration/addExam') ?>", {examName : examName,
           branchId : branchId}, function(data){
