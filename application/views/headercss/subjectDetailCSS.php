@@ -30,5 +30,8 @@
                 background-color: #c3126e !important;
                  color: #fff;
         }
+        .exam_panel{
+            padding-top:12px;
+        }
     </style>
 </head>
