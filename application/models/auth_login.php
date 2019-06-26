@@ -75,6 +75,7 @@ class Auth_login extends CI_Model {
 			$this->session->set_userdata($loginData);// my
 		    return $loginData;
 		 }else{ ?>
+
 			<script>
 			alert("Your Account not activated Please Contact with Admin");
 		</script>

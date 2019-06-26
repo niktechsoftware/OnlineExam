@@ -40,68 +40,6 @@
 <!-- Mirrored from colorlib.com//polygon/adminty/default/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 May 2019 05:29:56 GMT -->
 <script>
  
-    $(document).ready(function() {
 
-         $('#branchView').DataTable();
-         //branch Request
-         $('#branchReq').DataTable();
-
-    });
-    $(document).ready(function(){
-
-      /// aadhar card validation
-
-   $('[data-type="adhaar-number"]').keyup(function() {
-            var value = $(this).val();
-            value = value.replace(/\D/g, "").split(/(?:([\d]{4}))/g).filter(s => s.length > 0).join("-");
-            $(this).val(value);
-          });
-        $('[data-type="adhaar-number"]').on("change, blur", function() {
-          var value = $(this).val();
-          var maxLength = $(this).attr("maxLength");
-          if (value.length != maxLength) {
-            $(this).addClass("highlight-error");
-          } else {
-            $(this).removeClass("highlight-error");
-          }
-        });
-        //
-   
-    });
-  
-  </script>
-  <script type="text/javascript">
-
-function FillBilling(f) {
-
-  if(f.billingtoo.checked == true) {
-    f.loc_address.value=f.per_address.value;
-  f.per_city.value = f.loc_city.value;
-  f.loc_state.value = f.per_state.value;
-  f.loc_pincode.value = f.per_pincode.value;
-  f.per_city.value = f.loc_city.value;
-  }
-}
-
-function toggle() {
-  var element=document.getElementById('ename');
-
-  if ( element.style.display!='none' ) {
-    element.style.display='none';
-  } else {
-    element.style.display='block';
-  }
-}
-
-
-function toggle1() {
-  var element=document.getElementById('disDescription');
-
-  if ( element.style.display!='none' ) {
-    element.style.display='none';
-  } else {
-    element.style.display='block';
-  }
-}
 </script>
 

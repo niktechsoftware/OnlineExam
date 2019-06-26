@@ -91,8 +91,6 @@ class BranchController extends CI_Controller{
 			$data['footerjs'] = 'branchJs';
 	  		$this->load->view("base/body", $data);
 		}
-
-
 		public function studRegistration(){
 			$name = $this->input->post('name');
 			$dob = $this->input->post('dob');
@@ -652,7 +650,26 @@ class BranchController extends CI_Controller{
                 }
         	}
         }
-        	public function addQuestion(){
+        public function addQuesNo3(){
+        	$quesNo = $this->input->post('quesNo');
+        	$this->db->where('id',$quesNo);
+        	$var = $this->db->get("subject");
+        	if($var){
+        		echo '<option value="">-Select Test Name-</option>';
+                foreach ($var->result() as $row){
+                    echo '<option value="'.$row->id.'">'.$row->subject_ques_no.'</option>';
+                }
+        	}
+        }
+        	public function addQuesvalue3(){
+        	$que = $this->input->post('quesNo1');
+        	$this->db->where('id',$que);
+        	$var = $this->db->get('subject');
+        	print_r($var->result());
+        	$data['var1']= $var->result();
+        	$this->load->view('ajax/addquestionValue',$data);
+        }
+        public function addQuestion(){
 		$question=$this->input->post('questionName');
 		$subject_ID = $this->input->post('subject_id');
 		$this->load->model('branchModel');
@@ -724,7 +741,7 @@ class BranchController extends CI_Controller{
         	if($var){
         		echo '<option value="">-Select Question-</option>';
         		foreach($var->result() as $row){
-        			echo '<option  value="'.$row->id.'">'.$row->question.'</option>';
+        			echo '<option  value="'.$row->id.'">'.$row->ques_no.'</option>';
         		}
         	}
         }    
@@ -749,6 +766,18 @@ class BranchController extends CI_Controller{
         		echo "Success";
         		//redirect(base_url()."branchController/quesConfigur");
         	}
+        		public function updateOption(){
+				$this->load->model('branchmodel');
+				if($query = $this->branchmodel->updateOption($this->input->post("questionId"),$this->input->post("optionNo"),$this->input->post('optionValue'))){
+					?>
+					<script>
+					        $.post("<?php echo base_url('branchController/quesConfigur') ?>", function(data){
+					            $("#quesOption").html(data);
+							});
+					</script>
+					<?php 
+				}
+			}
         		
         ///
 	/// add update delete option code end
@@ -792,18 +821,76 @@ class BranchController extends CI_Controller{
        }
     ///select box code end
        /// Marks section code start
-       	public function marksConfigur(){
-       	$data['title'] = 'Marks Configur Area';
-		$data['headercss'] = 'marksCSS';
+  //      	public function marksConfigur(){
+  //      	$data['title'] = 'Marks Configur Area';
+		// $data['headercss'] = 'marksCSS';
+		// $data['header'] = 'header';
+		// $data['sidemenu'] = 'sidemenu';
+		// $data['contend'] = 'marksConfigur';
+		// $data['subtitle'] = 'Marks Configuration';
+		// $data['customizer'] = 'customizer';
+		// $data['footer'] = 'footer';
+		// $data['footerjs'] = 'marksJS';
+  //  		 $this->load->view("base/body", $data);
+  //      	}
+       	  public function addMaxMarks(){
+		$testMarksID=$this->input->post('testMarksID');
+		$subjectMarksID = $this->input->post('subjectMarks');
+		$maxMarks = $this->input->post('maxMarks');
+		$negMarksStatus = $this->input->post('negMarksStatus');
+		$negMarks = $this->input->post('negMarks');
+		$canceStatus = $this->input->post('canceStatus');
+		$canceMarks = $this->input->post('canceMarks');
+		$this->load->model('branchmodel');
+		if($subjectMarksID != 0){
+		$marksListView = $this->branchmodel->addMarksModel($testMarksID,$subjectMarksID,$maxMarks,$negMarksStatus,$negMarks,$canceStatus,$canceMarks);
+			}else{
+				$marksListView = $this->branchmodel->addsMarksModel();
+			}
+				$data['marksList'] = $marksListView;
+				$this->load->view("ajax/addMarks",$data);
+	}
+	public function updateMarks(){
+		// echo $this->input->post("marksId");
+		// exit();
+		$this->load->model('branchmodel');
+		if($query = $this->branchmodel->updateMarks($this->input->post("marksId"),$this->input->post("maxMarks"),$this->input->post('negMarks'),$this->input->post('cancleMarks'))){
+			?>
+			<script>
+			        $.post("<?php echo base_url('branchController/addMaxMarks') ?>", function(data){
+			            $("#maxMarks1").html(data);
+					});
+			</script>
+			<?php 
+		}
+	}
+	public function deleteMarks(){
+		$this->load->model('branchmodel');
+		if($query = $this->branchmodel->deleteMarks($this->input->post("marksId"))){
+			?>
+			<script>
+			        $.post("<?php echo base_url('branchController/addMaxMarks') ?>", function(data){
+			            $("#maxMarks1").html(data);
+					});
+			</script>
+			<?php 
+		}
+	}
+       /// Marks Section Code end
+	////subject Detail Area code start
+		public function subjectDetail(){
+		$data['title'] = 'Subject Detail Area';
+		$data['headercss'] = 'subjectDetailCSS';
 		$data['header'] = 'header';
 		$data['sidemenu'] = 'sidemenu';
-		$data['contend'] = 'marksConfigur';
-		$data['subtitle'] = 'Marks Configuration';
+		$data['contend'] = 'subDetailView';
+		$data['subtitle'] = 'Subject Details';
 		$data['customizer'] = 'customizer';
 		$data['footer'] = 'footer';
-		$data['footerjs'] = 'marksJS';
-   		 $this->load->view("base/body", $data);
-       	}
-       /// Marks Section Code end
+		$data['footerjs'] = 'subDetailJs';
+    $this->load->view("base/body", $data);
+		}
+	///subject detail area code end
+
 }
 ?>

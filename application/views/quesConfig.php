@@ -31,20 +31,19 @@
                <div class="tab-content card-block">
                  <div class="tab-pane active" id="quesadd" role="tabpanel">
                     <div class="row" >
-          <div class="col-sm-4">
+          <div class="col-sm-3">
             <div class="panel">
               <div class="panel-heading bg-primary">
                 <h6 class="panel-title ">Exam Head</h6>
               </div>
               <div class="panel-body">
                 <div class="form-group">
-                  
                   <?php
                       $username = $this->session->userdata('username');
                       $this->db->where('username',$username);
                       $branch = $this->db->get('branch')->row();
                       $this->db->where('branch_id',$branch->id);
-                   $examShow = $this->db->get("exam_head")->result();
+                     $examShow = $this->db->get("exam_head")->result();
                    ?>
                   <select id="examQuesList" class="form-control">
                     <option value="">Select Exam Head</option>
@@ -56,7 +55,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-3">
             <div class="panel">
               <div class="panel-heading bg-primary">
                 <h6 class="panel-title">Test</h6>
@@ -69,7 +68,7 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-3">
             <div class="panel">
               <div class="panel-heading bg-primary">
                 <h6 class="panel-title">Subject</h6>
@@ -82,47 +81,32 @@
               </div>
             </div>
           </div>
+          <div class="col-sm-3">
+            <div class="panel">
+              <div class="panel-heading bg-primary">
+                <h6 class="panel-title">Question No</h6>
+              </div>
+              <div class="panel-body">
+                <div class="form-group">
+                  <select id="subQuesNoList" class="form-control" name="subQuesNoList" >
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
                  <div class="row" style="padding-top: 20px;">
-                   <div class="col-sm-6">
+                   <div class="col-sm-7">
                       <div class="panel panel-calendar  exam_panel_body">
                         <div class="panel-heading bg-info border-light">
                           <h5 class="panel-title">Add /Upload Question</h5>
                         </div>
-                        <div class="panel-body">
-                          <div class="text-black text-large exam_panel">
-                            <div class="form-group">
-                              <div class="row">
-                                <div class="col-md-8">
-                                   <textarea type="text" id="addQuestion" onkeyup="this.value = this.value.toUpperCase();" placeholder="Enter Question" class="form-control"></textarea>
-                                </div>
-                                <div class="col-md-4">
-                                   <a href="#" class="btn btn-sm btn-round btn-primary" id="addQuestionButton"><i class="ion-checkmark-round"></i>
-                              Add Question</a>
-                                </div>
-                              </div>
-                            </div>
-                            <form enctype="multipart/form-data" action="/upload/image" method="post">
-                            <div class="form-group">
-                              <div class="row">
-                                <div class="col-md-8">
-                                   <input type="file" name="fileUpload" id="image_file">
-                                </div>
-                                <div class="col-md-4">
-                                   <a href="#" class="btn btn-sm btn-round btn-primary" id="uploadQuesButton"><i class="ion-checkmark-round"></i>
-                              Upload Question</a>
-                                </div>
-                              </div>
-                            </div>
-                          </form>
-                            <div class="alert alert-warning"> Type a <strong>Question </strong> and press Add Question Button.If Question added
-                              successfully then it show in right side panel where you can Edit the question and Delete it.<p>Also you can upload document of Questions.</p>
-                            </div>
-                          </div>
+                        <div class="panel-body" id="questionValue">
+                          
                         </div>
                       </div>
                     </div>
-                   <div class="col-sm-6">
+                   <div class="col-sm-5">
                       <div class="panel panel-calendar  exam_panel_body">
                         <div class="panel-heading bg_info border-light">
                           <h5 class="panel-title">Question List</h5>
@@ -186,7 +170,7 @@
                          <div class="col-sm-3">
                           <div class="panel">
                             <div class="panel-heading bg-primary">
-                              <h6 class="panel-title">Question</h6>
+                              <h6 class="panel-title">Question No.</h6>
                             </div>
                             <div class="panel-body">
                               <div class="form-group">
@@ -227,7 +211,7 @@
                  <div class="tab-pane" id="addmaxMarks" role="tabpanel">
                          <!---------->
                 <div class="row" >
-                        <div class="col-sm-3">
+                        <div class="col-sm-4">
                           <div class="panel">
                             <div class="panel-heading bg-primary">
                               <h6 class="panel-title ">Exam Head</h6>
@@ -244,7 +228,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-4">
                           <div class="panel">
                             <div class="panel-heading bg-primary">
                               <h6 class="panel-title">Test</h6>
@@ -258,7 +242,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-4">
                           <div class="panel">
                             <div class="panel-heading bg-primary">
                               <h6 class="panel-title">Subject</h6>
@@ -271,71 +255,89 @@
                             </div>
                           </div>
                         </div>
-                         <div class="col-sm-3">
-                          <div class="panel">
-                            <div class="panel-heading bg-primary">
-                              <h6 class="panel-title">Question</h6>
-                            </div>
-                            <div class="panel-body">
-                              <div class="form-group">
-                                <select id="quesListMarks" name="quesListopt" class="form-control">
-                                </select>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                        
                        </div>
                
                     <!--------->
                     <div class="row exam_panel">
-                   <div class="col-sm-6">
-                      <div class="panel panel-calendar  exam_panel_body">
+                   <div class="col-sm-5">
+                       <div class="panel panel-calendar  exam_panel_body">
                         <div class="panel-heading bg-info border-light">
-                          <h5 class="panel-title">Add Subject Name</h5>
+                            <h5 class="panel-title">Add Marks</h5>
                         </div>
                         <div class="panel-body">
-                          <div class="text-black text-large exam_panel">
-                            <span id="name" style="color:red;"></span>
+                          <div class="text-black text-large exam_panel" style="padding: 10px;
+">
                             <div class="form-group">
                               <div class="row">
-                                <div class="col-md-4 text-center">
-                                    <label>Max Marks</label>
+                                <div class="col-md-12">
+                                  <h6 >Max Marks</h6>
                                 </div>
-                                <div class="col-md-8">
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="row">
+                                <div class="col-md-12">
                                   <input type="number" name="maxMarks" class="form-control" id="maxMarks">
                                 </div>
                               </div>
                             </div>
                             <div class="form-group">
-                               <div class="row">
-                                <div class="col-md-4 text-center ">
-                                    <label>Negative Marks</label>
-                                </div>
-                                <div class="col-md-8">
-                                   <input type="number" name="negMarks" class="form-control" id="negMarks">
+                              <div class="row">
+                                <div class="col-md-12">
+                                 <h6>Negative Marks</h6>
                                 </div>
                               </div>
                             </div>
                             <div class="form-group">
                               <div class="row">
-                                <div class="col-md-12 text-center">
-                                  <a href="#" class="btn btn-sm btn-round btn-primary" id="addMarksButton"><i class="ion-checkmark-round"></i>
-                                    Add Subject</a>
+                                <div class="col-md-5">
+                                &nbsp;&nbsp;<input type="radio" name="nev_status" id="nev_status" value="1">Yes&nbsp;
+                                 <input type="radio" name="nev_status" id="nev_status" value="0">No
+                                </div>
+                                <div class="col-md-7">
+                                 <input type="number" name="negMarks" class="form-control" id="negMarks">
                                 </div>
                               </div>
                             </div>
-                              <div class="alert alert-warning"> Type a subject  and press Add Subject.If Subject added successfully then it show in right side panel where you can change the name and Delete it.
+                            <div class="form-group">
+                              <div class="row">
+                                <div class="col-md-12">
+                                <h6>Cancellation Marks</h6>
+                                </div>
+                              </div>
+                            </div>
+                           <div class="form-group">
+                              <div class="row">
+                                <div class="col-md-5">
+                                 &nbsp;&nbsp; <input type="radio" name="cance_status" id="cance_status" value="1">Yes&nbsp;
+                                 <input type="radio" name="cance_status" id="cance_status" value="0">No
+                                </div>
+                                <div class="col-md-7">
+                                 <input type="number" name="canceMarks" id="canceMarks" class="form-control">
+                                </div>
+                              </div>
+                            </div>
+                             <div class="form-group">
+                              <div class="row">
+                                <div class="col-md-12 text-center">
+                                  <a href="#" class="btn btn-sm btn-round btn-primary" id="addMaxMarksButton"><i class="ion-checkmark-round"></i>
+                                    Add Max Marks</a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="alert alert-warning"> Type a Max Marks,Negative Marks and Cancellation Marks if you want to give  and press Add Max Marks Button.If Marks  added successfully then it show in right side panel where you can change the Marks and Delete it.
                             </div>
                           </div>
                         </div>
-                      </div>
+                     </div>
                     </div>
-                     <div class="col-sm-6">
+                     <div class="col-sm-7">
                       <div class="panel panel-calendar  exam_panel_body">
                         <div class="panel-heading bg-info border-light">
-                          <h5 class="panel-title"> Subject List</h5>
+                          <h5 class="panel-title"> Marks List </h5>
                         </div>
-                        <div class="panel-body" id="maxMarks">
+                        <div class="panel-body" id="maxMarks1">
                         </div>
                       </div>
                     </div>

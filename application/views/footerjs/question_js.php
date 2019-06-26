@@ -48,6 +48,19 @@
                     $("#subQuesList").html(data);
                         });
                 });
+     $("#subQuesList").change(function(){
+                    var quesNo = $("#subQuesList").val();
+                    $.post("addQuesNo3",{quesNo : quesNo}, function(data){
+                    $("#subQuesNoList").html(data);
+                        });
+                });
+     $("#subQuesNoList").change(function(){
+                    var quesNo1 = $("#subQuesNoList").val();
+                    $.post("addQuesvalue3",{quesNo1 : quesNo1}, function(data){
+                    $("#questionValue").html(data);
+                        });
+                });
+
     //end select code
              // start add Question code
       $("#addQuestionButton").click(function(){
@@ -91,30 +104,25 @@
                 });
            $("#testListOpt").change(function(){
                     var testnmOpt = $("#testListOpt").val();
-                   // alert(testnmOpt);
                     $.post("addSubjectOpt",{testnmOpt : testnmOpt}, function(data){
                     $("#subjectListOpt").html(data);
-                   // alert(data);
                         });
                 });
            $("#subjectListOpt").change(function(){
             var subjectnmOpt = $("#subjectListOpt").val();
-           // alert(subjectnmOpt);
             $.post("addQuesOpt",{subjectnmOpt : subjectnmOpt},function(data){
               $("#quesListopt").html(data);
-             // alert(data);
             });
 
            });
            $("#quesListopt").change(function(){
             var quesOptionId = $("#quesListopt").val();
-           // alert(subjectnmOpt);
             $.post("addQuesOption",{quesOptionId : quesOptionId},function(data){
               $("#quesOption").html(data);
-              //alert(data);
             });
 
            });
+           
         //select box code end
                // $("createBody").hide();
         
@@ -172,7 +180,48 @@
          }, function(data){
             $("#maxMarks").html(data);
          });
-          
+          ///add maks marks code
+                  // start add Question code
+      $("#addMaxMarksButton").click(function(){
+         var testMarksID = $('#testListMarks').val();
+         var subjectMarks = $('#subjectListMarks').val();
+         var maxMarks = $('#maxMarks').val();
+         var negMarksStatus = $('#nev_status').val();
+         var negMarks = $('#negMarks').val();
+         var canceStatus = $('#cance_status').val();
+         var canceMarks = $('#canceMarks').val();
+            alert("Your Marks Succesfully Added");
+         $.post("<?php echo base_url('branchController/addMaxMarks')?>",{testMarksID : testMarksID,
+          subjectMarks : subjectMarks,
+          maxMarks : maxMarks,
+          negMarksStatus : negMarksStatus,
+          negMarks : negMarks,
+          canceStatus : canceStatus,
+           canceMarks : canceMarks}, function(data)
+            { $("#maxMarks1").html(data);
+         });alert(data);
+       //  $("#addQuestion").val("");
+      });
+      /// side show value in Question section
+     var testMarksID = $('#testListMarks').val();
+         var subjectMarks = $('#subjectListMarks').val();
+         var maxMarks = $('#maxMarks').val();
+         var negMarksStatus = $('#nev_status').val();
+         var negMarks = $('#negMarks').val();
+         var canceStatus = $('#cance_status').val();
+         var canceMarks = $('#canceMarks').val();
+         $.post("<?php echo base_url('branchController/addMaxMarks')?>",{
+          testMarksID : testMarksID,
+          subjectMarks : subjectMarks,
+          maxMarks : maxMarks,
+          negMarksStatus : negMarksStatus,
+          negMarks : negMarks,
+          canceStatus : canceStatus,
+           canceMarks : canceMarks}, function(data)
+            { $("#maxMarks1").html(data);
+           // alert(data);
+         });
+
       ///code of max marks end
 
   });

@@ -60,11 +60,30 @@
                                                 <span class="pcoded-mtext">Question Configure</span>
                                             </a>
                                         </li>
-                                        <li class="">
+                                        <!-- <li class="">
                                             <a href="<?php echo base_url();?>branchController/marksConfigur">
                                                 <span class="pcoded-mtext">Marks Configure</span>
                                             </a>
+                                        </li> -->
+                                    </ul>
+                                </li>
+                                 <li class="pcoded-hasmenu">
+                                    <a href="#">
+                                        <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                                        <span class="pcoded-mtext">Test Series Detail</span>
+                                    </a>
+                                    <ul class="pcoded-submenu">
+                                        <li class="">
+                                        <a href="<?php echo base_url();?>branchController/subjectDetail">
+                                                <span class="pcoded-mtext">Subject Detail</span>
+                                            </a>
                                         </li>
+                                       
+                                        <!-- <li class="">
+                                            <a href="<?php echo base_url();?>branchController/marksConfigur">
+                                                <span class="pcoded-mtext">Marks Configure</span>
+                                            </a>
+                                        </li> -->
                                     </ul>
                                 </li>
                                 <?php endif;?>

@@ -182,7 +182,65 @@
 				return true;
 			}
 		///option code end
-			
+			///option update code start
+					public function updateOption($questionId,$optionNo,$optionValue){
+		$val = array(
+				"option_value" => $optionValue,
+				//"school_code"=>$this->session->userdata("school_code"),
+		);
+		$this->db->where("question_id",$questionId);
+		$this->db->where('option_no',$optionNo);
+		$query = $this->db->update("ques_option",$val);
+		return true;
+	}
+			///option update code end
+
+			/// Max Marks code start
+				public function addMarksModel($testMarksID,$subjectMarksID,$maxMarks,$negMarksStatus,$negMarks,$canceStatus,$canceMarks){
+					//print_r($testMarksID);exit();
+				$db = array(
+					"test_name_id" => $testMarksID,
+					"subject_id" => $subjectMarksID,
+					"max_marks" => $maxMarks,
+					"negative_mark_status" => $negMarksStatus,
+					"negative_marks" => $negMarks,
+					"cancle_marks_status" => $canceStatus,
+					"cancle_marks" => $canceMarks
+				);
+
+				if($maxMarks != 0){
+					$this->db->insert("marking",$db);
+				}
+				$query = $this->db->get("marking");
+				return $query;
+			}
+	public function addsMarksModel(){
+		$query = $this->db->get("marking");
+		return $query;
+	}
+	public function updateMarks($marksId,$maxMarks,$negMarks,$cancleMarks){
+		$val = array(
+				"max_marks" => $maxMarks,
+				"negative_marks" => $negMarks,
+				"cancle_marks" => $cancleMarks
+		);
+		$this->db->where("id",$marksId);
+		$query = $this->db->update("marking",$val);
+		return true;
+	}
+	public function deleteMarks($marksId){
+		  $marks=$this->db->get('marking')->result();
+		foreach ($marks as $value) {
+		   	  if($value->max_marks==$examId){
+                echo "<script>alert('you can not delete this exam because this exam is already used in class');</script>";
+                return false;
+		   	  }
+		   }
+		   	  	$this->db->where("id",$marksId);
+		    $query = $this->db->delete("marking");
+		    return $query;
+		}
+	///max marks code end
 	}
 	
 ?>

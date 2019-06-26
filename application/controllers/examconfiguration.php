@@ -32,8 +32,6 @@ class Examconfiguration extends CI_Controller{
 		$exam=$this->input->post('examName');
 		$branchId = $this->input->post('branchId');
 		$userName = $this->session->userdata('username');
-		// $this->db->where('username',$userName);
-		// $id=$this->db->get('branch')->row();
 		$this->load->model('examConfigModel');
 		if($exam){
 		$examList = $this->examConfigModel->addExam($exam,$branchId);
