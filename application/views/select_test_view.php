@@ -6,7 +6,7 @@
         <tr>
             <th><div class="col-lg-6"><h5>Exam</h5></div></th>
             <th><div class="col-lg-3"><h5>Subject</h5></div></th>
-            <th><div class="col-lg-3"><h5>Button</h5></div></th>
+            <th><div class="col-lg-3"></div></th>
         </tr>
         <tr>
             <td>ST-577 SSCCHSL (PRE) 2019 <br>

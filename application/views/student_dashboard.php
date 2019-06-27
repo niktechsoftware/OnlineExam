@@ -38,11 +38,11 @@
                                                 </div>
                                             </div>
                                             <div class="col-xl-3 col-md-6">
-                                                <div class="card bg-c-green update-card">
+                                                <div class="card bg-c-yellow update-card">
                                                     <div class="card-block">
                                                         <div class="row align-items-end">
                                                             <div class="col-12">
-                                                                <h4 class="text-white text-center">Results & Solutions</h4>
+                                                                <h4 class="text-white text-center">Results &<br> Solutions</h4>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -53,7 +53,7 @@
                                                     <div class="card-block">
                                                         <div class="row align-items-end">
                                                             <div class="col-12">
-                                                                <h4 class="text-white text-center">Test Schedules</h4>
+                                                                <h4 class="text-white text-center">Test <br>Schedules</h4>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -64,7 +64,7 @@
                                                     <div class="card-block">
                                                         <div class="row align-items-end">
                                                             <div class="col-12">
-                                                                <h4 class="text-white text-center">Payment & Dues</h4>
+                                                                <h4 class="text-white text-center">Payment <br>& Dues</h4>
                                                             </div>
                                                         </div>
                                                     </div>

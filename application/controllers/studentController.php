@@ -144,23 +144,23 @@
 		}
 		public function exam_start()
 		{
-				// $data['title'] = 'Student Dashboard Page';
-				// $data['headercss'] = 'home_css';
-				// $data['header'] = 'header';
-				// $data['sidemenu'] = 'sidemenu';
-				// $data['contend'] = 'exam_start_view';
-				// $data['customizer'] = 'customizer';
-				// $data['footer'] = '';
-				// $data['footerjs'] = 'home_js';
-				// $this->load->view("base/body", $data);
+				$data['title'] = 'Student Dashboard Page';
+				$data['headercss'] = 'home_css';
+				$data['header'] = 'header';
+				$data['sidemenu'] = 'sidemenu';
+				$data['contend'] = 'exam_start_view';
+				$data['customizer'] = 'customizer';
+				$data['footer'] = 'footer';
+				$data['footerjs'] = 'home_js';
+				$this->load->view("base/body", $data);
 
 			// $data['title'] = 'Exam page';
-			// $data['headercss'] = 'home_css';
+			 //$data['headercss'] = 'home_css';
 			// $data['header'] = 'header';
 			// $data['contend'] = 'exam_start_view';
 			// $this->load->view('base/body', $data); 
 			
-			$this->load->view('exam_start_view');
+			//$this->load->view('exam_start_view');
 		}
 		public function select_test()
 		{
