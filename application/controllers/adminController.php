@@ -97,7 +97,7 @@ class AdminController extends CI_Controller{
 			$this->upload->do_upload('photo');
 		}
 //print_r($query);exit();
-		redirect(base_url()."adminController/updatebranchDetailView");
+		redirect(base_url()."adminController/showAdminBranch");
 
 	
 	}
@@ -296,7 +296,7 @@ class AdminController extends CI_Controller{
 			'login_type' => 2,
 			'status' => 0,
 			'password' =>$password,
-			'admin_id' =>$admin->id
+			//'admin_id' =>$admin->id
 		);
 		$insert=$this->db->insert('branch',$data);
 
@@ -329,7 +329,7 @@ class AdminController extends CI_Controller{
 			$data['header'] = 'header';
 			$data['sidemenu'] = 'sidemenu';
 			$data['contend'] = 'viewAdmin';
-			$data['subtitle'] = 'Update Branch';
+			$data['subtitle'] = 'Update Admin Profile';
 			$data['customizer'] = 'customizer';
 			$data['footer'] = 'footer';
 			$data['footerjs'] = 'branchJs';

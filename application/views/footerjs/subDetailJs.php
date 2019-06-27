@@ -39,7 +39,14 @@
 
 <!-- Mirrored from colorlib.com//polygon/adminty/default/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 06 May 2019 05:29:56 GMT -->
 <script>
- 
+ $(document).ready(function(){
+     $("#testName").change(function(){
+                    var testnm = $("#testName").val();
+                    $.post("addSubject",{testnm : testnm}, function(data){
+                    $("#subDetailID").html(data);
+                        });
+                });
+ });
 
 </script>
 

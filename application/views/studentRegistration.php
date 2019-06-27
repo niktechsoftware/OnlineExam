@@ -89,7 +89,7 @@
                   		<th>State</th>
                   		<td><input type="text" name="per_state" class="form-control" ></td>
                   		<th>Pincode</th>
-                  		<td><input type="number" name="per_pincode" class="form-control" required=""></td>
+                  		<td><input type="number" name="per_pincode" maxlength="6" class="form-control" required=""></td>
                   	</tr>
                   	<tr>
                   		<th>Country</th>
@@ -109,7 +109,7 @@
                   		<th>State</th>
                   		<td><input type="text" name="loc_state" class="form-control" ></td>
                   		<th>Pincode</th>
-                  		<td><input type="number" name="loc_pincode" class="form-control" required=""></td>
+                  		<td><input type="number" name="loc_pincode" class="form-control" maxlength="6" required=""></td>
                   	</tr>
                   	<tr>
                   		<th>Country</th>

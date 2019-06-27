@@ -819,20 +819,7 @@ class BranchController extends CI_Controller{
         	
         }
        }
-    ///select box code end
-       /// Marks section code start
-  //      	public function marksConfigur(){
-  //      	$data['title'] = 'Marks Configur Area';
-		// $data['headercss'] = 'marksCSS';
-		// $data['header'] = 'header';
-		// $data['sidemenu'] = 'sidemenu';
-		// $data['contend'] = 'marksConfigur';
-		// $data['subtitle'] = 'Marks Configuration';
-		// $data['customizer'] = 'customizer';
-		// $data['footer'] = 'footer';
-		// $data['footerjs'] = 'marksJS';
-  //  		 $this->load->view("base/body", $data);
-  //      	}
+  
        	  public function addMaxMarks(){
 		$testMarksID=$this->input->post('testMarksID');
 		$subjectMarksID = $this->input->post('subjectMarks');
@@ -890,6 +877,18 @@ class BranchController extends CI_Controller{
 		$data['footerjs'] = 'subDetailJs';
     $this->load->view("base/body", $data);
 		}
+		function addSubject(){
+    //$this->db->where("school_code",$this->session->userdata("school_code"));
+		$em = $this->input->post('testnm');
+		$this->db->where('test_name_id',$em);
+        $var = $this->db->get("test_name");
+            if($var->num_rows() > 0){
+                echo '<option value="">-Select Test Name-</option>';
+                foreach ($var->result() as $row){
+                    echo '<option value="'.$row->id.'">'.$row->test_name.'</option>';
+                }
+            }
+        }
 	///subject detail area code end
 
 }

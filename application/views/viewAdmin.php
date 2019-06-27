@@ -8,7 +8,7 @@
 		<form method="post" action="<?php echo base_url()?>adminController/branchRegistration"  class="form-detail" enctype="multipart/form-data">
 			 <div class="panel panel-calendar  exam_panel_body">
                 <div class="panel-heading bg_info border-light">
-                    <h5 class="panel-title text-center">Branch Registration</h5>
+                    <h5 class="panel-title text-center">Admin Profile</h5>
                 </div>
                <div class="panel-body">
                <div class="text-black text-large exam_panel">
