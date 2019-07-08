@@ -25,7 +25,7 @@ if(isset($examList)):
         			<input type="hidden" id="examId<?php echo $i;?>" size="13" value="<?php echo $row->id; ?>"
         			</td>
 		             <td>
-        			<input type="text" id="examValue<?php echo $i;?>" size="13" value="<?php echo $row->exam_head;?>" >
+        			<input type="text" id="examValue<?php echo $i;?>" size="13" value="<?php echo $row->exam_head;?>" onkeyup="this.value = this.value.toUpperCase();">
         			<input type="hidden" id="examId<?php echo $i;?>" size="13" value="<?php echo $row->id; ?>">
         			</td>
         			<td>

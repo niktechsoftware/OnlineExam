@@ -877,7 +877,7 @@ class BranchController extends CI_Controller{
 		$data['footerjs'] = 'subDetailJs';
     $this->load->view("base/body", $data);
 		}
-		function addSubject(){
+		function addSubjectTeast(){
     //$this->db->where("school_code",$this->session->userdata("school_code"));
 		$em = $this->input->post('testnm');
 		$this->db->where('test_name_id',$em);
